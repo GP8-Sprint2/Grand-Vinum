@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Vinum</title>
+</head>
+
+<body>
+    <h1>Simulador Financeiro Grand Vinum</h1>
+
+
+    <h2>Coloque a quantidade de garrafas que pretende armazenar e o período</h2>
+    <br>
+
+    Quantidade: <input id="in_qtd">
+    <br>
+
+    Período em meses: <input id="in_tempo">
+    <br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        div_mensagem.innerHTML = ''
+
+        var qtd = Number(in_qtd.value)
+        var tempo = Number(in_tempo.value)
+        var total = (qtd + tempo) / 2 * 33.50
+
+        if (qtd == 1) {
+
+            if (tempo = 1) {
+                div_mensagem.innerHTML = `Você irá pagar R$${total} armazenando seu vinho no período de ${tempo} mês!`
+            }
+
+            if (tempo > 1) {
+                `Você irá pagar R$${total} armazenando seu vinho no período de ${tempo} meses!`
+            }
+        }
+
+        else {
+            div_mensagem.innerHTML = `Você irá pagar R$${total} armazenando seus vinhos no período de ${tempo} meses!`
+        }
+
+    }
+
+</script>
