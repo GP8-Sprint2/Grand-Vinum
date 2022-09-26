@@ -8,24 +8,25 @@
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+    box-sizing: border-box;
 }
 
 .background {
-    background-image: url("./Background\ desfoque3.jpg");
+    background-image: url("./assets/Background\ desfoque3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 0;
     height: 1000px;
     
 }
 .header {
-    padding: 10px 0;
+    background: linear-gradient(68.15deg, #1B1A08 16.62%, #5f0002 85.61%) ;
+    padding: 20px 0;
     width: 100%;
     
 }
 
 .header .container img{
-    width: 200px;
+    width: 150px;
 }
 
 
@@ -68,10 +69,12 @@ ul {
     left: 0px;
     transition: 0.5s;
     border-radius: 2px;
+
   }
   .textos li:hover::after {
     width: 100%;
   }
+  
 
 li {
     color: white;
@@ -81,7 +84,8 @@ li {
 
 
 .banner {
-   padding: 200px 0;
+    padding: 200px 0;
+ 
 }
 
 .banner .containerB {
@@ -94,13 +98,16 @@ li {
 }
 
 .banner p {
-    padding-left: 50px;
+    padding-left: 40px;
     width: 800px;
     color: #FFFFFF;
     font-size: 40px;
     
 }
-
+.texto{
+    width: 100%;
+    text-align: left;
+}
 .banner b {
     color: #e3b062;
     text-shadow: -3px 1px 10px black;
@@ -110,8 +117,40 @@ li {
 
 .social {
     height: 1000px;
-    background-image: url("./Imagem\ 4.jpg");
+    background-image: url("./assets/Imagem\ 4.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 1px black;
+    border-bottom: 5px solid rgb(160, 0, 0);
 }
+
+.footer {
+    background-color: black;
+    padding: 15px 15px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    
+}
+.containerd {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.downbar ul{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.footer .logo img{
+    width: 250px;
+}
+
+
+
+
+
