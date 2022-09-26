@@ -60,13 +60,27 @@ insert into endereco values
 (null,'Via Trento', 280, 'Merlot', null,'Bento Gonçalves','95701720',4);
 
 insert into metricas values
-();
+(null,'12','14%','2022-09-06',1),
+(null,'13','13%','2022-08-07',4),
+(null,'14','12%','2022-07-08',2),
+(null,'15','11%','2022-06-09',3);
+
 
 insert into vinho values
-();
+(null,'Tinto','70',1),
+(null,'Rosé','50',3),
+(null,'Tinto','30',2),
+(null,'Rosé','20',4);
+
 
 -- Selecionar tabelas --
 select*from CadastroCliente;
 select*from endereco;
 select*from metricas;
 select*from vinho;
+
+select*from vinho as v join CadastroCliente as cc on fkCadastroCliente = idCadastroCliente;
+select*from Endereco as e join CadastroCliente as cc on fkCadastroCliente = idCadastroCliente;
+select*from vinho as v join CadastroCliente as cc on v.fkCadastroCliente = idCadastroCliente join Endereco as e on e.fkCadastroCliente = idCadastroCliente;
+select cc.nome as NomeCliente, v.tipo TipoDoVinho from CadastroCliente as cc join vinho as v on fkCadastroCliente = idCadastroCliente;
+
