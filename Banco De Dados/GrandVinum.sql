@@ -1,5 +1,5 @@
 -- Criar Database
-Create database GrandVinum;
+create database GrandVinum;
 
 -- Selecionar Database
 use GrandVinum;
@@ -60,11 +60,10 @@ insert into endereco values
 (null,'Via Trento', 280, 'Merlot', null,'Bento Gonçalves','95701720',4);
 
 insert into metricas values
-(null,'12','14%','2022-09-06',1),
-(null,'13','13%','2022-08-07',4),
-(null,'14','12%','2022-07-08',2),
-(null,'15','11%','2022-06-09',3);
-
+(null,'12','14%','2022-09-06 16:00:00',1),
+(null,'13','13%','2022-08-07 21:48:00',4),
+(null,'14','12%','2022-07-08 15:09:45',2),
+(null,'15','11%','2022-06-09 09:22:42',3);
 
 insert into vinho values
 (null,'Tinto','70',1),
@@ -73,14 +72,43 @@ insert into vinho values
 (null,'Rosé','20',4);
 
 
--- Selecionar tabelas --
+-- Selecionar tabelas 
 select*from CadastroCliente;
 select*from endereco;
 select*from metricas;
 select*from vinho;
 
+
+-- -- Exibir os dados da tabela metricas somente quando a umidade for menor que 12%.
+select*from metricas where umidade < 12;
+
+-- Exibir apenas o logradouro e o bairro da tabela endereço, de um determinado cep que termine com a numeração 30.
+select logradouro, bairro from endereco where cep like '%30';
+
+-- Exibir os dados da tabela vinho, somente quando o tipo for Rosé.
+select*from vinho where tipo = 'Rosé';
+
+-- Exibir os dados da tabela metricas somente quando a temperaturas for maior que 13C°.
+select*from metricas where temperatura_Cº > 13;
+
+-- selecionar o nome, cnpj e email da tabela CadastroCliente, cujo nome contenha a letra 'P'.
+select nome, cnpj, email from CadastroCliente  where nome like '%p%';
+
+-- Exibir os dados dos cadastros ordenados por nome em ordem descrecente, cujo email contenha '.com.br'.
+select * from CadastroCliente where email like '%.com.br%' order by nome desc;
+
+-- Exibir os dados dos vinhos e dos cadastros correspondentes. 
 select*from vinho as v join CadastroCliente as cc on fkCadastroCliente = idCadastroCliente;
+
+-- Exibir os dados dos endereços correspondetes ao seu cadastro.
 select*from Endereco as e join CadastroCliente as cc on fkCadastroCliente = idCadastroCliente;
+
+-- Exibir os dados dos vinhos, cadastros e dos endereços correspondentes.
 select*from vinho as v join CadastroCliente as cc on v.fkCadastroCliente = idCadastroCliente join Endereco as e on e.fkCadastroCliente = idCadastroCliente;
+
+-- Exibir os dados dos clientes junto com os tipos de vinho.
 select cc.nome as NomeCliente, v.tipo TipoDoVinho from CadastroCliente as cc join vinho as v on fkCadastroCliente = idCadastroCliente;
+
+-- Exibir os dados dos vinhos, cadastros, endereços e metricas correspondentes.
+select*from vinho as v join CadastroCliente as cc on v.fkCadastroCliente = idCadastroCliente join Endereco as e on e.fkCadastroCliente = idCadastroCliente join metricas as m on m.fkCadastroCliente=idMetricas;
 
