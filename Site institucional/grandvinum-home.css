@@ -16,6 +16,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    width: 100vw;
     border-bottom: 5px solid #4a001a;
 
 }
@@ -162,11 +163,17 @@ li {
 }
 
 .social p {
-    color: white;
-    width: 50%;
+    /* position: absolute;
+    width: 397px;
+    height: 426px;
+    left: 923px;
+    top: 1154px;
+     */
+    color: white; 
+    width: 50vw;
     display: flex;
     text-align: center;
-    font-size: 150%;
+    font-size: 150%; 
 }
 
 .social h2 {
@@ -177,11 +184,11 @@ li {
 
 .footer {
     background-image: url("./assets/Imagem\ 4.jpg");
-    ;
     padding: 15px 15px;
     height: 300px;
     display: flex;
     align-items: center;
+    width: 100vw;
 
 }
 
@@ -203,4 +210,4 @@ li {
 
 .footer .logo img {
     width: 250px;
-}
+} 
