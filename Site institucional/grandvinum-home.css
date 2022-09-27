@@ -1,32 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&family=Montserrat:wght@400;600&family=Sarala:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 300;
     box-sizing: border-box;
 }
 
 .background {
-    background-image: url("./assets/Background\ desfoque3.jpg");
+    background-image: url("./assets/wooden-background.jpg");
+    background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 1000px;
-    
-}
-.header {
-    background: linear-gradient(68.15deg, #1B1A08 16.62%, #5f0002 85.61%) ;
-    padding: 20px 0;
-    width: 100%;
-    
+    height: 100vh;
+    border-bottom: 5px solid #4a001a;
+
 }
 
-.header .container img{
-    width: 150px;
+.header {
+    /*background-image: url("./assets/Imagem\ 4.jpg");*/
+    /*background-color: #ff9c00;*/
+    background-size: cover;
+    padding: 0;
+    width: 100%;
+}
+
+.logo1 {
+    width: 200px;
+    padding: 10px 0;
+    margin: 0;
+    border: 0;
+}
+
+.header img {
+    transition: all 0.8s;
+}
+
+.header img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 
@@ -38,8 +53,8 @@
     justify-content: space-between;
 }
 
-.textos a{
-    color:white;
+.textos a {
+    color: white;
     text-decoration: none;
     font-size: larger;
 }
@@ -50,6 +65,7 @@ ul {
     justify-content: space-between;
     list-style: none;
 }
+
 .textos li {
     display: flex;
     margin: 2px 15px;
@@ -57,24 +73,25 @@ ul {
     align-items: center;
     transition: 0.6s;
     position: relative;
-  }
-  
-  .textos li::after {
+}
+
+.textos li::after {
     content: " ";
     width: 0%;
     height: 2px;
-    background-color:#9F1D35 ;
+    background-color: white;
     position: absolute;
     bottom: -3px;
     left: 0px;
     transition: 0.5s;
     border-radius: 2px;
 
-  }
-  .textos li:hover::after {
+}
+
+.textos li:hover::after {
     width: 100%;
-  }
-  
+}
+
 
 li {
     color: white;
@@ -84,8 +101,8 @@ li {
 
 
 .banner {
-    padding: 200px 0;
- 
+    padding: 100px 0;
+
 }
 
 .banner .containerB {
@@ -94,20 +111,24 @@ li {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    
+
 }
 
+
 .banner p {
+
     padding-left: 40px;
-    width: 800px;
     color: #FFFFFF;
-    font-size: 40px;
-    
+    font-size: 60px;
+    font-weight: 300;
+
 }
-.texto{
+
+.texto {
     width: 100%;
-    text-align: left;
+    display: flex;
 }
+
 .banner b {
     color: #e3b062;
     text-shadow: -3px 1px 10px black;
@@ -116,21 +137,54 @@ li {
 
 
 .social {
-    height: 1000px;
-    background-image: url("./assets/Imagem\ 4.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: rgb(90, 51, 51);
+    height: 100vh;
+    width: 100vw;
     border-bottom: 5px solid rgb(160, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 20%;
+
 }
 
+.social img {
+    width: 30%;
+}
+
+.social img {
+    transition: all 0.8s;
+}
+
+.social img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.2);
+}
+
+.social p {
+    color: white;
+    width: 50%;
+    display: flex;
+    text-align: center;
+    font-size: 150%;
+}
+
+.social h2 {
+    color: black;
+    font-weight: 700;
+}
+
+
 .footer {
-    background-color: black;
+    background-image: url("./assets/Imagem\ 4.jpg");
+    ;
     padding: 15px 15px;
     height: 300px;
     display: flex;
     align-items: center;
-    
+
 }
+
 .containerd {
     margin: 0 auto;
     width: 80%;
@@ -140,17 +194,13 @@ li {
     text-align: center;
 }
 
-.downbar ul{
+.downbar ul {
     display: flex;
+    width: 750px;
     justify-content: space-between;
     flex-direction: row;
 }
 
-.footer .logo img{
+.footer .logo img {
     width: 250px;
 }
-
-
-
-
-
