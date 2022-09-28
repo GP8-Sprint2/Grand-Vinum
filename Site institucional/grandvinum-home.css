@@ -26,7 +26,7 @@
     /*background-color: #ff9c00;*/
     background-size: cover;
     padding: 0;
-    width: 100%;
+    width: 100vw;
 }
 
 .logo1 {
@@ -80,7 +80,7 @@ ul {
     content: " ";
     width: 0%;
     height: 2px;
-    background-color: white;
+    background-color: #9F1D35;
     position: absolute;
     bottom: -3px;
     left: 0px;
@@ -143,14 +143,32 @@ li {
     width: 100vw;
     border-bottom: 5px solid rgb(160, 0, 0);
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding-left: 20%;
 
 }
 
+.containers {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.objeto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1{
+    display:flex;
+    justify-content: center;
+    padding-left: 300px;
+}
 .social img {
-    width: 30%;
+   height: 30%;
+   width: 30%;
 }
 
 .social img {
@@ -163,17 +181,12 @@ li {
 }
 
 .social p {
-    /* position: absolute;
-    width: 397px;
-    height: 426px;
-    left: 923px;
-    top: 1154px;
-     */
-    color: white; 
-    width: 50vw;
+    color: white;
+    width: 70%;
     display: flex;
     text-align: center;
-    font-size: 150%; 
+    font-size: 150%;
+    
 }
 
 .social h2 {
@@ -181,14 +194,19 @@ li {
     font-weight: 700;
 }
 
-
+.texto{
+    display: flex;
+    justify-content: flex-end;
+    width: 98%;
+    
+}
 .footer {
     background-image: url("./assets/Imagem\ 4.jpg");
+    width: 100vw;
     padding: 15px 15px;
     height: 300px;
     display: flex;
     align-items: center;
-    width: 100vw;
 
 }
 
@@ -210,4 +228,4 @@ li {
 
 .footer .logo img {
     width: 250px;
-} 
+}
