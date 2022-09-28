@@ -1,0 +1,198 @@
+/* CÓDIGO DA PARTE DO HEADER */
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&family=Montserrat:wght@400;600&family=Sarala:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
+}
+
+.background {
+    background-image: url("./assets/Imagem\ 4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    height: 1000px;
+    
+}
+.header {
+    padding: 10px 0;
+    width: 100%;
+    
+}
+
+.header .container img{
+    width: 200px;
+}
+
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.textos a{
+    color:white;
+    text-decoration: none;
+    font-size: larger;
+}
+
+ul {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    list-style: none;
+}
+.textos li {
+    display: flex;
+    margin: 2px 15px;
+    color: #FFFFFF;
+    align-items: center;
+    transition: 0.6s;
+    position: relative;
+  }
+  
+  .textos li::after {
+    content: " ";
+    width: 0%;
+    height: 2px;
+    background-color:#9F1D35 ;
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    transition: 0.5s;
+    border-radius: 2px;
+  }
+  .textos li:hover::after {
+    width: 100%;
+  }
+
+li {
+    color: white;
+}
+
+
+
+
+/* CÓDIGO DA PÁGINA DO LOGIN: CAIXA FORMULÁRIO*/
+
+.banner .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.caixa-formulario {
+    background-color: white;
+    margin-top: 50px;
+    padding: 0px 50px;
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.caixa-formulario h3 {
+    margin-top: 50px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    
+}
+
+.caixa-formulario h5{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    
+    
+}
+
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+.campo input {
+    padding: 15px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    background-color: #cfcdcd;
+
+}
+
+.campo label {
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    margin-top: 15px;
+}
+
+
+.botao button {
+    margin-top: 10px;
+    width: 180px;
+    color: #FFFFFF;
+    background-color: #5F0002;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.botao button:hover {
+    opacity: 0.8;
+}
+
+.caixa-formulario .botao {
+    padding-left: 570px;
+    margin: -50px 0px ;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.check{
+    display: flex;
+    align-items: flex-end;
+}
+
+.check p {
+    color: black;
+    gap: 15px;
+}
+
+#chk_1, #chk_2 {
+    width: 50px;
+    margin-top: 15px;
+    position: relative;
+}
+
+
+
+
