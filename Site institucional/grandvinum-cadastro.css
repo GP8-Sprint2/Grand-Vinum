@@ -178,21 +178,11 @@ li {
     align-items: flex-end;
 }
 
-.check{
-    display: flex;
-    align-items: flex-end;
-}
+.checkbox .container .chk1 {
 
-.check p {
     color: black;
-    gap: 15px;
-}
 
-#chk_1, #chk_2 {
-    width: 50px;
-    margin-top: 15px;
 }
-
 
 
 
