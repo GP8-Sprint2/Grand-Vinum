@@ -10,6 +10,25 @@
 </head>
 
 <body>
+
+      <!-- HEADER -->
+      <div class="background-1">
+        <div class="header">
+            <div class="container">
+                <img src="./assets/logo2.png" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="grandvinum-home.html">Home</a></li>
+                        <li><a href="Simulador Financeiro.html">Simulador Financeiro</a></li>
+                        <li><a href="grandvinum-login.html">Entrar</a></li>
+                        <li><a href="grandvinum-cadastro.html">Cadastrar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BACKGROUND -->
+
     <div class="background">
         <!-- Imagem do background -->
         <div class="background__image"></div>
@@ -93,7 +112,7 @@
 
                         /* Se todos os campos estiverem ok, o simulador irá mostrar a mensagem normalmente... */
 
-                        div_mensagem.innerHTML += `<br>O seu vinho do tipo ${tipo} irá se valorizar no mínimo 6% ao ano. Ao final de ${tempo} ano(s) o valor agregado com seu investimento estará por volta de R$${(conta).toFixed(2)}. Ao final, a sua renda adicional será de R$${(receita).toFixed(2)}.`
+                        div_mensagem.innerHTML += `<br><br>O seu vinho do tipo ${tipo} irá se valorizar no mínimo 6% ao ano. <br><br>Ao final de ${tempo} ano(s) o valor agregado com seu investimento estará por volta de R$${(conta).toFixed(2)}. <br><br><b>Com o auxílio de nossos serviços, a sua renda adicional será de R$${(receita).toFixed(2)}<b>`
 
                     }
                 }
