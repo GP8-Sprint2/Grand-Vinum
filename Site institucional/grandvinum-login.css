@@ -90,22 +90,20 @@ li {
     text-align: center;
 }
 .caixa-formulario {
-    background-color: white;
-    margin-top: 50px;
-    padding: 0px 50px;
-    height: 500px;
-    width: 500px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+     height: 300px;
+     margin-top: 50px;
+     background-color: white; 
+     padding: 100px 50px;
+     border-radius: 10px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+    }
 
-}
 
-.caixa-formulario h3 {
-    margin-top: 50px;
+
+.caixa-formulario h2 {
     color: black;
     font-size: 20px;
     font-weight: bold;
@@ -176,23 +174,6 @@ li {
     justify-content: flex-end;
     align-items: flex-end;
 }
-
-.check{
-    display: flex;
-    align-items: flex-end;
-}
-
-.check p {
-    color: black;
-    gap: 15px;
-}
-
-#chk_1, #chk_2 {
-    width: 50px;
-    margin-top: 15px;
-    position: relative;
-}
-
 
 
 
