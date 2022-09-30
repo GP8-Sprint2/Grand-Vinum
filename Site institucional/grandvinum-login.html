@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="grandvinum-home.html">
-    <link rel="stylesheet" href="grandvinum-login.css">
-    <title>Login De Usuário</title>
-</head>
+    <head>
 
-<body>
-    <!-- HEADER -->
+        <meta charset="UTF-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="grandvinum-login.css">
+
+         <!-- HEADER -->
     <div class="background">
         <div class="header">
             <div class="container">
@@ -27,23 +28,54 @@
             </div>
         </div>
 
-        <div class="banner">
-            <div class="container">
-                <div class="caixa-formulario">
+        <title>Login</title>
+
+    </head>
+
+    <body>
+
+        <div id="login">
+
+            <form class="card">
+
+                <div class="card-header">
+
                     <h2>Login</h2>
-                    <div class="campo">
-                        <label for="Email">Email</label>
-                        <input type="email" placeholder="Digite seu Email">
-                     </div>
-                     <div class="campo">
-                        <label for="Senha">Senha</label>
-                        <input type="password" placeholder="Digite sua Senha">
-                     </div>
-                     <div class="botao">
-                        <button>Entrar</button>
-                     </div>
+
                 </div>
-            </div>
+
+                <div class="card-content">
+
+                    <div class="card-content-area">
+
+                        <label for="usuario">Usuário</label>
+
+                        <input type="text" id="usuario" autocomplete="off">
+
+                    </div>
+
+                    <div class="card-content-area">
+
+                        <label for="password">Senha</label>
+
+                        <input type="password" id="password" autocomplete="off">
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <input type="submit" value="Login" class="submit">
+
+                    <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
+
+                </div>
+
+            </form>
+
         </div>
-</body>
+
+    </body>
+
 </html>
