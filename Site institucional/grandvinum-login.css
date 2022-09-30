@@ -14,6 +14,11 @@
 
 }
 
+form.card {
+
+      border-radius: 10px;
+}
+
 .header {
     padding: 10px 0;
     width: 100%;
@@ -115,7 +120,7 @@ body {
 
     padding-bottom: 50px;
 
-    opacity: 0.8;
+    font-weight: bold;
 
     color: black;
 
@@ -143,7 +148,7 @@ body {
 
     font-size: 12px;
 
-    opacity: 0.8;
+    font-weight: 500;
 
 }
 
@@ -171,7 +176,7 @@ body {
 
     outline: none;
 
-    color: #fff;
+    color: black;
 
 }
 
@@ -184,18 +189,21 @@ body {
 }
 
 .card-footer .submit {
+    border-radius: 5px;
+
+    align-items: center;
 
     width: 100%;
 
     height: 40px;
 
-    background-color: #a13854;
+    background-color: #5F0002;
 
     border: none;
 
-    color: #e1e1e1;
+    color: white;
 
-    margin: 10px 0;
+    margin: 20px 0;
 
 }
 
