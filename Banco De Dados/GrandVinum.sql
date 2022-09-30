@@ -15,17 +15,8 @@ email varchar(45), constraint chkEmail check (email LIKE "%@%"),
 senha varchar(45) 
 );
 
-CREATE TABLE metrica(
-idmetrica INT PRIMARY KEY AUTO_INCREMENT,
-temperatura_Cº DECIMAL(4,2),
-umidade CHAR(7),
-dataHora DATETIME,
-fkCadastroCliente int,
-foreign key (fkCadastroCliente) references cadastroCliente (idCadastroCliente)
-);
-
 CREATE TABLE Endereco (
-idEndereco int auto_increment,
+idEndereco int primary key auto_increment,
 logradouro varchar(45),
 numero int,
 bairro varchar(45),
@@ -33,9 +24,9 @@ complemento varchar(45),
 cidade varchar(50),
 cep char(8),
 fkCadastroCliente int,
-foreign key (fkCadastroCliente) references CadastroCliente (idCadastroCliente),
-primary key (idEndereco,fkCadastroCliente)
+foreign key (fkCadastroCliente) references CadastroCliente (idCadastroCliente)
 );
+
 
 create table barrilVinho (
 idBarrilVinho int primary key auto_increment,
@@ -54,6 +45,18 @@ foreign key (fkBarrilVinho) references barrilVinho (idBarrilVinho),
 primary key (idVinho,fkBarrilVinho)
 );
 
+
+CREATE TABLE metrica(
+idmetrica INT AUTO_INCREMENT,
+dataHora DATETIME,
+umidade CHAR(7),
+temperatura_Cº DECIMAL(4,2),
+fkBarrilVinho int,
+primary key (idmetrica,fkBarrilVinho),
+foreign key (fkBarrilVinho) references barrilVinho (idBarrilVinho)
+);
+
+
 -- Inserir Dados
 insert into CadastroCliente values
 ( null, 'Vínicola Terranova', '39828926000377', '11 38113862', 'paralegal@tnova.com.br', '12345678'),
@@ -67,11 +70,6 @@ insert into endereco values
 (null,'Rua Pedro Ferrari', 300, 'Parque dos Lagos', 'Fazenda Santa Maria','Espirito Santo do Pinhal','13990000',3),
 (null,'Via Trento', 280, 'Merlot', null,'Bento Gonçalves','95701720',4);
 
-insert into metrica values
-(null,'12','14%','2022-09-06 16:00:00',1),
-(null,'13','13%','2022-08-07 21:48:00',4),
-(null,'14','12%','2022-07-08 15:09:45',2),
-(null,'15','11%','2022-06-09 09:22:42',3);
 
 insert into barrilVinho values
 (null,'Carvalho','100',1),
@@ -85,17 +83,21 @@ insert into vinho values
 (null,'Tinto',3),
 (null,'Rosé',2);
 
-drop table CadastroCliente,endereco,metrica,vinho;
+insert into metrica values
+(null,'2022-09-06 16:00:00','50%','12',1),
+(null,'2022-08-07 21:48:00','42%','16',2),
+(null,'2022-07-08 15:09:45','60%','20',3),
+(null,'2022-06-09 09:22:42','55%','15',4);
 
 -- Selecionar tabelas 
 select*from CadastroCliente;
 select*from endereco;
-select*from metrica;
-select*from vinho;
 select*from barrilVinho;
+select*from vinho;
+select*from metrica;
 
--- -- Exibir os dados da tabela metrica somente quando a umidade for menor que 12%.
-select*from metrica where umidade < 12;
+-- -- Exibir os dados da tabela metrica somente quando a umidade for menor que 50%.
+select*from metrica where umidade < 50;
 
 -- -- Exibir os dados da tabela barrilVinho somente quando o tipo da madeira for carvalho.
 select*from barrilVinho where tipoMadeira = 'Carvalho';
