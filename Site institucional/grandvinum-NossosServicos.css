@@ -1,19 +1,47 @@
-/* Fonte importada do google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&family=Montserrat:wght@400;600&family=Sarala:wght@400;700&display=swap');
 
-.header {
-    /*background-image: url("./assets/Imagem\ 4.jpg");*/
-    /*background-color: #ff9c00;*/
-    background-size: cover;
+* {
     padding: 0;
-    width: 100vw;
+    margin: 0;
+    color: white;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 300;
+    box-sizing: border-box;
 }
 
-.logo1 {
-    width: 200px;
-    padding: 10px 0;
-    margin: 0;
-    border: 0;
+body::-webkit-scrollbar {
+    width: 6px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(0, 0, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(58, 58, 58);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
+
+
+
+
+.background {
+    background-image: url("./assets/wooden-background.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    mix-blend-mode: normal;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.header {
+    background-color: #64173C;
+    padding: 10px 10px;
 }
 
 .header img {
@@ -25,25 +53,24 @@
     transform: scale(1.2);
 }
 
-
 .container {
     margin: 0 auto;
-    width: 80%;
+    width: 92%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.textos a {
-    color: white;
-    text-decoration: none;
-    font-size: larger;
+.container img {
+    width: 170px;
+    height: 70px;
 }
 
-ul {
+.textos {
     display: flex;
-    width: 600px;
+    flex-direction: row;
     justify-content: space-between;
+    width: 600px;
     list-style: none;
 }
 
@@ -60,7 +87,7 @@ ul {
     content: " ";
     width: 0%;
     height: 2px;
-    background-color: #9F1D35;
+    background-color: white;
     position: absolute;
     bottom: -3px;
     left: 0px;
@@ -73,36 +100,83 @@ ul {
     width: 100%;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+}
 
-/* CÓDIGO SIMULADOR FINANCEIRO */
-.background {
-    /* Esta div tem uma posição relativa ao background */
-    position: relative;
-    /* min-height: 100vh - no mínimo terá 100% da tela preenchida */
-    min-height: 100vh;
-    min-width: 100vw;
+/* --BANNER--*/
+
+.banner {
+    height: 500px;
+    padding-top: 10%;
     display: flex;
+}
+
+.banner img {
+    width: 408px;
+    height: 410px;
+    border-radius: 206.5px;
+
+}
+
+.banner .objeto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: auto;
+}
+
+.slogan p {
+    display: flex;
+    padding-left: 20vw;
+    justify-content: flex-start;
+    text-align: justify;
+    color: #FFFFFF;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 35px;
+    width: 55vw;
+}
+
+.objeto .container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: auto;
+    text-align: center;
     justify-content: center;
 }
 
-.background__image {
-    /* Colocar a imagem */
-    background-image: url('./assets/Background.jpg');
-    /* Deixar sem repetição de imagem */
-    background-repeat: no-repeat;
-    /* Cobrir a tela inteira */
-    background-size: cover;
-    /* Blur na imagem */
-    filter: blur(3px);
-    /*  */
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    left: 0%;
-    right: 0%;
-    opacity: 50%;
+.objeto .container button {
+    margin-top: 2vw;
+    width: 223px;
+    height: 64px;
+    font-weight: 400;
+    background-color: #64173C;
+    border: none;
+    cursor: pointer;
 }
 
+.container button:hover {
+    opacity: 0.96;
+}
+
+/* -- SOCIAL -- */
+
+.social {
+    background-image: url("./assets/Background\ desfoque3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #64173C;
+}
 
 .content {
     height: auto;
@@ -117,18 +191,6 @@ ul {
     z-index: 10;
 }
 
-/* Tirar as margens da foto */
-body {
-    /* Bold */
-    font-weight: 300;
-    /* Todas as fontes do body serão Montserrat */
-    font-family: 'chivo', sans-serif;
-    background-color: #1c0c07;
-    /* Tirar as margens da imagem */
-    margin: 0%;
-    padding: 0%;
-}
-
 input {
     /* Colocando o máximo que o label e o input pode oferecer dentro do content */
     width: -webkit-fill-available;
@@ -138,6 +200,7 @@ input {
     /* Tirar a borda do input */
     border: unset;
     background-color: rgb(245, 239, 239);
+    color: black;
 }
 
 input:focus-visible,
@@ -176,10 +239,11 @@ h1 {
     text-align: center;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     color: orange;
+    font-weight: 700;
 }
 
 .butao {
-    background-color: #733A26;
+    background-color: #64173C;
     display: flex;
     margin-top: 16px;
     margin-right: auto;
@@ -193,10 +257,11 @@ h1 {
     color: white;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 .butao:hover {
-    background-color: #86422a;
+    background-color: #A62362;
 }
 
 .mensagem {
@@ -204,4 +269,85 @@ h1 {
     color: white;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     padding: 16px;
+}
+
+/* --FOOTER-- */
+
+.footer {
+    width: 100%;
+    height: 240px;
+    background-image: url("./assets/Imagem\ 4.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer p {
+    color: rgb(206, 206, 206);
+    padding-top: 17px;
+    font-size: 12px;
+}
+
+
+.footer .container {
+    padding: 15px 10px;
+    justify-content: space-evenly;
+    margin: auto;
+
+}
+
+.footer .container #loguinho {
+    margin-right: 100px;
+}
+
+/*--LINKS--*/
+
+.links {
+    display: flex;
+    flex-direction: row;
+}
+
+.links h4 {
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+.links li {
+    margin-top: 6px;
+    margin-right: 400px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.links ul {
+    width: max-content;
+    list-style: none;
+}
+
+.media img {
+    margin-top: 7px;
+    height: 30px;
+    width: 30px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.media h4 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 5px;
+    cursor: default;
+}
+
+.copyright {
+    margin: auto;
+    text-align: center;
 }
