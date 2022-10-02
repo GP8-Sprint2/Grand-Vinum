@@ -2,17 +2,17 @@
 
 <html lang="pt-br">
 
-    <head>
+<head>
 
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="grandvinum-login.css">
+    <link rel="stylesheet" href="grandvinum-login.css">
 
-         <!-- HEADER -->
+    <!-- HEADER -->
     <div class="background">
         <div class="header">
             <div class="container">
@@ -20,7 +20,7 @@
                 <div class="navbar">
                     <ul class="textos">
                         <li><a href="grandvinum-HOME.html">Home</a></li>
-                        <li><a href="Simulador Financeiro.html">Nossos Serviços</a></li>
+                        <li><a href="grandvinum-NossosServicos.html">Nossos Serviços</a></li>
                         <li><a href="grandvinum-login.html">Entrar</a></li>
                         <li><a href="grandvinum-cadastro.html">Cadastre-se</a></li>
                     </ul>
@@ -30,81 +30,83 @@
 
         <title>Login</title>
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div id="login">
+    <div id="login">
 
-            <form class="card">
+        <form class="card">
 
-                <div class="card-header">
+            <div class="card-header">
 
-                   <b><h2>Login</h2></b>
+                <b>
+                    <h2>Login</h2>
+                </b>
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-content-area">
+
+                    <label for="usuario">Usuário</label>
+
+                    <input type="text" id="usuario" autocomplete="off">
 
                 </div>
 
-                <div class="card-content">
+                <div class="card-content-area">
 
-                    <div class="card-content-area">
+                    <label for="password">Senha</label>
 
-                        <label for="usuario">Usuário</label>
+                    <input type="password" id="password" autocomplete="off">
 
-                        <input type="text" id="usuario" autocomplete="off">
+                </div>
 
+            </div>
+
+            <div class="card-footer">
+
+                <input type="submit" value="Login" class="submit">
+
+                <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <img src="./assets/logo2.png" alt="" id="loguinho">
+            <div class="links">
+                <ul>
+                    <h4>LINKS</h4>
+                    <li><a href="">Termos de Serviço</a></li>
+                    <li><a href="">FAQ - Perguntas <br> Frequentes</a></li>
+                    <li><a href="grandvinum-login.html">Entrar</a></li>
+                    <li><a href="grandvinum-NossosServicos.html">Nossos Serviços</a></li>
+                </ul>
+
+                <div class="media">
+                    <div id="redes">
+                        <h4>REDES SOCIAIS</h4>
+                        <img src="./img/instagramWhite.png" alt="">
+                        <img src="./img/facebookWhite.png" alt="">
+                        <img src="./img/whatsappWhite.png" alt="">
                     </div>
-
-                    <div class="card-content-area">
-
-                        <label for="password">Senha</label>
-
-                        <input type="password" id="password" autocomplete="off">
-
-                    </div>
-
                 </div>
-
-                <div class="card-footer">
-
-                    <input type="submit" value="Login" class="submit">
-
-                    <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
-
-                </div>
-
-            </form>
+            </div>
 
         </div>
-
-        <div class="footer">
-            <div class="container">
-                <img src="./assets/logo2.png" alt="" id="loguinho">
-                <div class="links">
-                    <ul>
-                        <h4>LINKS</h4>
-                        <li><a href="">Termos de Serviço</a></li>
-                        <li><a href="">FAQ - Perguntas <br> Frequentes</a></li>
-                        <li><a href="">Entrar</a></li>
-                        <li><a href="">Nossos Serviços</a></li>
-                    </ul>
-    
-                    <div class="media">
-                        <div id="redes">
-                            <h4>REDES SOCIAIS</h4>
-                            <img src="./img/instagramWhite.png" alt="">
-                            <img src="./img/facebookWhite.png" alt="">
-                            <img src="./img/whatsappWhite.png" alt="">
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-            <div class="copyright">
-                <p>Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
-                </p>
-            </div>
+        <div class="copyright">
+            <p>Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
+            </p>
         </div>
+    </div>
 
-    </body>
+</body>
 
 </html>

@@ -112,6 +112,12 @@ a {
 
 /* CÓDIGO DA PÁGINA DO CADASTRO: CAIXA FORMULÁRIO*/
 
+.banner {
+
+
+    
+}
+
 .banner .container {
     display: flex;
     justify-content: center;
@@ -225,6 +231,8 @@ a {
     margin-top: 15px;
     position: relative;
 }
+
+/* -- FOOTER -- */
 
 .footer {
     width: 100%;

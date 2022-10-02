@@ -28,14 +28,6 @@ body::-webkit-scrollbar-thumb {
     /* creates padding around scroll thumb */
 }
 
-.background {
-    background-image: url("./assets/Imagem\ 4.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 0;
-    height: 1000px;
-
-}
 
 
 form.card {
@@ -119,6 +111,11 @@ body {
 
     background-color: #454d6b;
 
+    background-image: url("./assets/Imagem\ 4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    height: 1000px;
 }
 
 #login {
@@ -260,7 +257,7 @@ body {
 
     opacity: 0.8;
 
-    color: #fff;
+    color: rgb(0, 0, 0);
 
     text-decoration: none;
 
@@ -274,6 +271,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-top:  3px solid #64173C;
 }
 
 .footer p {
