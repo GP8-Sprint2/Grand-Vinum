@@ -110,7 +110,7 @@ a {
 .banner {
 
     display: flex;
-    height: 500px;
+    height: 53.36vh;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -138,6 +138,7 @@ a {
     display: flex;
     flex-direction: column;
     padding: 15px 15px;
+    background-color: #F2F2F2;
 }
 
 .caixaformulario {
@@ -147,8 +148,8 @@ a {
 }
 
 .campo {
-    width: 335px;
-    height: 400px;
+    width: 17.45vw;
+    height: 42.68vh;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-top: 13px;
@@ -181,8 +182,8 @@ a {
 }
 
 .retangulo {
-    width: 1315px;
-    height: 329px;
+    width: 82%;
+    height: 35.11vh;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin: auto;
@@ -272,8 +273,8 @@ a {
 
 .footer {
     width: 100%;
-    height: 240px;
-    background-image: url("./assets/Imagem\ 4.jpg");
+    height: 25.61vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("./assets/Imagem\ 4.jpg");
     background-size: cover;
     display: flex;
     align-items: center;
