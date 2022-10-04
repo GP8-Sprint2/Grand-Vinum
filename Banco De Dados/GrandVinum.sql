@@ -49,8 +49,8 @@ primary key (idVinho,fkBarrilVinho)
 CREATE TABLE metrica(
 idmetrica INT AUTO_INCREMENT,
 dataHora DATETIME,
-umidade CHAR(7),
-temperatura_Cº DECIMAL(4,2),
+umidade DECIMAL(4,2),
+temperatura_C DECIMAL(4,2),
 fkBarrilVinho int,
 primary key (idmetrica,fkBarrilVinho),
 foreign key (fkBarrilVinho) references barrilVinho (idBarrilVinho)
@@ -84,10 +84,10 @@ insert into vinho values
 (null,'Rosé',2);
 
 insert into metrica values
-(null,'2022-09-06 16:00:00','50%','12',1),
-(null,'2022-08-07 21:48:00','42%','16',2),
-(null,'2022-07-08 15:09:45','60%','20',3),
-(null,'2022-06-09 09:22:42','55%','15',4);
+(null,'2022-09-06 16:00:00',50.00,12.00,1),
+(null,'2022-08-07 21:48:00',42.00,16.00,2),
+(null,'2022-07-08 15:09:45',60.00,20.00,3),
+(null,'2022-06-09 09:22:42',55.00,15.00,4);
 
 -- Selecionar tabelas 
 select*from CadastroCliente;
@@ -109,7 +109,7 @@ select logradouro, bairro from endereco where cep like '%30';
 select*from vinho where tipo = 'Rosé';
 
 -- Exibir os dados da tabela metrica somente quando a temperaturas for maior que 13C°.
-select*from metrica where temperatura_Cº > 13;
+select*from metrica where temperatura_C > 13;
 
 -- selecionar o nome, cnpj e email da tabela CadastroCliente, cujo nome contenha a letra 'P'.
 select nome, cnpj, email from CadastroCliente  where nome like '%p%';
