@@ -166,7 +166,7 @@ a {
 /* -- SOCIAL -- */
 
 .social {
-    background-image: url("./assets/Background\ desfoque3.jpg");
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./assets/Background\ desfoque3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
