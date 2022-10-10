@@ -50,9 +50,9 @@
 
                 <div class="card-content-area">
 
-                    <label for="usuario">Usuário</label>
+                    <label for="usuario">Email</label>
 
-                    <input type="text" id="usuario" autocomplete="off">
+                    <input type="text" id="in_email" autocomplete="off">
 
                 </div>
 
@@ -60,20 +60,18 @@
 
                     <label for="password">Senha</label>
 
-                    <input type="password" id="password" autocomplete="off">
+                    <input type="password" id="in_senha" autocomplete="off">
 
                 </div>
 
             </div>
 
             <div class="card-footer">
-
-                <input type="submit" value="Login" class="submit">
-
+                <button onclick="entrar() " class="submit">Login</button>
                 <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
 
             </div>
-
+  
         </form>
 
     </div>
@@ -110,3 +108,18 @@
 </body>
 
 </html>
+<script>
+    function entrar() {
+        var email = in_email.value == 'alice.souza@gmail.com'
+        var senha = in_senha.value == '12345'
+
+        if (email == '' || senha == '') {
+            alert ('Insira sua email e/ou senha')
+        } else if (email != 'alice.souza@gmail.com' || senha != '12345') {
+            alert ('Email e/ou senha incorretos!')
+        } else {
+            alert ('Autenticado com sucesso')
+         
+        }
+    }
+</script>
