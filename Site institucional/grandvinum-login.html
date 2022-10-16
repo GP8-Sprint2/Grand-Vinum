@@ -50,7 +50,7 @@
 
                 <div class="card-content-area">
 
-                    <label for="usuario">Email</label>
+                    <label for="in_email">Email</label>
 
                     <input type="text" id="in_email" autocomplete="off">
 
@@ -58,7 +58,7 @@
 
                 <div class="card-content-area">
 
-                    <label for="password">Senha</label>
+                    <label for="in_senha">Senha</label>
 
                     <input type="password" id="in_senha" autocomplete="off">
 
@@ -67,7 +67,7 @@
             </div>
 
             <div class="card-footer">
-                <button onclick="entrar() " class="submit">Login</button>
+                <button onclick="entrar() " class="submit" type="button">Login</button>
                 <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
 
             </div>
@@ -110,16 +110,16 @@
 </html>
 <script>
     function entrar() {
-        var email = in_email.value == 'alice.souza@gmail.com'
-        var senha = in_senha.value == '12345'
+        var email = in_email.value 
+        var senha = in_senha.value 
 
         if (email == '' || senha == '') {
             alert ('Insira sua email e/ou senha')
-        } else if (email != 'alice.souza@gmail.com' || senha != '12345') {
+        } else if (email != 'grand.vinum@gmail.com' || senha != '12345') {
             alert ('Email e/ou senha incorretos!')
-        } else {
+        } else if (email == `grand.vinum@gmail.com` && senha == `12345`) {
             alert ('Autenticado com sucesso')
-         
+            window.location = "./grandvinum-Dashboard.html"
         }
     }
 </script>
