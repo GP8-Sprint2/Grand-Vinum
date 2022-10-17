@@ -109,23 +109,22 @@ a {
 
 .banner {
     height: 100vh;
-    padding-top: 0%;
-    display: flex;
+
+
 }
 
 .banner img {
-    width: 408px;
-    height: 410px;
-    border-radius: 206.5px;
+    width: 35%;
+    border-radius: 300px;
 
 }
 
-.banner .objeto {
+.objeto {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    padding: auto;
+    margin: 5%;
+  
 }
 
 .slogan p {
