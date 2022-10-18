@@ -114,6 +114,10 @@ main h1 {
     padding: 50px 0 0 73px ;
     color: #110000;
 }
+main h2 {
+    padding: 50px 0 0 73px ;
+    color: #110000;
+}
 
 .menu {
     background-image: linear-gradient(#784C61, #372116, #420422);
@@ -154,6 +158,56 @@ main h1 {
 footer {
     background-color: #110000;
     text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
 }
 
-    
+
+.dashboard-container-kpi{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+}
+
+.regua {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .perigo-frio {
+    background-color: #5c6bc0;
+  }
+  
+  .perigo-quente {
+    background-color: #ff7043;
+  }
+  
+  .alerta-frio {
+    background-color: #42a5f5;
+  }
+  
+  .alerta-quente {
+    background-color: #ffee58;
+  }
+  
+  .ideal {
+    background-color: #9ccc65;
+  }
+  .item-regua {
+    padding: 55px;
+    width: 15%;
+    margin: 5px;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .item-regua h4 {
+    margin-top: 45px;
+  }

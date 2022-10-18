@@ -28,6 +28,7 @@ body::-webkit-scrollbar-thumb {
 
 body {
     background: #DFDADA;
+    box-sizing: border-box;
 }
 
 .header {
@@ -72,10 +73,14 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 ul {
     height: 80%;
+    width: 10vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -92,9 +97,8 @@ li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width: 92%;
+    width: 100%;
     display: flex;
-    align-items: center;
 }
 
 div .container {
@@ -103,7 +107,7 @@ div .container {
 
 main {
     margin: 0;
-    height: 100vh;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -111,39 +115,24 @@ main {
 }
 
 main h1 {
-    padding: 50px 0 0 73px ;
+    margin-top: 25px;
+    margin-left: 25px;
+    font-size: 3rem;
     color: #110000;
 }
 
 .menu {
     background-image: linear-gradient(#784C61, #372116, #420422);
     width: 80px;
-    height: 100vh;
+    height: 152vh;
 }
 
 .dashboard-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: auto;
-}
-
-.cima {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-}
-
-.baixo {
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
 }
 
 .dashboard {
-    width: 24vw;
-    height: 24vh;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-top: 13px;
@@ -151,13 +140,80 @@ main h1 {
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 50px 25px;
     padding: 3px 3px;
+    width: 100%;
+    height: 400px;
 }
 
 footer {
     background-color: #110000;
     text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
 }
 
-    
+.grafico-novo {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 25px;
+    width: 50%;
+}
+
+.dashboard-kpi {
+    margin-top: 15px;
+    padding: 5px;
+    background: #FFFFFF;
+    width: 100%;
+}
+
+.dashboard-kpi p {
+    font-weight: 400;
+    color: black;
+}
+
+.dash {
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: 100vh;
+  }
+  
+  .regua {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .perigo-frio {
+    background-color: #5c6bc0;
+  }
+  
+  .perigo-quente {
+    background-color: #ff7043;
+  }
+  
+  .alerta-frio {
+    background-color: #42a5f5;
+  }
+  
+  .alerta-quente {
+    background-color: #ffee58;
+  }
+  
+  .ideal {
+    background-color: #9ccc65;
+  }
+  .item-regua {
+    padding: 55px;
+    width: 15%;
+    margin: 5px;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .item-regua h4 {
+    margin-top: 45px;
+  }
