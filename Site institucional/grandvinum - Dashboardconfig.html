@@ -33,10 +33,10 @@
     <div class="container">
         <aside class="menu">
             <ul>
-              <li><a href="grandvinum-Dashboard.html"><span class="material-symbols-outlined">home</span></li></a>
-              <li><span class="material-symbols-outlined">monitoring</span></li>
-              <li><span class="material-symbols-outlined">settings</span></li>
-              <li><span class="material-symbols-outlined">logout</span></li>
+                <li><a href="grandvinum-Dashboard.html"><span class="material-symbols-outlined">home</span></li></a>
+                <li><span class="material-symbols-outlined">monitoring</span></li>
+                <li><span class="material-symbols-outlined">settings</span></li>
+                <li><span class="material-symbols-outlined">logout</span></li>
             </ul>
         </aside>
 
@@ -53,37 +53,37 @@
                 <div class="caixa-formulario-input">
                     <div class="campo">
                         <label for="cep">CEP
-                            <input type="number" placeholder="xxxxx-xxx">
+                            <input type="text" placeholder="xxxxx-xxx" id="in_cep">
                         </label>
                     </div>
 
                     <div class="campo">
-                        <label for="Cidade ">Cidade
-                            <input type="text" placeholder="Digite a Cidade">
+                        <label for="Cidade">Cidade
+                            <input type="text" id="in_cidade" placeholder="Digite a Cidade">
                         </label>
                     </div>
 
                     <div class="campo">
-                        <label for="Bairro ">Bairro
-                            <input type="text" placeholder="Digite o Bairro">
+                        <label for="Bairro">Bairro
+                            <input type="text" id="in_bairro" placeholder="Digite o Bairro">
                         </label>
                     </div>
 
                     <div class="campo">
-                        <label for="Logradouro  ">Logradouro
-                            <input type="text" placeholder="Digite o Logradouro ">
+                        <label for="Logradouro">Logradouro
+                            <input type="text" placeholder="Digite o Logradouro" id="in_logradouro">
                         </label>
                     </div>
 
                     <div class="campo">
                         <label for="Número">Número
-                            <input type="number" placeholder="Digite o Número  ">
+                            <input type="text" placeholder="Digite o Número" id="in_numero">
                         </label>
                     </div>
 
                     <div class="campo">
                         <label for="Complemento">Complemento
-                            <input type="text" placeholder="Digite o Complemento   ">
+                            <input type="text" placeholder="Digite o Complemento" id="in_complemento">
                         </label>
                     </div>
 
@@ -111,12 +111,12 @@
                     <div class="enderecos-um-dois">
                         <div class="enderecos-um">
                             <h4>Endereço 1</h4>
-                            <div class="lixo"><img src="./assets/Lixo.png" alt="lixo" width="20px"></div>
+                            <div class="resultado" id="div_resultado"></div>
                         </div>
 
                         <div class="enderecos-dois">
                             <h4>Endereço 2</h4>
-                            <div class="lixo"><img src="./assets/Lixo.png" alt="lixo" width="20px"></div>
+                            <div class="resultado" id="div_resultado2"></div>
                         </div>
                     </div>
 
@@ -141,3 +141,54 @@
 </body>
 
 </html>
+
+<script>
+    function adicionar() {
+        var cep = in_cep.value
+        var cidade = in_cidade.value
+        var bairro = in_bairro.value
+        var logradouro = in_logradouro.value
+        var numero = in_numero.value
+        var Complemento = in_complemento.value
+
+        if (div_resultado.innerHTML.length > 0) {
+            div_resultado2.innerHTML = 
+            
+            // caixa
+            `<div class= "campo_resultado">CEP: ${cep} <br>
+            Cidade: ${cidade} <br>
+        Bairro: ${bairro} <br>
+        Logradouro: ${logradouro} <br>
+        Número: ${numero} <br>
+        Complemento: ${Complemento} <br>
+        </div>
+       <div class="lixo"><img src="./assets/Lixo.png" alt="lixo" width="20px" onclick="lixo2()"></div>`
+        
+        } else {
+            // caixa 1
+            div_resultado.innerHTML = `<div class= "campo_resultado">CEP: ${cep} <br>
+        Cidade: ${cidade} <br>
+        Bairro: ${bairro} <br>
+        Logradouro: ${logradouro} <br>
+        Número: ${numero} <br>
+        Complemento: ${Complemento} <br>
+        </div>
+        <div class="lixo"><img src="./assets/Lixo.png" alt="lixo" width="20px" onclick="lixo1()"></div>
+`
+        }
+    }
+
+    function lixo1() {
+        div_resultado.innerHTML = ``
+    }
+
+    function lixo2() {
+        div_resultado2.innerHTML = ``
+    }
+
+
+
+
+   
+
+</script>
