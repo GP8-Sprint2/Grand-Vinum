@@ -41,36 +41,36 @@
                 <div class="caixa-formulario-input">
                     <div class="campo">
                         <label for="nome_empresa">Nome da Empresa
-                            <input type="text" placeholder="Digite o nome da empresa">
+                            <input type="text" placeholder="Digite o nome da empresa" id="in_empresa">
                         </label>
                     </div>
                     
 
                     <div class="campo1">
                         <label for="cnpj_empresa">CNPJ da Empresa
-                            <input type="text" placeholder="Digite o CNPJ da empresa">
+                            <input type="text" placeholder="Digite o CNPJ da empresa" id="in_cnpj">
                         </label>
 
                         <label for="celular_telefone">Celular / Telefone
-                            <input type="text" placeholder="Digite o telefone">
+                            <input type="text" placeholder="Digite o telefone" id="in_telefone">
                         </label>
                     </div>
                         
 
                     <div class="campo">
                         <label for="email">Email
-                            <input type="text" placeholder="Digite o email">
+                            <input type="text" placeholder="Digite o email" id="in_email">
                         </label>
                     </div>
                     
 
                     <div class="campo1">
                         <label for="senha">Criar uma senha
-                            <input type="password" placeholder="Digite sua senha">
+                            <input type="password" placeholder="Digite sua senha" id="in_senha">
                         </label>
 
                         <label for="conf_senha"> Confirmar senha
-                            <input type="password" placeholder="Confirme sua senha">
+                            <input type="password" placeholder="Confirme sua senha" id="in_confirmacao">
                         </label>
                     </div>
                 </div>    
@@ -92,7 +92,7 @@
                         </div>
     
                         <div class="botao">
-                            <button>Cadastre-se</button>
+                            <button onclick="cadastrar()">Cadastre-se</button>
                         </div>
                     </div>
 
@@ -134,3 +134,22 @@
 </body>
 
 </html>
+<script>
+    function cadastrar() {
+        var empresa = in_empresa.value
+        var cnpj = Number(in_cnpj.value)
+        var telefone = Number(in_telefone.value)
+        var email= in_email.value
+        var senha = in_senha.value
+        var confirmacao = in_confirmacao.value
+        
+        if (empresa == "" || cnpj == "" || telefone == "" || email == "") {
+            alert ('Um ou mais campos em branco! Por favor insira os dados solicitados.')
+        } if (senha == "") {
+            alert ('Crie uma senha! De preferência que contenha números, letras maiúsculas e minúsculas.')
+        } if (confirmacao != senha) {
+            alert ('As senhas não estão idênticas!')
+        } 
+    }
+
+</script>
