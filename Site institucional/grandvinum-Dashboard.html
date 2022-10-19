@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/grandvinum-Dashboard.css">
-  <link rel="Logo icon" href="../assets/garrafa-de-vinho.png">
+  <link rel="Logo icon" href="./assets/garrafa-de-vinho.png">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,109 +14,103 @@
 </head>
 
 <body>
-  
+
+  <!-- Header -->
   <div class="header">
-    <span class="material-symbols-outlined">
-      menu
-    </span>
+    <span> <img src="./assets/menu.png" alt="home" width="20px"></span>
+
     <div class="container">
       <div class="texto">
         <img class="user" src="./assets/user.png" alt="">
-        <h1>Olá, Victor Augusto </h1>
+        <h1>Olá, Usuário </h1>
       </div>
       <img class="logo" src="./assets/logo2.png" alt="">
-
     </div>
   </div>
 
+
+  <!-- Navbar -->
   <div class="container">
     <aside class="menu">
       <ul>
-        <li><a href="grandvinum-Dashboard.html"><span class="material-symbols-outlined">
-              home
-            </span></li></a>
-        <li><a href="grandvinum-Dashboard-Geral.html"><span class="material-symbols-outlined">
-              monitoring
-            </span></li></a>
-        <li><span class="material-symbols-outlined">
-            logout
-          </span></li>
+        <li><a href="grandvinum-Dashboard.html"><span class="material-symbols-outlined">home</span></li></a>
+        <li><a href="grandvinum-Dashboard-Geral.html"><span class="material-symbols-outlined">monitoring</span></li></a>
+        <li><a href="grandvinum - Dashboardconfig.html"><span class="material-symbols-outlined">settings</span></li></a>
+        <li><a href="grandvinum-home.html"><span class="material-symbols-outlined">logout</span></li></a>
       </ul>
     </aside>
+    <div>
+    </div>
 
-    <main>
+   
 
-      <h1>Dashboard</h1>
-      <h1>Temperatura</h1>
-      <div class="dash">
-        <div class="regua">
-            <div class="item-regua perigo-frio">
-                <h4>Perigo</h4>
-                <h2>12°C</h2>
-            </div>
-            <div class="item-regua alerta-frio">
-                <h4>Alerta</h4>
-                <h2>13°C</h2>
-            </div>
-            <div class="item-regua ideal">
-                <h4>Ideal</h4>
-                <h2>15°C</h2>
-            </div>
-            <div class="item-regua alerta-quente">
-                <h4>Alerta</h4>
-                <h2>17°C</h2>
-            </div>
-            <div class="item-regua perigo-quente">
-                <h4>Perigo</h4>
-                <h2>18°C</h2>
-            </div>
+    <div class="caixa-alinhamento1">
+      <div class="Alinhamento-1">
+
+        <div class="caixa1">
+          <h2 class="campo_branco">Quantidade de Barris <br>
+            na Temperatura <br>
+            ideal</h2>
+          <h2 class="numerob">10</h2>
         </div>
 
-        <h1>Umidade</h1>
-        <div class="dash">
-          <div class="regua">
-              <div class="item-regua perigo-frio">
-                  <h4>Perigo</h4>
-                  <h2>50%</h2>
-              </div>
-              <div class="item-regua alerta-frio">
-                  <h4>Alerta</h4>
-                  <h2>52%</h2>
-              </div>
-              <div class="item-regua ideal">
-                  <h4>Ideal</h4>
-                  <h2>56%</h2>
-              </div>
-              <div class="item-regua alerta-quente">
-                  <h4>Alerta</h4>
-                  <h2>58%</h2>
-              </div>
-              <div class="item-regua perigo-quente">
-                  <h4>Perigo</h4>
-                  <h2>60%</h2>
-              </div>
-          </div>
-
-
-      <div class="dashboard-container">
-        <div class="grafico-novo">
-          <div class="dashboard">
-            <canvas id="myChart" style="width: 550px; height: 250px;"></canvas>
-          </div>
+        <div class="caixa2">
+          <h2 class="campo_vinho">Quantidade de Barris <br>
+            fora da Temperatura <br>
+            ideal</h2>
+          <h2 class="numerov">25</h2>
         </div>
 
-        <div class="grafico-novo">
-          <div class="dashboard">
-            <canvas id="myChart2" style="width: 550px; height: 250px;"></canvas>
-          </div>
+        <div class="caixa1">
+          <h2 class="campo_branco"> Quantidade de Barris <br>
+            na Umidade <br>
+            ideal</h2>
+          <h2 class="numerob">0</h2>
         </div>
 
+        <div class="caixa2">
+          <h2 class="campo_vinho">Quantidade de Barris <br>
+            fora da Umidade <br>
+            ideal</h2>
+          <h2 class="numerov">15</h2>
+        </div>
       </div>
-      <footer> Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
-      </footer>
-    </main>
-</body>
 
+      <div class="caixa-alinhamento2">
+
+        <div class="Alinhamento-2">
+
+          <div class="caixag">
+            <div class="dashboard">
+              <canvas id="myChart" style="width: 550px; height: 250px;"></canvas>
+            </div>
+          </div>
+
+          <div class="caixag">
+            <div class="dashboard">
+              <canvas id="myChart2" style="width: 550px; height: 250px;"></canvas>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer> Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
+  </footer>
+
+  </main>
+  </div>
+
+
+  <!-- Caixa -->
+
+
+  <div class="grafico-novo">
+
+  </div>
+</body>
 
 </html>
 
