@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="Logo icon" href="./assets/garrafa-de-vinho.png">
+    <script src="./js/funcoes.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="background">
+        <div class="header">
+            <div class="container">
+                <img src="./assets/logo2.png" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="nossosServicos.html">Nossos Serviços</a></li>
+                        <li><a href="login.html">Entrar</a></li>
+                        <li><a href="cadastro.html">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container">
+                <div class="caixa-formulario">
+                    <h3>Junte-se a nós</h3>
+                    <h5>Ao se cadastrar à Soluções Grand Vinum você poderá saber mais sobre nossos serviços e preços.
+                    </h5>
+
+                    <div class="caixa-formulario-input">
+                        <div class="campo">
+                            <label for="nome_empresa">Nome da Empresa
+                                <input type="text" placeholder="Digite o nome da empresa" id="in_empresa">
+                            </label>
+                        </div>
+
+
+                        <div class="campo1">
+                            <label for="cnpj_empresa">CNPJ da Empresa
+                                <input type="text" placeholder="Digite o CNPJ da empresa" id="in_cnpj">
+                            </label>
+
+                            <label for="celular_telefone">Celular / Telefone
+                                <input type="text" placeholder="Digite o telefone" id="in_telefone">
+                            </label>
+                        </div>
+
+
+                        <div class="campo">
+                            <label for="email">Email
+                                <input type="text" placeholder="Digite o email" id="in_email">
+                            </label>
+                        </div>
+
+
+                        <div class="campo1">
+                            <label for="senha">Criar uma senha
+                                <input type="password" placeholder="Digite sua senha" id="in_senha">
+                            </label>
+
+                            <label for="conf_senha"> Confirmar senha
+                                <input type="password" placeholder="Confirme sua senha" id="in_confirmacao">
+                            </label>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!-- CHECKBOX -->
+                    <div class="check-botao">
+                        <div class="check">
+                            <input type="checkbox" id="chk_1">
+                            <p>Concordo com todos os Termos de Política e Privacidade.</p>
+                        </div>
+
+                        <div class="check">
+                            <input type="checkbox" id="chk_2">
+                            <p>Desejo receber notificações sobre os serviços no email.</p>
+                        </div>
+
+                        <div class="botao">
+                            <button onclick="cadastrar()">Cadastre-se</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <div class="container">
+                    <img src="./assets/logo2.png" alt="" id="loguinho">
+                    <div class="links">
+                        <ul>
+                            <h4>LINKS</h4>
+                            <li><a href="">Termos de Serviço</a></li>
+                            <li><a href="">FAQ - Perguntas <br> Frequentes</a></li>
+                            <li><a href="login.html">Entrar</a></li>
+                            <li><a href="nossosServicos.html">Nossos Serviços</a></li>
+                        </ul>
+
+                        <div class="media">
+                            <div id="redes">
+                                <h4>REDES SOCIAIS</h4>
+                                <img src="./img/instagramWhite.png" alt="">
+                                <img src="./img/facebookWhite.png" alt="">
+                                <img src="./img/whatsappWhite.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="copyright">
+                    <p>Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por
+                        GrandVinum</p>
+                </div>
+            </div>
+
+
+</body>
+
+</html>
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = in_empresa.value;
+        var cnpj = in_cnpj.value;
+        var celularTelefone = in_telefone.value;
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
+        var confirmacaoSenhaVar = in_confirmacao.value;
+
+        if (nomeVar == "" || cnpj == "" || celularTelefone == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                cnpjServer: cnpj,
+                celularTelefoneServer: celularTelefone,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

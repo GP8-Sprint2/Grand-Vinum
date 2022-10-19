@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<link rel="Logo icon" href="./assets/garrafa-de-vinho.png">
+<script src="./js/funcoes.js"></script>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/login.css">
+
+    <!-- HEADER -->
+    <div class="background">
+        <div class="header">
+            <div class="container">
+                <img src="./assets/logo2.png" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="nossosServicos.html">Nossos Serviços</a></li>
+                        <li><a href="login.html">Entrar</a></li>
+                        <li><a href="cadastro.html">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <title>Login</title>
+
+</head>
+
+<body>
+
+    <div id="login">
+
+        <form class="card">
+
+            <div class="card-header">
+
+                <b>
+                    <h2>Login</h2>
+                </b>
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-content-area">
+
+                    <label for="in_email">Email</label>
+
+                    <input type="text" id="in_email" autocomplete="off">
+
+                </div>
+
+                <div class="card-content-area">
+
+                    <label for="in_senha">Senha</label>
+
+                    <input type="password" id="in_senha" autocomplete="off">
+
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <button onclick="entrar() " class="submit" type="button">Login</button>
+
+            </div>
+
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+  
+        </form>
+
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <img src="./assets/logo2.png" alt="" id="loguinho">
+            <div class="links">
+                <ul>
+                    <h4>LINKS</h4>
+                    <li><a href="">Termos de Serviço</a></li>
+                    <li><a href="">FAQ - Perguntas <br> Frequentes</a></li>
+                    <li><a href="login.html">Entrar</a></li>
+                    <li><a href="nossosServicos.html">Nossos Serviços</a></li>
+                </ul>
+
+                <div class="media">
+                    <div id="redes">
+                        <h4>REDES SOCIAIS</h4>
+                        <img src="./img/instagramWhite.png" alt="">
+                        <img src="./img/facebookWhite.png" alt="">
+                        <img src="./img/whatsappWhite.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <p>Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+
+    function entrar() {
+        // aguardar();
+
+        var emailVar = in_email.value;
+        var senhaVar = in_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

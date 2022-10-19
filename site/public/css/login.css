@@ -1,6 +1,6 @@
-/* CÓDIGO DA PARTE DO HEADER */
-
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&family=Montserrat:wght@400;600&family=Sarala:wght@400;700&display=swap');
+
+
 
 * {
     padding: 0;
@@ -29,13 +29,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.background {
-    background-image: url("../assets/Imagem\ 4.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 0;
-    height: 1000px;
 
+form.card {
+
+    border-radius: 10px;
 }
 
 .header {
@@ -51,7 +48,6 @@ body::-webkit-scrollbar-thumb {
     -webkit-transform: scale(1.1);
     transform: scale(1.2);
 }
-
 
 .container {
     margin: 0 auto;
@@ -107,168 +103,197 @@ a {
 }
 
 
+body {
 
+    padding: 0;
 
+    margin: 0;
 
-/* CÓDIGO DA PÁGINA DO CADASTRO: CAIXA FORMULÁRIO*/
+    background-color: #454d6b;
 
+    background-image: url("../assets/Imagem\ 4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    height: 1000px;
+}
 
-.banner .container {
+#login {
+
     display: flex;
-    justify-content: center;
+
     align-items: center;
 
+    justify-content: center;
+
+    height: 100vh;
+
+
 }
 
-.caixa-formulario {
+#login h2 {
+    color:rgb(0, 0, 0);
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
+
+.card {
+
     background-color: white;
-    margin-top: 50px;
-    padding: 0px 45px;
-    height: 660px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 200px;
-}
 
-.caixa-formulario h3 {
-    margin-top: 50px;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    justify-content: flex-start;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px;
 
+    border-radius: 2px;
 
-}
-
-.caixa-formulario h5 {
-    font-size: medium;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-
-}
-
-/* CAIXA-FORMULARIO-INPUT */
-
-.campo, .campo1 {
-    margin-top: 25px;
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.campo input {
-    margin-top: 10px;
-    padding: 0 20px;
-    width: 700px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 3px solid #e1e1e1;
-    outline: none;
-    color: black;
-
-}
-
-
-.campo1 input {
-    margin-top: 10px;
-    padding: 0 20px;
-    width: 330px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 3px solid #e1e1e1;
-    outline: none;
-    color: black;
-}
-
-.campo label {
     width: 350px;
-    color: rgb(58, 57, 57);
-    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.card-header {
+
+    padding-bottom: 50px;
+
+    font-weight: bold;
+
+    color: black;
+
+}
+
+.card-header::after {
+
+    content: "";
+
+    width: 70px;
+
+    height: 1px;
+
+    display: block;
+
+    margin-top: -17px;
+
+    margin-left: -5px;
+
+}
+
+.card-content label {
+
+    color: black;
+
+    font-size: 12px;
+
     font-weight: 500;
-    font-size: medium;
-    margin-top: 30px;
+
 }
 
-.campo1 label {
-    width: 350px;
-    color: rgb(58, 57, 57);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
-    margin-top: 20px;
+.card-content-area {
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 10px 0;
+
 }
 
+.card-content-area input {
 
-
-
-
-
-
-/* BOTÃO */
-.botao button {
     margin-top: 10px;
-    width: 150px;
-    color: #FFFFFF;
-    background-color: #5F0002;
-    padding: 10px 30px;
-    font-size: 15px;
-    font-weight: bold;
+
+    padding: 0 5px;
+
+    background-color: transparent;
+
     border: none;
-    border-radius: 3px;
+
+    border-bottom: 1px solid #e1e1e1;
+
+    outline: none;
+
+    color: black;
+
+}
+
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #e6005a 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+.card-footer {
+
+    display: flex;
+
+    flex-direction: column;
+
+    
+}
+
+.card-footer .submit {
+    border-radius: 5px;
+    
+    align-items: center;
+    
+    width: 100%;
+    
+    height: 40px;
+    
+    background-color: #5F0002;
+    
+    border: none;
+    
+    color: white;
+    
+    margin: 20px 0;
+    
     cursor: pointer;
 }
 
-.botao button:hover {
+.card-footer .submit:hover {
+
+    opacity: 0.9;
+
+}
+
+.card-footer a {
+
+    text-align: center;
+
+    font-size: 12px;
+
     opacity: 0.8;
+
+    color: rgb(0, 0, 0);
+
+    text-decoration: none;
+
 }
-
-.caixa-formulario .botao {
-    padding-left: 570px;
-    margin: -50px 0px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.check {
-    margin-top: 10px;
-    display: flex;
-    align-items: flex-end;
-}
-
-.check p {
-    color: black;
-    gap: 15px;
-}
-
-#chk_1, #chk_2 {
-    width: 50px;
-    margin-top: 15px;
-    position: relative;
-}
-
-.check-botao {
-    margin-top: 50px;
-}
-
-
-
-/* -- FOOTER -- */
-
 
 .footer {
-    margin-top: 50px;
-    border-top: 3px solid #64173C;
     width: 100%;
-    height: 25%;
+    height: 240px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("../assets/Imagem\ 4.jpg");
     background-size: cover;
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-top:  3px solid #64173C;
 }
 
 .footer p {
