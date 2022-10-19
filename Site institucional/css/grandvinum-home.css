@@ -148,11 +148,11 @@ a {
 }
 
 .campo {
-    width: 17.45vw;
-    height: 42.68vh;
+    width: 20.00vw;
+    min-height: max-content;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 13px;
+    padding: 8px 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -182,8 +182,8 @@ a {
 }
 
 .retangulo {
-    width: 82%;
-    height: 35.11vh;
+    width: 83%;
+    min-height: max-content;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin: auto;
