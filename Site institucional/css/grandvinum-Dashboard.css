@@ -79,6 +79,7 @@ aside {
 ul {
     margin-bottom: 150px;
     height: 80%;
+    width: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,7 +134,7 @@ main h1 {
     justify-content: flex-end;
     gap: 36px;
     flex-direction: row;
-    margin-left: 150px;
+    margin-right: 8vh;
     margin-bottom: 28px;
 
 }
@@ -142,7 +143,9 @@ main h1 {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-left: 150px;
+    margin-right: 8vh;
+
+    margin-left: 15vh;
     gap: 36px;
 
 
