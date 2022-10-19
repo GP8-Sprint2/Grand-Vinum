@@ -79,11 +79,11 @@ aside {
 }
 
 ul {
-    margin-bottom: 150px;
     height: 80%;
     width: 10vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     list-style: none;
 }
