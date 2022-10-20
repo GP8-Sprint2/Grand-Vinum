@@ -152,7 +152,7 @@ main h1 {
 .campo input {
     margin-top: 10px;
     padding: 0 20px;
-    width: 371.71px;
+    width: 46vh;
     background-color: transparent;
     border: none;
     border-bottom: 3px solid #e1e1e1;
@@ -195,8 +195,8 @@ main h1 {
 
 
 .caixa-formulario-enderecos {
-    width: 635px;
-    height: 400px;
+    width: 119vh;
+    height: 56vh;
     margin: 20vh;
     margin-left: 18vh;
     display: flex;
@@ -225,16 +225,16 @@ main h1 {
 }
 
 .enderecos-um {
-    width: 276px;
-    height: 244px;
+    width: 36vh;
+    height: 34vh;
 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .enderecos-dois {
-    width: 276px;
-    height: 244px;
+    width: 36vh;
+    height: 34vh;
 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -260,7 +260,8 @@ h4 {
 
 .resultado img {
     display: flex;
-    margin-top: 40px;
+    margin-top: 5vh;
+    margin-left: 10px;
 }
 
 
@@ -278,6 +279,7 @@ h4 {
 
 .campo_resultado {
     display: flex;
+    flex-direction: column;
     margin-right: 45px;
     margin-left: 30px;
     margin-bottom: 100px;
@@ -288,3 +290,7 @@ h4 {
 }
 
 
+.lixo img {
+    display: flex;
+justify-content: flex-end;
+}

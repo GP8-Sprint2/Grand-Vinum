@@ -33,10 +33,12 @@
     <div class="container1">
         <aside class="menu1">
             <ul>
-                <li><a href="dashboard.html"><span class="material-symbols-outlined">home</span></li></a>
-                <li><a href="dashboard-Geral.html"><span class="material-symbols-outlined">monitoring</span></li></a>
-                <li><a href="dashboardconfig.html"><span class="material-symbols-outlined">settings</span></li></a>
-                <li><a href="index.html"><span class="material-symbols-outlined">logout</span></li></a>
+                <li><a href="grandvinum-Dashboard.html"><span class="material-symbols-outlined">home</span></li></a>
+                <li><a href="grandvinum-Dashboard-Geral.html"><span class="material-symbols-outlined">monitoring</span>
+                </li></a>
+                <li><a href="grandvinum - Dashboardconfig.html"><span class="material-symbols-outlined">settings</span>
+                </li></a>
+                <li><a href="grandvinum-home.html"><span class="material-symbols-outlined">logout</span></li></a>
             </ul>
         </aside>
 
@@ -134,14 +136,12 @@
     <footer> Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por
         Grand Vinum
     </footer>
-
     </main>
     </div>
 </body>
 </body>
 
 </html>
-
 <script>
     function adicionar() {
         var cep = in_cep.value
@@ -154,38 +154,42 @@
 
         if (cep == "" || cidade == "" || bairro == "" || logradouro == "" || numero == "" || Complemento == "") {
             alert('Um ou mais campos em branco! Por favor insira os dados solicitados.')
-        } else if (!cep == "" || !cidade == "" || !bairro == "" || !logradouro == "" || !numero == "" || !Complemento == "") {
+        } else {
             alert('Endereço adicionado com sucesso!')
 
             if (div_resultado.innerHTML.length > 0) {
                 div_resultado2.innerHTML =
 
                     // caixa
-                    `<div class= "campo_resultado">CEP: ${cep} <br>
-                Cidade: ${cidade} <br>
-                Bairro: ${bairro} <br>
-                Logradouro: ${logradouro} <br>
-                Número: ${numero} <br>
-                Complemento: ${Complemento} 
-                <div class="lixo">
-                    <img src="./assets/Lixo.png" alt="lixo" width="20px" onclick="lixo2()">
-                
-                    </div>
-            </div>
-         `
-
+                    `
+                    <div class= "campo_resultado">
+                        CEP: ${cep} <br>
+                        Cidade: ${cidade} <br>
+                        Bairro: ${bairro} <br>
+                        Logradouro: ${logradouro} <br>
+                        Número: ${numero} <br>
+                        Complemento: ${Complemento} 
+                        <div class="lixo">
+                            <img src="./assets/Lixo.png" alt="" onclick="lixo2()">
+                        </div>
+                    </div>     
+                    `
             } else {
                 // caixa 1
-                div_resultado.innerHTML = `<div class= "campo_resultado">CEP: ${cep} <br>
-        Cidade: ${cidade} <br>
-        Bairro: ${bairro} <br>
-        Logradouro: ${logradouro} <br>
-        Número: ${numero} <br>
-        Complemento: ${Complemento} 
-        </div>
-        <div class="lixo"><img src="./assets/Lixo.png" alt="lixo" width="20px" onclick="lixo1()"></div>
-
-`
+                div_resultado.innerHTML = 
+                `
+                    <div class= "campo_resultado">
+                        CEP: ${cep} <br>
+                        Cidade: ${cidade} <br>
+                        Bairro: ${bairro} <br>
+                        Logradouro: ${logradouro} <br>
+                        Número: ${numero} <br>
+                        Complemento: ${Complemento} 
+                        <div class="lixo">
+                            <img src="./assets/Lixo.png" alt="" onclick="lixo1()">
+                        </div>
+                    </div>     
+                    `
             }
         }
 
