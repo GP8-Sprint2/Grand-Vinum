@@ -22,7 +22,7 @@
     <div class="container">
       <div class="texto">
         <img class="user" src="./assets/user.png" alt="">
-        <h1>Olá, Usuário </h1>
+        <h1>Olá,<span id="b_usuario"></span>!</h1>
       </div>
       <img class="logo" src="./assets/logo2.png" alt="">
 
@@ -110,6 +110,7 @@
 
 </html>
 <script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;  
 
   // Gráfico 3
 
