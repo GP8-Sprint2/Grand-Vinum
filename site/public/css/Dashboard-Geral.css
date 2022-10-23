@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300;400&family=Montserrat:wght@400;600&family=Sarala:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 * {
     padding: 0;
@@ -27,14 +28,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 body {
-    background: #DFDADA;
-    box-sizing: border-box;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(180deg, #DFDADA 0%, rgba(91, 84, 84, 0) 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .header {
     background-color: #110000;
     padding: 10px 10px;
-    display:  flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -49,7 +50,7 @@ body {
     flex-direction: row;
     display: flex;
     align-items: center;
-    
+
 }
 
 .header span {
@@ -73,21 +74,19 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
 ul {
+    margin-bottom: 24vh;
     height: 80%;
-    width: 10vw;
+    width: 10vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     list-style: none;
 }
-  
+
 li {
     height: 100px;
     text-decoration: none;
@@ -97,9 +96,12 @@ li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width: 100%;
+    width: 92%;
     display: flex;
+    align-items: center;
 }
+
+
 
 div .container {
     justify-content: space-between;
@@ -107,42 +109,98 @@ div .container {
 
 main {
     margin: 0;
-    height: 80%;
-    width: 100%;
+    height: 198vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin-left: 9vh;
+
 }
 
 main h1 {
-    margin-top: 25px;
-    margin-left: 25px;
-    font-size: 3rem;
+    padding: 50px 0 0 73px;
     color: #110000;
 }
 
 .menu {
     background-image: linear-gradient(#784C61, #372116, #420422);
     width: 80px;
-    height: 180vh;
+    height: 198vh;
 }
+
+
 
 .dashboard-container {
     display: flex;
     justify-content: space-evenly;
+
 }
 
 .dashboard {
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-top: 13px;
+    width: 153vh;
+}
+
+
+
+
+.container-retangulo {
+    width: 153vh;
+    height: 81px;
+    margin-top: 11vh;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.caixa-retangulo h2 {
+    font-family: 'Chivo';
+    font-style: normal;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+    margin-top: 27px;
+}
+
+
+.Alinhamento1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 46px;
+}
+
+.caixa-alinhamento1 {
+    display: flex;
+    gap: 46px;
+}
+
+.caixa-alinhamento {
+    display: flex;
+    gap: 10vh;
+    flex-direction: column;
+    margin-top: 29vh;
+    margin-top: 8vh;
+
+}
+
+.Alinhamento {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 13vh;
+    gap: 46px;
+    margin-top: 48vh;
+
+}
+
+
+
+.dashboard {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 3px 3px;
-    width: 100%;
-    height: 400px;
 }
 
 footer {
@@ -153,66 +211,3 @@ footer {
     width: 100%;
     text-align: center;
 }
-
-.grafico-novo {
-    display: flex;
-    flex-direction: column;
-    padding: 50px 25px;
-    width: 82.2%;
-}
-
-.dash {
-    width: 100%;
-    position: relative;
-    top: 0;
-    height: 100vh;
-  }
-  
-  .regua {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-top: 30px;
-  }
-  
-  .perigo-frio {
-    background: linear-gradient(180deg, #0f13ee 0%, #000000 99.99%, rgba(241, 241, 241, 0) 100%);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .perigo-quente {
-    background: linear-gradient(180deg, #A81C1C 0%, #000000 99.99%, rgba(241, 241, 241, 0) 100%);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .alerta-frio {
-    background: linear-gradient(180deg, #259dee 0%, #000000 99.99%, rgba(241, 241, 241, 0) 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .alerta-quente {
-    background: linear-gradient(180deg, #fffb00 0%, #000000 99.99%, rgba(241, 241, 241, 0) 100%);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .ideal {
-    background: linear-gradient(180deg, #00ff0d 0%, #000000 99.99%, rgba(241, 241, 241, 0) 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  .item-regua {
-    padding: 55px;
-    width: 15%;
-    margin: 5px;
-    text-align: center;
-    padding-top: 15px;
-  }
-  .item-regua h4 {
-    margin-top: 45px;
-  }
-
-  .dash h3 {
-    color: #000000;
-    padding-left: 139px;
-    padding-top: 50px;
-  }

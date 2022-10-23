@@ -27,6 +27,22 @@ body::-webkit-scrollbar-thumb {
     /* creates padding around scroll thumb */
 }
 
+main {
+    margin: 0;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main h1 {
+    margin-top: 25px;
+    margin-left: 25px;
+    font-size: 3rem;
+    color: #110000;
+}
+
 body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(180deg, #DFDADA 0%, rgba(91, 84, 84, 0) 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -77,7 +93,7 @@ aside {
 }
 
 ul {
-    margin-bottom: 150px;
+    margin-bottom: 142vh;
     height: 80%;
     width: 10vh;
     display: flex;
@@ -98,7 +114,6 @@ li {
     box-sizing: border-box;
     width: 92%;
     display: flex;
-    align-items: center;
 }
 
 
@@ -114,6 +129,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: -16vh;
+
+
 }
 
 main h1 {
@@ -123,31 +141,17 @@ main h1 {
 
 .menu {
     background-image: linear-gradient(#784C61, #372116, #420422);
-    width: 80px;
-    height: 100vh;
+    width: 6%;
+    height: 211vh;
 }
 
 
 
 .Alinhamento-1 {
     display: flex;
-    justify-content: flex-end;
-    gap: 36px;
+    justify-content: space-between;
     flex-direction: row;
-    margin-right: 8vh;
-    margin-bottom: 28px;
-
-}
-
-.Alinhamento-2 {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    margin-right: 8vh;
-
-    margin-left: 15vh;
-    gap: 36px;
-
+    margin-left: 9vh;
 
 }
 
@@ -169,56 +173,24 @@ main h1 {
 }
 
 
-.caixag {
-    width: 538px;
-    height: 251px;
 
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
 
-.dashboard {
-    display: flex;
-    align-items: center;
-}
 
-.caixa1 .campo_branco{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-left: 27px;
-    margin-top: 15px;
-}
+.numerob {
 
-.caixa2 .campo_vinho{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-left: 27px;
-    margin-top: 15px;
-
-}
-
-.numerob{
-    width: 42px;
-    height: 32px;
-    
     font-family: 'Lato';
     font-style: normal;
     font-weight: 900;
     font-size: 36px;
-    line-height: 32px;    
+    line-height: 32px;
     color: #420422;
     text-transform: uppercase;
     display: flex;
-    margin-top: 30px;
-    margin-left: 40%;
+    margin-top: 5vh;
+   justify-content: center;
 }
 
-.numerov{
-    width: 42px;
-    height: 32px;
-    
+.numerov {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 900;
@@ -226,41 +198,215 @@ main h1 {
     line-height: 32px;
     color: white;
     text-transform: uppercase;
-    margin-top: 30px;
-    margin-left: 40%;
-    
+    display: flex;
+    margin-top: 5vh;
+   justify-content: center;
+
 }
 
-.campo_branco , .campo_branco1{
-    width: 212px;
-height: 84px;
+.campo_branco {
+    height: 84px;
 
-font-family: 'Chivo';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
-text-align: center;
-color: #000000;
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
 
 }
 
 .campo_vinho {
-width: 212px;
-height: 84px;
+    height: 84px;
+    
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    flex-wrap: wrap;
 
-font-family: 'Chivo';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 21px;
-display: flex;
-align-items: center;
-text-align: center;
 
 }
+
+
+
+.alinhar-texto1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.container-retangulo {
+    width: 1160px;
+    height: 81px;
+    margin-top: 5vh;
+    margin-left: 9vh;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.caixa-retangulo h2 {
+    font-family: 'Chivo';
+    font-style: normal;
+    font-size: 3vh;
+    line-height: 11vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+}
+
+
+
+.seta {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    margin-top: -8vh;
+    margin-right: 4vh;
+
+}
+
+.container-retangulo1 {
+    width: 1160px;
+    height: 81px;
+    margin-top: 7vh;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Alinhamento-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 13vh;
+    gap: 46px;
+
+
+}
+
+
+.caixag {
+    width: 565px;
+    height: 251px;
+
+    background: #420422;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.campo_vinhog {
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+}
+
+.numerog {
+    display: flex;
+    justify-content: center;
+    margin: 8vh;
+    font-family: 'Lato';
+    font-weight: 1000;
+    font-size: 29px;
+}
+
+.metricas {
+    display: flex;
+    justify-content: center;
+
+}
+
+.caixa-metricas-centralizar {
+    display: flex;
+    justify-content: center;
+
+}
+
+.texto-metrica, .numero-alerta{
+    font-family: 'Lato';
+    display: flex;
+    font-weight: 1000;
+    justify-content: center;
+    margin-top: 5vh;
+    
+}
+
+.numero-alerta {
+    display: flex;
+    justify-content: center;
+}
+
+
+.alinhamento-metricas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 6vh;
+    
+}
+
+.perigo {
+    width: 205px;
+    height: 198px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(21, 19, 32, 0.57) 0%, #295B89 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.alerta {
+    width: 205px;
+    height: 198px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, #387E7A 0%, #427972 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ideal {
+    width: 205px;
+    height: 198px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, #3FD127 0%, #58AC57 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.alerta-quente {
+    width: 205px;
+    height: 198px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, #F9E533 0%, #D2BD4B 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.perigo-quente {
+    width: 205px;
+    height: 198px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, #DA0909 0%, #E36239 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+
+
+
+
+
+
 
 
 footer {
