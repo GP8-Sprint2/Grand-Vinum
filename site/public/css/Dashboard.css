@@ -187,7 +187,7 @@ main h1 {
     text-transform: uppercase;
     display: flex;
     margin-top: 5vh;
-   justify-content: center;
+    justify-content: center;
 }
 
 .numerov {
@@ -200,7 +200,7 @@ main h1 {
     text-transform: uppercase;
     display: flex;
     margin-top: 5vh;
-   justify-content: center;
+    justify-content: center;
 
 }
 
@@ -210,7 +210,7 @@ main h1 {
     font-family: 'Chivo';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 21px;
     display: flex;
     align-items: center;
@@ -221,18 +221,18 @@ main h1 {
 
 .campo_vinho {
     height: 84px;
-    
+
     font-family: 'Chivo';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 21px;
     display: flex;
     align-items: center;
     text-align: center;
     color: white;
     flex-wrap: wrap;
-
+    padding: 10px;
 
 }
 
@@ -299,8 +299,8 @@ main h1 {
     width: 565px;
     height: 251px;
 
-    background: #420422;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #420422;
+    box-shadow: 0px 15px #42CD2D;
 }
 
 .campo_vinhog {
@@ -330,13 +330,13 @@ main h1 {
 
 }
 
-.texto-metrica, .numero-alerta{
+.texto-metrica, .numero-alerta {
     font-family: 'Lato';
     display: flex;
     font-weight: 1000;
     justify-content: center;
     margin-top: 5vh;
-    
+
 }
 
 .numero-alerta {
@@ -350,7 +350,7 @@ main h1 {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 6vh;
-    
+
 }
 
 .perigo {
