@@ -17,7 +17,7 @@
     <!-- Header -->
     <div class="header">
         <span> <img src="./assets/menu.png" alt="home" width="20px"></span>
-    
+
         <div class="container">
             <div class="texto">
                 <img class="user" src="./assets/user.png" alt="">
@@ -57,18 +57,6 @@
                     </div>
 
                     <div class="campo">
-                        <label for="Cidade">Cidade
-                            <input type="text" id="in_cidade" placeholder="Digite a Cidade">
-                        </label>
-                    </div>
-
-                    <div class="campo">
-                        <label for="Bairro">Bairro
-                            <input type="text" id="in_bairro" placeholder="Digite o Bairro">
-                        </label>
-                    </div>
-
-                    <div class="campo">
                         <label for="Logradouro">Logradouro
                             <input type="text" placeholder="Digite o Logradouro" id="in_logradouro">
                         </label>
@@ -85,6 +73,20 @@
                             <input type="text" placeholder="Digite o Complemento" id="in_complemento">
                         </label>
                     </div>
+
+                    <div class="campo">
+                        <label for="Bairro">Bairro
+                            <input type="text" id="in_bairro" placeholder="Digite o Bairro">
+                        </label>
+                    </div>
+
+
+                    <div class="campo">
+                        <label for="Cidade">Cidade
+                            <input type="text" id="in_cidade" placeholder="Digite a Cidade">
+                        </label>
+                    </div>
+
 
                     <div class="caixa_botao">
                         <div class="botao">
@@ -150,7 +152,7 @@
         var Complemento = in_complemento.value
 
 
-        if (cep == "" || cidade == "" || bairro == "" || logradouro == "" || numero == "" || Complemento == "") {
+        if (cep == "" || cidade == "" || bairro == "" || logradouro == "" || numero == "") {
             alert('Um ou mais campos em branco! Por favor insira os dados solicitados.')
         } else {
             alert('Endereço adicionado com sucesso!')
@@ -162,11 +164,11 @@
                     `
                     <div class= "campo_resultado">
                         CEP: ${cep} <br>
-                        Cidade: ${cidade} <br>
-                        Bairro: ${bairro} <br>
                         Logradouro: ${logradouro} <br>
                         Número: ${numero} <br>
-                        Complemento: ${Complemento} 
+                        Complemento: ${Complemento} <br>
+                        Bairro: ${bairro} <br>
+                        Cidade: ${cidade} <br>
                         <div class="lixo">
                             <img src="./assets/Lixo.png" alt="" onclick="lixo2()">
                         </div>
@@ -178,11 +180,11 @@
                     `
                     <div class= "campo_resultado">
                         CEP: ${cep} <br>
-                        Cidade: ${cidade} <br>
-                        Bairro: ${bairro} <br>
                         Logradouro: ${logradouro} <br>
                         Número: ${numero} <br>
-                        Complemento: ${Complemento} 
+                        Complemento: ${Complemento} <br>
+                        Bairro: ${bairro} <br>
+                        Cidade: ${cidade} <br>
                         <div class="lixo">
                             <img src="./assets/Lixo.png" alt="" onclick="lixo1()">
                         </div>
