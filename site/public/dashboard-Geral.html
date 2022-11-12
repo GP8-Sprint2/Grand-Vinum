@@ -43,29 +43,22 @@
     <div>
     </div>
 
+    <!-- Gráficos -->
 
     <main>
 
+      <!-- Umidade -->
 
-      <div class="caixa-alinhamento1">
-        <div class="Alinhamento1">
-
-          <div class="container-retangulo">
-            <div class="caixa-retangulo">
-              <h2>Gráficos Dos Sensores Nas últimas 6 Horas</h2>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="caixa-alinhamento">
-          <div class="caixag">
+      <div class="container-dividir">
+        <div class="umidade-centralizar">
+          <div class="caixa-alinhamento">
             <div class="dashboard">
               <canvas id="myChart" style="width: 550px; height: 250px;"></canvas>
             </div>
           </div>
+        </div>
 
+        <div class="temperatura-centralizar">
           <div class="caixag">
             <div class="dashboard">
               <canvas id="myChart2" style="width: 550px; height: 250px;"></canvas>
@@ -74,17 +67,20 @@
         </div>
       </div>
 
+  </div>
 
-      </div>
-      <footer> Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
-      </footer>
-    </main>
+
+  <!-- Footer -->
+  </div>
+  <footer> Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
+  </footer>
+  </main>
 </body>
 
 
 <script>
 
-  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;  
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
   // Gráfico 1
   const labels = [
     '12:00',

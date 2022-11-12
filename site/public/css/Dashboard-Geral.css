@@ -32,6 +32,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* Navbar */
 .header {
     background-color: #110000;
     padding: 10px 10px;
@@ -77,8 +78,7 @@ aside {
 }
 
 ul {
-    margin-bottom: 24vh;
-    height: 80%;
+    height: 82%;    
     width: 10vh;
     display: flex;
     flex-direction: column;
@@ -109,7 +109,7 @@ div .container {
 
 main {
     margin: 0;
-    height: 198vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin-left: 9vh;
@@ -124,78 +124,15 @@ main h1 {
 .menu {
     background-image: linear-gradient(#784C61, #372116, #420422);
     width: 80px;
-    height: 198vh;
+    height: 88vh;
 }
 
+/* Gráfico */
 
-
-.dashboard-container {
+.container-dividir {
     display: flex;
-    justify-content: space-evenly;
-
+    flex-direction: row;
 }
-
-.dashboard {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 13px;
-    width: 153vh;
-}
-
-
-
-
-.container-retangulo {
-    width: 153vh;
-    height: 81px;
-    margin-top: 11vh;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.caixa-retangulo h2 {
-    font-family: 'Chivo';
-    font-style: normal;
-    font-size: 3vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: #000000;
-    margin-top: 27px;
-}
-
-
-.Alinhamento1 {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 46px;
-}
-
-.caixa-alinhamento1 {
-    display: flex;
-    gap: 46px;
-}
-
-.caixa-alinhamento {
-    display: flex;
-    gap: 10vh;
-    flex-direction: column;
-    margin-top: 29vh;
-    margin-top: 8vh;
-
-}
-
-.Alinhamento {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    margin-top: 13vh;
-    gap: 46px;
-    margin-top: 48vh;
-
-}
-
 
 
 .dashboard {
@@ -203,6 +140,7 @@ main h1 {
     align-items: center;
 }
 
+/* footer */
 footer {
     background-color: #110000;
     text-align: center;
