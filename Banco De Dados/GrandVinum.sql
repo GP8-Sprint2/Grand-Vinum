@@ -7,24 +7,26 @@ use GrandVinum;
 -- Criar tabelas
 
 CREATE TABLE CadastroCliente (
-idCadastroCliente int primary key auto_increment,
-nome varchar(45),
-cnpj char(14),
-telCel varchar(12),
-email varchar(45), constraint chkEmail check (email LIKE "%@%"),
-senha varchar(45) 
+    idCadastroCliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    cnpj CHAR(14),
+    telCel VARCHAR(12),
+    email VARCHAR(45),
+    CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
+    senha VARCHAR(45)
 );
 
 CREATE TABLE Endereco (
-idEndereco int primary key auto_increment,
-logradouro varchar(45),
-numero int,
-bairro varchar(45),
-complemento varchar(45),
-cidade varchar(50),
-cep char(8),
-fkCadastroCliente int,
-foreign key (fkCadastroCliente) references CadastroCliente (idCadastroCliente)
+    idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+    logradouro VARCHAR(45),
+    numero INT,
+    bairro VARCHAR(45),
+    complemento VARCHAR(45),
+    cidade VARCHAR(50),
+    cep CHAR(8),
+    fkCadastroCliente INT,
+    FOREIGN KEY (fkCadastroCliente)
+        REFERENCES CadastroCliente (idCadastroCliente)
 );
 
 
@@ -32,28 +34,20 @@ create table barrilVinho (
 idBarrilVinho int primary key auto_increment,
 tipoMadeira varchar(45),
 quantidade double,
+tipoVinho VARCHAR(45) CONSTRAINT chktipoVinho CHECK(tipoVinho IN('tinto','rose','branco')),
 fkCadastroCliente int,
 foreign key (fkCadastroCliente) references CadastroCliente (idCadastroCliente)
 );
 
-
-CREATE TABLE vinho (
-idVinho int auto_increment,
-tipo varchar(45),
-fkBarrilVinho int,
-foreign key (fkBarrilVinho) references barrilVinho (idBarrilVinho),
-primary key (idVinho,fkBarrilVinho)
-);
-
-
-CREATE TABLE metrica(
-idmetrica INT AUTO_INCREMENT,
-dataHora DATETIME,
-umidade DECIMAL(4,2),
-temperatura_C DECIMAL(4,2),
-fkBarrilVinho int,
-primary key (idmetrica,fkBarrilVinho),
-foreign key (fkBarrilVinho) references barrilVinho (idBarrilVinho)
+CREATE TABLE metrica (
+    idmetrica INT AUTO_INCREMENT,
+    dataHora DATETIME,
+    umidade DECIMAL(4 , 2 ),
+    temperatura_C DECIMAL(4 , 2 ),
+    fkBarrilVinho INT,
+    PRIMARY KEY (idmetrica , fkBarrilVinho),
+    FOREIGN KEY (fkBarrilVinho)
+        REFERENCES barrilVinho (idBarrilVinho)
 );
 
 
@@ -95,6 +89,7 @@ select*from endereco;
 select*from barrilVinho;
 select*from vinho;
 select*from metrica;
+
 
 -- -- Exibir os dados da tabela metrica somente quando a umidade for menor que 50%.
 select*from metrica where umidade < 50;
