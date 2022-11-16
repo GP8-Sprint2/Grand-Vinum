@@ -27,27 +27,12 @@ body::-webkit-scrollbar-thumb {
     /* creates padding around scroll thumb */
 }
 
-main {
-    margin: 0;
-    height: 80%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-main h1 {
-    margin-top: 25px;
-    margin-left: 25px;
-    font-size: 3rem;
-    color: #110000;
-}
-
 body {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), linear-gradient(180deg, #DFDADA 0%, rgba(91, 84, 84, 0) 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* Navbar */
 .header {
     background-color: #110000;
     padding: 10px 10px;
@@ -93,12 +78,11 @@ aside {
 }
 
 ul {
-    margin-bottom: 142vh;
-    height: 80%;
+    height: 82%;
     width: 10vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     list-style: none;
 }
@@ -114,6 +98,7 @@ li {
     box-sizing: border-box;
     width: 92%;
     display: flex;
+    align-items: center;
 }
 
 
@@ -124,13 +109,10 @@ div .container {
 
 main {
     margin: 0;
-    height: 100vh;
-    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: -16vh;
-
+    margin-left: 9vh;
 
 }
 
@@ -141,221 +123,94 @@ main h1 {
 
 .menu {
     background-image: linear-gradient(#784C61, #372116, #420422);
-    width: 6%;
-    height: 225vh;
+    width: 80px;
+    height: 88vh;
 }
 
+/* Gráfico */
 
-
-.Alinhamento-1 {
+.container-total {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    margin-left: 9vh;
-
+    gap: 5vh;
+    margin-bottom: 6vh;
 }
+
+.dashboard {
+    display: flex;
+    align-items: center;
+    background: #F1F1F1;
+    width: 381px;
+    height: 193px;
+}
+
+h3 {
+    width: 381px;
+    height: 44px;
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+    color: #000000;
+
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Alertas */
 
 .caixa1 {
-    width: 251px;
-    height: 251px;
-
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
 }
-
 
 .caixa2 {
-    width: 251px;
-    height: 251px;
-
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #420422;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-
-
-
-
-.numerob {
-
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 36px;
-    line-height: 32px;
-    color: #420422;
-    text-transform: uppercase;
     display: flex;
-    margin-top: 5vh;
-    justify-content: center;
-}
-
-.numerov {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 36px;
-    line-height: 32px;
-    color: white;
-    text-transform: uppercase;
-    display: flex;
-    margin-top: 5vh;
-    justify-content: center;
-
-}
-
-.campo_branco {
-    height: 84px;
-
-    font-family: 'Chivo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-
-}
-
-.campo_vinho {
-    height: 84px;
-
-    font-family: 'Chivo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-    flex-wrap: wrap;
-    padding: 10px;
-
-}
-
-
-
-.alinhar-texto1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.container-retangulo {
-    width: 1160px;
-    height: 81px;
-    margin-top: 5vh;
-    margin-left: 9vh;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.caixa-retangulo h2 {
-    font-family: 'Chivo';
-    font-style: normal;
-    font-size: 3vh;
-    line-height: 11vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: #000000;
-}
-
-
-
-.seta {
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-    margin-top: -8vh;
-    margin-right: 4vh;
-
-}
-
-.container-retangulo1 {
-    width: 1160px;
-    height: 81px;
-    margin-top: 7vh;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.Alinhamento-2 {
-    display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    margin-top: 13vh;
-    gap: 46px;
-
-
-}
-
-
-.caixag {
-    width: 565px;
-    height: 251px;
-
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #420422;
-    box-shadow: 0px 15px #42CD2D;
-}
-
-.campo_vinhog {
-    display: flex;
-    justify-content: center;
-    margin-top: 6vh;
-}
-
-.numerog {
-    display: flex;
-    justify-content: center;
-    margin: 8vh;
-    font-family: 'Lato';
-    font-weight: 1000;
-    font-size: 29px;
-}
-
-.metricas {
-    display: flex;
-    justify-content: center;
-
-}
-
-.caixa-metricas-centralizar {
-    display: flex;
-    justify-content: center;
-
+    gap: 8px;
 }
 
 .texto-metrica, .numero-alerta {
     font-family: 'Lato';
     display: flex;
-    font-weight: 1000;
     justify-content: center;
-    margin-top: 5vh;
-
+    margin-top: 12px;
+    font-size: 17px;
 }
 
 .numero-alerta {
     display: flex;
     justify-content: center;
+    margin-top: 1vh;
 }
 
 
 .alinhamento-metricas {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-top: 6vh;
+    margin-top: 0vh;
+    gap: 49px;
+}
 
+.div-central {
+    margin-bottom: 7vh;
+}
+
+.caixa-grupo1 {
+    display: flex;
+    flex-direction: row;
 }
 
 .perigo {
-    width: 205px;
-    height: 198px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, rgba(21, 19, 32, 0.57) 0%, #295B89 100%);
@@ -364,8 +219,8 @@ main h1 {
 }
 
 .alerta {
-    width: 205px;
-    height: 198px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, #387E7A 0%, #427972 100%);
@@ -373,8 +228,8 @@ main h1 {
 }
 
 .ideal {
-    width: 205px;
-    height: 198px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, #3FD127 0%, #58AC57 100%);
@@ -382,8 +237,8 @@ main h1 {
 }
 
 .alerta-quente {
-    width: 205px;
-    height: 198px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, #F9E533 0%, #D2BD4B 100%);
@@ -391,8 +246,8 @@ main h1 {
 }
 
 .perigo-quente {
-    width: 205px;
-    height: 198px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, #DA0909 0%, #E36239 100%);
@@ -403,12 +258,165 @@ main h1 {
 
 
 
+/* KPI */
 
 
+.quadrado1 {
+    width: 135px;
+    height: 116px;
+    display: flex;
+    justify-content: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.quadrado {
+    width: 135px;
+    height: 116px;
+    display: flex;
+    justify-content: center;
+    background: #420422;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.coluna {
+    display: flex;
+    flex-direction: row;
+    gap: 4vh;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+    ;
+}
+
+.retangulo {
+    width: 135px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    background: #420422;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.retangulo1 {
+    width: 135px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 
 
+.sel_barril {
+    width: 303px;
+    height: 44px;
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+    margin-top: 27.4px;
+    color: #000000;
+    text-align: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.numerob {
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    color: #420422;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 2vh;
+    justify-content: center;
+}
+
+.numerov {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 2vh;
+    justify-content: center;
+
+}
+
+.numerobb {
+
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    color: #420422;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 2vh;
+    justify-content: center;
+}
+
+.numerovv {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    margin-bottom: 2vh;
+    justify-content: center;
+
+}
+
+.campo_branco {
+    height: 84px;
+
+    height: 84px;
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.campo_vinho {
+    height: 84px;
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    flex-wrap: wrap;
+    padding: 10px;
+
+}
 
 
+.Alinhamento-1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+/* footer */
 footer {
     background-color: #110000;
     text-align: center;

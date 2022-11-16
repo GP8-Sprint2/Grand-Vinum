@@ -129,13 +129,12 @@ main h1 {
 
 /* Gráfico */
 
-
-.container-dividir {
+.container-total {
     display: flex;
     flex-direction: row;
     gap: 7vh;
+    margin-bottom: 6vh;
 }
-
 
 .dashboard {
     display: flex;
@@ -169,13 +168,13 @@ h3 {
 .caixa1{
     display: flex;
     flex-direction: row;
-    gap: 17px;
+    gap: 16px;
 }
 
 .caixa2{
     display: flex;
     flex-direction: row;
-    gap: 17px;
+    gap: 16px;
 }
 
 .texto-metrica, .numero-alerta {
@@ -202,6 +201,11 @@ h3 {
 
 .div-central {
 margin-bottom: 7vh;
+}
+
+.caixa-grupo1{
+display: flex;
+flex-direction: row; 
 }
 
 .perigo {
@@ -251,6 +255,7 @@ margin-bottom: 7vh;
 
 
 }
+
 
 
 

@@ -10,23 +10,24 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <title>Dashboard</title>
+  <title>Dashboard - Visao detalhada</title>
 </head>
 
 <body>
+
 
   <!-- Header -->
   <div class="header">
     <span> <img src="./assets/menu.png" alt="home" width="20px"></span>
 
     <div class="container">
-        <div class="texto">
-            <img class="user" src="./assets/user.png" alt="">
-            <h1>Olá, <b id="b_usuario"></b>!</h1>
-        </div>
-        <img class="logo" src="./assets/logo2.png" alt="">
+      <div class="texto">
+        <img class="user" src="./assets/user.png" alt="">
+        <h1>Olá, <b id="b_usuario"></b>!</h1>
+      </div>
+      <img class="logo" src="./assets/logo2.png" alt="">
     </div>
-</div>
+  </div>
 
 
   <!-- Navbar -->
@@ -39,207 +40,377 @@
         <li><a href="index.html"><span class="material-symbols-outlined">logout</span></li></a>
       </ul>
     </aside>
+    <div>
+    </div>
+
+    <!-- Gráficos -->
+
     <main>
 
-      <div class="caixa-alinhamento1">
-        <div class="Alinhamento-1">
+      <!-- Umidade -->
+      <div class="container-total">
+        <div class="container-umidade">
+          <div class="container-texto">
+            <h3>Gráfico De Umidade Nas últimas 12 Horas</h3>
+          </div>
 
-          <div class="caixa1">
-            <div class="alinhar-texto1">
-              <h2 class="campo_branco">Quantidade de Barris na Temperatura ideal</h2>
-              <h2 class="numerob">10</h2>
+
+          <div class="temperatura-centralizar">
+            <div class="caixag">
+              <div class="dashboard">
+                <canvas id="myChart2" style="width: 550px; height: 250px;"></canvas>
+              </div>
             </div>
           </div>
 
-            
-          <div class="caixa2">
-            <div class="alinhar-texto1">
-            <h2 class="campo_vinho">Quantidade de Barris fora da Temperatura ideal</h2>
-            <h2 class="numerov">25</h2>
+          <div class="container-texto">
+            <h3>Métricas Umidade</h3>
+          </div>
+
+          <div class="alinhamento-metricas">
+
+            <div class="caixa1">
+              <div class="caixa-alertas">
+                <div class="perigo">
+                  <div class="alinhar-texto">
+                    <h2 class="texto-metrica">Perigo</h2>
+                    <h2 class="numero-alerta">50%</h2>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="caixa-alertas">
+                <div class="alerta">
+                  <div class="alinhar-texto">
+                    <h2 class="texto-metrica">Alerta</h2>
+                    <h2 class="numero-alerta">52%</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="caixa-alertas">
+                <div class="ideal">
+                  <div class="alinhar-texto">
+                    <h2 class="texto-metrica">Ideal</h2>
+                    <h2 class="numero-alerta">56%</h2>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="caixa-alertas">
+                <div class="alerta-quente">
+                  <div class="alinhar-texto">
+                    <h2 class="texto-metrica">Alerta</h2>
+                    <h2 class="numero-alerta">58%</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="caixa-alertas">
+                <div class="perigo-quente">
+                  <div class="alinhar-texto">
+                    <h2 class="texto-metrica">Perigo</h2>
+                    <h2 class="numero-alerta">60%</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
 
-           
-          <div class="caixa1">
-            <div class="alinhar-texto1">
-            <h2 class="campo_branco"> Quantidade de Barris na Umidade ideal</h2>
-            <h2 class="numerob">0</h2>
+        <!-- KPIS -->
+
+        <div class="container-kpi">
+
+          <div class="coluna">
+            <div class="quadrado1">
+              <div class="Alinhamento-1">
+                <h2 class="campo_branco">Quantidade de Barris na Temperatura ideal</h2>
+                <h2 class="numerob">10</h2>
+              </div>
+            </div>
+
+            <div class="quadrado">
+              <div class="Alinhamento-1">
+                <h2 class="campo_vinho">Quantidade de Barris fora da Temperatura ideal</h2>
+                <h2 class="numerov">25</h2>
+
+              </div>
             </div>
           </div>
 
-        
+          <div class="coluna">
+            <div class="quadrado1">
+              <div class="Alinhamento-1">
+                <h2 class="campo_branco"> Quantidade de Barris na Umidade ideal</h2>
+                <h2 class="numerob">0</h2>
+              </div>
+            </div>
+
+            <div class="quadrado">
+              <div class="Alinhamento-1">
+                <h2 class="campo_vinho">Quantidade de Barris fora da Umidade ideal</h2>
+                <h2 class="numerov">15</h2>
+              </div>
+            </div>
+          </div>
+
+          <select name="" class="sel_barril" id="sel_barril">
+            <option value="1">Barril 1</option>
+            <option value="1">Barril 2</option>
+            <option value="2">Barril 3</option>
+          </select>
+
+          <div class="coluna">
+            <div class="retangulo1">
+              <div class="Alinhamento-1">
+                <h2 class="campo_branco">Umidade</h2>
+                <h2 class="numerobb">50%
+                </h2>
+              </div>
+              
+            </div>
+            <div class="retangulo">
+              <div class="Alinhamento-1">
+                <h2 class="campo_vinho">Temperatura</h2>
+                <h2 class="numerovv">18ºC</h2>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Temperatura -->
+        <div class="container-temperatura">
+          <div class="container-texto">
+            <h3>Gráfico De Temperatura Nas últimas 12 Horas</h3>
+          </div>
+
+          <div class="umidade-centralizar">
+            <div class="caixa-alinhamento">
+              <div class="dashboard">
+                <canvas id="myChart" style="width: 550px; height: 250px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-texto">
+            <h3>Métricas Temperatura</h3>
+          </div>
+
           <div class="caixa2">
-            <div class="alinhar-texto1">
-              <h2 class="campo_vinho">Quantidade de Barris fora da Umidade ideal</h2>
-              <h2 class="numerov">15</h2>
+            <div class="caixa-alertas">
+              <div class="perigo">
+                <div class="alinhar-texto">
+                  <h2 class="texto-metrica">Perigo</h2>
+                  <h2 class="numero-alerta">12ºC</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="caixa-alertas">
+              <div class="alerta">
+                <div class="alinhar-texto">
+                  <h2 class="texto-metrica">Alerta</h2>
+                  <h2 class="numero-alerta">13ºC</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="caixa-alertas">
+              <div class="ideal">
+                <div class="alinhar-texto">
+                  <h2 class="texto-metrica">Ideal</h2>
+                  <h2 class="numero-alerta">15ºC</h2>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="caixa-alertas">
+              <div class="alerta-quente">
+                <div class="alinhar-texto">
+                  <h2 class="texto-metrica">Alerta</h2>
+                  <h2 class="numero-alerta">17ºC</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="caixa-alertas">
+              <div class="perigo-quente">
+                <div class="alinhar-texto">
+                  <h2 class="texto-metrica">Perigo</h2>
+                  <h2 class="numero-alerta">18ºC</h2>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-       
 
-      <div class="container-retangulo">
-        <div class="caixa-retangulo">
-          <h2>Barril 1</h2>
-          <div class="seta"><img src="./assets/seta-barril.png" alt="seta" width="30vh"></div>
-        </div>
-
-        <div class="caixa-alinhamento2">
-
-          <div class="Alinhamento-2">
-
-            <div class="caixag">
-              <h2 class="campo_vinhog"> Temperatura Atual</h2>
-              <h2 class="numerog">15ºC</h2>
-
-            </div>
-
-            <div class="caixag">
-              <h2 class="campo_vinhog"> Umidade Atual</h2>
-              <h2 class="numerog">56%</h2>
-            </div>
-          </div>
-
-
-          <!-- Caixa Alertas -->
-
-
-          <div class="container-retangulo1">
-            <div class="caixa-retangulo">
-              <h2>Métricas Temperatura</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="alinhamento-metricas">
-
-          <div class="caixa-alertas">
-            <div class="perigo">
-              <div class="alinhar-texto">
-                <h2 class="texto-metrica">Perigo</h2>
-                <h2 class="numero-alerta">12ºC</h2>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="caixa-alertas">
-            <div class="alerta">
-              <div class="alinhar-texto">
-                <h2 class="texto-metrica">Alerta</h2>
-                <h2 class="numero-alerta">13ºC</h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="caixa-alertas">
-            <div class="ideal">
-              <div class="alinhar-texto">
-              <h2 class="texto-metrica">Ideal</h2>
-                <h2 class="numero-alerta">15ºC</h2>
-            </div>
-          </div>
-        </div>
-
-
-          <div class="caixa-alertas">
-            <div class="alerta-quente">
-              <div class="alinhar-texto">
-              <h2 class="texto-metrica">Alerta</h2>
-                <h2 class="numero-alerta">17ºC</h2>
-            </div>
-          </div>
-        </div>
-
-          <div class="caixa-alertas">
-            <div class="perigo-quente">
-              <div class="alinhar-texto">
-              <h2 class="texto-metrica">Perigo</h2>
-                <h2 class="numero-alerta">18ºC</h2>
-            </div>
-          </div>
-        </div>
-
-        </div>
-
-
-        <!-- Caixa Alertas -->
-        <div class="container-retangulo1">
-          <div class="caixa-retangulo">
-            <h2>Métricas Umidade</h2>
-          </div>
-        </div>
-
-        <div class="alinhamento-metricas">
-
-          <div class="caixa-alertas">
-            <div class="perigo">
-              <div class="alinhar-texto">
-                <h2 class="texto-metrica">Perigo</h2>
-                <h2 class="numero-alerta">50%</h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="caixa-alertas">
-            <div class="alerta">
-              <div class="alinhar-texto">
-                <h2 class="texto-metrica">Alerta</h2>
-                <h2 class="numero-alerta">52%</h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="caixa-alertas">
-            <div class="ideal">
-              <div class="alinhar-texto">
-              <h2 class="texto-metrica">Ideal</h2>
-                <h2 class="numero-alerta">56%</h2>
-            </div>
-          </div>
-        </div>
-
-
-          <div class="caixa-alertas">
-            <div class="alerta-quente">
-              <div class="alinhar-texto">
-              <h2 class="texto-metrica">Alerta</h2>
-                <h2 class="numero-alerta">58%</h2>
-            </div>
-          </div>
-        </div>
-
-          <div class="caixa-alertas">
-            <div class="perigo-quente">
-              <div class="alinhar-texto">
-              <h2 class="texto-metrica">Perigo</h2>
-                <h2 class="numero-alerta">60%</h2>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <!-- Footer -->
   </div>
-
-  </main>
-
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-
   <footer> Copyright &copy; 2022 Soluções Grand Vinum - Todos os direitos reservados - Desenvolvido por Grand Vinum
   </footer>
-
   </main>
-  </div>
-
 </body>
 
-</html>
+
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;  
+
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  // Gráfico 1
+  const labels = [
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Temperatura',
+      backgroundColor: 'rgb(229, 168, 71)',
+      borderColor: 'rgb(228, 161, 74)',
+      data: [16.0, 18.4, 19.8, 20, 22, 23],
+    }
+
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+
+  // Gráfico 2
+  const labels2 = [
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+  ];
+
+  const data2 = {
+    labels: labels2,
+    datasets: [{
+      label: 'Umidade',
+      backgroundColor: 'rgb(100, 15, 25)',
+      borderColor: 'rgb(100, 15, 25)',
+      data: [70, 61, 80, 71, 92, 60, 50],
+    },
+    ]
+  };
+
+  const config2 = {
+    type: 'line',
+    data: data2,
+    options: {}
+  };
+
+
+  // Gráfico 3
+
+
+  const labels3 = [
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+  ];
+
+  const data3 = {
+    labels: labels3,
+
+    datasets: [{
+      label: 'Temperatura',
+      backgroundColor: 'rgb(229, 168, 71)',
+      borderColor: 'rgb(228, 161, 74)',
+      data: [16.0, 18.4, 19.8, 20, 22, 23],
+    },
+    {
+      label: 'Umidade',
+      backgroundColor: 'rgb(100, 15, 25)',
+      borderColor: 'rgb(100, 15, 25)',
+      data: [70, 61, 80, 71, 92, 60, 50],
+    }
+
+    ]
+  };
+
+  const config3 = {
+    type: 'line',
+    data: data3,
+    options: {
+      responsive: true,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      stacked: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Gráfico Temperatura e umidade'
+
+        }
+      },
+      scales: {
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+
+        },
+        y1: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+
+          // grid line settings
+          grid: {
+            drawOnChartArea: false, // only want the grid lines for one axis to show up
+          },
+        },
+      }
+    },
+  };
+
+
+</script>
+
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+  const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+  );
+
+  const myChart3 = new Chart(
+    document.getElementById('myChart3'),
+    config3
+  );
+
+
+
 
 </script>
