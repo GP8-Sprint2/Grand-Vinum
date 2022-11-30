@@ -96,6 +96,21 @@ form.card {
     width: 100%;
 }
 
+.active::after {
+     
+    content: " ";
+    width: 100%;
+    height: 2px;
+    background-color: #e3b062;
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    transition: 0.5s;
+    border-radius: 2px;
+
+}
+
+
 a {
     color: white;
     text-decoration: none;

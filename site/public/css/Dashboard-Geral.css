@@ -258,6 +258,25 @@ flex-direction: row;
 
 
 
+/* Marcação */
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: transparent;
+    border-radius: 100px;
+    transition: .2 ease;
+}
+
+a:hover{
+    background-color: #420422;
+}
+
+.active{
+    width: 100%;
+    background-color: #420422;
+}
 
 
 
