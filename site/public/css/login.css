@@ -256,6 +256,14 @@ body {
     
 }
 
+.resultado-invalido {
+    font-family: 'Chivo', sans-serif;
+    font-size: 15px;
+    color: rgb(255, 0, 0);
+
+}
+
+
 .card-footer .submit {
     border-radius: 5px;
     
