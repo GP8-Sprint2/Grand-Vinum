@@ -10,7 +10,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="./js/funcoes.js"></script>
+  
   <title>Dashboard - Visao detalhada</title>
 </head>
 
@@ -35,17 +35,12 @@
   <div class="container">
     <aside class="menu">
       <ul>
-        <li><a href="dashboard.html" class="active"><img src="./assets/home.png" alt="home" width="22px" height="22px">
-        </li></a>
-        <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px" height="22px">
-        </li></a>
-        <li><a href="dashboardconfig.html"><img src="./assets/localizacao.png" alt="settings" width="22px"
-              height="22px"></li></a>
-        <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px"></li></a>
+        <li><a href="dashboard.html"><span class="material-symbols-outlined">home</span></li></a>
+        <li><a href="dashboard-Geral.html"><span class="material-symbols-outlined">monitoring</span></li></a>
+        <li><a href="dashboardconfig.html"><span class="material-symbols-outlined">settings</span></li></a>
+        <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px">
       </ul>
     </aside>
-    <div>
-    </div>
 
     <!-- Gráficos -->
 
@@ -55,7 +50,7 @@
       <div class="container-total">
         <div class="container-umidade">
           <div class="container-texto">
-            <h3>Gráfico De Umidade Nas últimas 6 Horas</h3>
+            <h3>Gráfico De Umidade Em Tempo Real</h3>
           </div>
 
 
@@ -133,14 +128,14 @@
             <div class="quadrado1">
               <div class="Alinhamento-1">
                 <h2 class="campo_branco">Quantidade de Barris na Temperatura ideal</h2>
-                <h2 class="numerob">10</h2>
+                <h2 class="numerob" id="tempIdeal"></h2>
               </div>
             </div>
 
             <div class="quadrado">
               <div class="Alinhamento-1">
                 <h2 class="campo_vinho">Quantidade de Barris fora da Temperatura ideal</h2>
-                <h2 class="numerov">25</h2>
+                <h2 class="numerov" id="tempForaIdeal"></h2>
 
               </div>
             </div>
@@ -150,40 +145,40 @@
             <div class="quadrado1">
               <div class="Alinhamento-1">
                 <h2 class="campo_branco"> Quantidade de Barris na Umidade ideal</h2>
-                <h2 class="numerob">0</h2>
+                <h2 class="numerob" id="umidadeIdeal"></h2>
               </div>
             </div>
 
             <div class="quadrado">
               <div class="Alinhamento-1">
                 <h2 class="campo_vinho">Quantidade de Barris fora da Umidade ideal</h2>
-                <h2 class="numerov">15</h2>
+                <h2 class="numerov" id="umidadeForaIdeal"></h2>
               </div>
             </div>
           </div>
 
-          <div class="coluna">
+          <!-- <div class="coluna">
             <div class="quadradoMaior">
               <div class="Alinhamento-1">
                 <h2 class="campo_branco"> Quantidade de Barris cadastros no sistema</h2>
-                <h2 class="numerob">4</h2>
+                <h2 class="numerob" id="qtdTemp">4</h2>
               </div>
             </div>
 
             <div class="quadradoMaiorv">
               <div class="Alinhamento-1">
                 <h2 class="campo_vinho">Quantidade de Barris em estado de alerta</h2>
-                <h2 class="numerov">2</h2>
+                <h2 class="numerov" id="qtdUm">2</h2>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
         <!-- Temperatura -->
         <div class="container-temperatura">
           <div class="container-texto">
-            <h3>Gráfico De Temperatura Nas últimas 6 Horas</h3>
+            <h3>Gráfico De Temperatura Em Tempo Real</h3>
           </div>
 
           <div class="umidade-centralizar">
@@ -256,9 +251,7 @@
   </main>
 </body>
 
-
 <script>
-
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
   let proximaAtualizacao;
@@ -593,5 +586,4 @@
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
   }
-
 </script>
