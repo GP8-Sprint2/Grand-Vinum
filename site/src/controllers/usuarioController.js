@@ -33,7 +33,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -80,7 +80,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, cnpj, telCel, email, senha)
             .then(
@@ -100,9 +100,99 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarEndereco(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var cep = req.body.cep;
+    var cidade = req.body.cidade;
+    var bairro = req.body.bairro;
+    var logradouro = req.body.logradouro;
+    var numero = req.body.numero;
+    var complemento = req.body.complemento;
+    var idCadastroCliente = req.body.idCadastroCliente;
+
+    // Faça as validações dos valores
+    if (cep == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Seu cidade está undefined!");
+    } else if (bairro == undefined) {
+        res.status(400).send("Seu número de telefone está undefined!");
+    } else if (logradouro == undefined) {
+        res.status(400).send("Seu logradouro está undefined!");
+    } else if (numero == undefined) {
+        res.status(400).send("Sua numero está undefined!");
+    } else if (complemento == undefined) {
+        res.status(400).send("Sua complemento está undefined!");
+    } else if (idCadastroCliente == undefined) {
+        res.status(400).send("Sua idCadastroCliente está undefined!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarEndereco(cep, cidade, bairro, logradouro, numero, complemento, idCadastroCliente)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function carregarEndereco(req, res) {
+    var idCadastroCliente = req.params.idCadastroCliente
+
+    if (idCadastroCliente == undefined) {
+        res.status(400).send("Seu idCadastroCliente está undefined!");
+    } else {
+        usuarioModel.carregarEndereco(idCadastroCliente)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function excluirEndereco(req, res) {
+    var idEndereco = req.params.idEndereco;
+
+    usuarioModel.excluirEndereco(idEndereco)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    cadastrarEndereco,
+    carregarEndereco,
+    excluirEndereco
 }

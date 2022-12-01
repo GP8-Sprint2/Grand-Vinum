@@ -123,7 +123,6 @@ li {
     align-items: center;
 }
 
-
 div .container {
     justify-content: space-between;
 }
@@ -162,7 +161,6 @@ main h1 {
 }
 
 
-
 .container_caixa {
         width: 508px;
         height: 713px;
@@ -186,7 +184,6 @@ main h1 {
     margin-bottom: 70px;
 
 }
-
 
 .campo {
     margin-top: 25px;
@@ -244,11 +241,9 @@ main h1 {
 
 }
 
-
 .botao button:hover {
     opacity: 0.8;
 }
-
 
 .caixa-formulario-enderecos {
     width: 119vh;
@@ -320,9 +315,6 @@ h4 {
     margin-left: 10px;
 }
 
-
-
-
 .contador p {
     display: flex;
     justify-content: flex-end;
@@ -378,4 +370,47 @@ a:hover{
 .active{
     width: 100%;
     background-color: #420422;
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    top: 20%;
+    left: 41.5%;
+    width: 230px;
+    position: absolute;
+    border-radius: 4px;
+    border: #64173C 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+    color: black !important;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#div_erros_login {
+    margin-top: 40px;
+    color: #64173C;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.loading-div {
+    position: absolute;
+    display: none;
+    margin: 0 0;
+}
+
+.loading-div img {
+    display: none;
+    height: 70px;
+    width: 70px;
 }

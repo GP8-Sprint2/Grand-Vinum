@@ -9,10 +9,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./css/Dashboardconfig.css">
+    <script src="./js/funcoes.js"></script>
     <title>Configurações</title>
 </head>
 
-<body>
+<body onload="carregarEndereco()">
 
     <!-- Header -->
     <div class="header">
@@ -32,11 +33,15 @@
     <div class="container1">
         <aside class="menu">
             <ul>
-                <li><a href="dashboard.html"><img src="./assets/home.png" alt="home" width="22px" height="22px"></li></a>
-                <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px" height="22px"></li></a>
-                <li><a href="dashboardconfig.html" class="active"><img src="./assets/localizacao.png" alt="settings" width="22px" height="22px"></li></a>
-                <li><a href="index.html"><img src="./assets/porta.png" alt="logout" width="22px" height="22px"></li></a>
-              </ul>
+                <li><a href="dashboard.html"><img src="./assets/home.png" alt="home" width="22px" height="22px"></li>
+                </a>
+                <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px"
+                            height="22px"></li></a>
+                <li><a href="dashboardconfig.html" class="active"><img src="./assets/localizacao.png" alt="settings"
+                            width="22px" height="22px"></li></a>
+                <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px">
+                </li></a>
+            </ul>
         </aside>
 
 
@@ -76,8 +81,8 @@
                         </label>
                     </div>
 
-                   
-                    
+
+
                     <div class="campo">
                         <label for="Número">Número
                             <input type="text" placeholder="Digite o Número" id="in_numero">
@@ -91,23 +96,15 @@
                         </label>
                     </div>
 
-                  
-
-                  
-
                     <div class="caixa_botao">
                         <div class="botao">
-                            <button onclick="adicionar()">ADICIONAR</button>
+                            <button onclick="cadastrarEndereco()">ADICIONAR</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-
-
-
-
 
         <div class="caixa-formulario-enderecos">
             <div class="caixa-forms">
@@ -128,11 +125,18 @@
                         </div>
                     </div>
 
-                   
+
 
                 </div>
             </div>
         </div>
+
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
     </div>
 
 
@@ -148,12 +152,13 @@
 </html>
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var idCadastroCliente = sessionStorage.ID_USUARIO;
 
     const options = {
-    method: "GET",
-    mode: "cors",
-    caches: "default"
-}
+        method: "GET",
+        mode: "cors",
+        caches: "default"
+    }
 
     const cep = document.getElementById("in_cep")
     cep.addEventListener("blur", (e) => {
@@ -161,102 +166,178 @@
         let search = cep.value.replace("-", "")
         fetch(`https://viacep.com.br/ws/${search}/json/`, options).then((response) => {
             response.json().then(data => {
-            console.log(data)
-            document.getElementById("in_bairro").value = data.bairro;
-            document.getElementById("in_cidade").value = data.localidade;
-            document.getElementById("in_logradouro").value = data.logradouro;
-           
+                console.log(data)
+                document.getElementById("in_bairro").value = data.bairro;
+                document.getElementById("in_cidade").value = data.localidade;
+                document.getElementById("in_logradouro").value = data.logradouro;
 
+
+            })
         })
     })
-})
 
-function enviar() {
-    let bairro = document.getElementById("in_bairro").value;
-    let localidade = document.getElementById("in_cidade").value;
-    let logradouro = document.getElementById("in_logradouro").value;
-   
-    let json = {
-        "bairro": bairro,
-        "localidade": localidade,
-        "logradouro": logradouro
+    function enviar() {
+        let bairro = document.getElementById("in_bairro").value;
+        let localidade = document.getElementById("in_cidade").value;
+        let logradouro = document.getElementById("in_logradouro").value;
+
+        let json = {
+            "bairro": bairro,
+            "localidade": localidade,
+            "logradouro": logradouro
+        }
+        console.log(json)
     }
-    console.log(json)
-}
 
+    function cadastrarEndereco() {
 
+        if (sessionStorage.ENDERECO1 == 0 && sessionStorage.ENDERECO2 == 0) {
+            alert("Só é possível cadastrar 2 endereços!")
+            return false;
+        } else {
 
-
-
-
-
-
-    function adicionar() {
         var cep = in_cep.value
         var cidade = in_cidade.value
         var bairro = in_bairro.value
         var logradouro = in_logradouro.value
         var numero = in_numero.value
-        var Complemento = in_complemento.value
+        var complemento = in_complemento.value
 
 
         if (cep == "" || cidade == "" || bairro == "" || logradouro == "" || numero == "") {
-            alert('Um ou mais campos em branco! Por favor insira os dados solicitados.')
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        } else if (complemento == ``) {
+            complemento = "não definido"
         } else {
-            alert('Endereço adicionado com sucesso!')
-
-            if (div_resultado.innerHTML.length > 0) {
-                div_resultado2.innerHTML =
-
-                    // caixa
-                    `
-                    <div class= "campo_resultado">
-                        CEP: ${cep} <br>
-                        Logradouro: ${logradouro} <br>
-                        Número: ${numero} <br>
-                        Complemento: ${Complemento} <br>
-                        Bairro: ${bairro} <br>
-                        Cidade: ${cidade} <br>
-                        <div class="lixo">
-                            <img src="./assets/Lixo.png" alt="" onclick="lixo2()">
-                        </div>
-                    </div>     
-                    `
-            } else {
-                // caixa 1
-                div_resultado.innerHTML =
-                    `
-                    <div class= "campo_resultado">
-                        CEP: ${cep} <br>
-                        Logradouro: ${logradouro} <br>
-                        Número: ${numero} <br>
-                        Complemento: ${Complemento} <br>
-                        Bairro: ${bairro} <br>
-                        Cidade: ${cidade} <br>
-                        <div class="lixo">
-                            <img src="./assets/Lixo.png" alt="" onclick="lixo1()">
-                        </div>
-                    </div>     
-                    `
-            }
+            setInterval(sumirMensagem, 5000)
         }
 
+        fetch("/usuarios/cadastrarEndereco", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                cep,
+                cidade,
+                bairro,
+                logradouro,
+                numero,
+                complemento,
+                idCadastroCliente
+            })
+        }).then(function (resposta) {
 
+            console.log("resposta: ", resposta);
 
+            if (resposta.ok) {
+                cardErro.style.display = "block";
 
+                mensagem_erro.innerHTML = "Endreço cadastrado com sucesso";
+
+                setTimeout(() => {
+
+                }, 2000)
+                carregarEndereco();
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro do endereço!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
     }
 
-    function lixo1() {
-        div_resultado.innerHTML = ``
+
+    function carregarEndereco() {
+
+        fetch(`/usuarios/carregarEndereco/${idCadastroCliente}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta);
+
+
+                    if (resposta[0].idEndereco == "undefined") {
+                        sessionStorage.ENDERECO1 = 0
+                        div_resultado.innerHTML = "Não possui endereço cadastrado!"
+                    } else {
+                        sessionStorage.ENDERECO1 = resposta[0].idEndereco
+                        div_resultado.innerHTML = `
+                            <div class="campo_resultado">
+                                CEP: ${resposta[0].cep} <br>
+                                Logradouro: ${resposta[0].logradouro} <br>
+                                Número: ${resposta[0].numero} <br>
+                                Complemento: ${resposta[0].complemento} <br>
+                                Bairro: ${resposta[0].bairro} <br>
+                                Cidade: ${resposta[0].cidade} <br>
+                                <div class="lixo">
+                                    <img src="./assets/Lixo.png" alt="" onclick="excluirEndereco(${resposta[0].idEndereco})">
+                                </div>
+                            </div>   `
+                    }
+
+                    if (resposta[1].idEndereco == "undefined") {
+                        sessionStorage.ENDERECO2 = 0
+                        div_resultado2.innerHTML = "Não possui endereço cadastrado!"
+                    } else {
+                        sessionStorage.ENDERECO2 = resposta[1].idEndereco
+                        div_resultado2.innerHTML = `
+                            <div class="campo_resultado">
+                                CEP: ${resposta[1].cep} <br>
+                                Logradouro: ${resposta[1].logradouro} <br>
+                                Número: ${resposta[1].numero} <br>
+                                Complemento: ${resposta[1].complemento} <br>
+                                Bairro: ${resposta[1].bairro} <br>
+                                Cidade: ${resposta[1].cidade} <br>
+                                <div class="lixo">
+                                    <img src="./assets/Lixo.png" alt="" onclick="excluirEndereco(${resposta[1].idEndereco})">
+                                </div>
+                            </div>   `
+                    }
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
-    function lixo2() {
-        div_resultado2.innerHTML = ``
+
+    function excluirEndereco(idEndereco) {
+        console.log(idEndereco);
+
+        fetch(`/usuarios/excluirEndereco/${idEndereco}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Endereço deletado com sucesso")
+                window.location = "dashboardconfig.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
-
-
-
-
 
 
 </script>

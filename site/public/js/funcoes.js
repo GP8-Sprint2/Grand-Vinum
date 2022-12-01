@@ -18,10 +18,10 @@ function validarSessao() {
 }
 
 function limparSessao() {
-    aguardar();
+    // aguardar();
     sessionStorage.clear();
     finalizarAguardar();
-    window.location = "../login.html";
+    window.location = "index.html";
 }
 
 // // carregamento (loading)
@@ -32,14 +32,13 @@ function aguardar() {
 
 function finalizarAguardar(texto) {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
+    // divAguardar.style.display = "none";
 
     var divErrosLogin = document.getElementById("div_erros_login");
     if (texto) {
         divErrosLogin.innerHTML = texto;
     }
 }
-
 
 // modal
 function mostrarModal() {
