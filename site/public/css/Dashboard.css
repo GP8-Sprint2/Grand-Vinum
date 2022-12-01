@@ -103,6 +103,7 @@ li {
 
 
 
+
 div .container {
     justify-content: space-between;
 }
@@ -163,7 +164,7 @@ h3 {
 }
 
 /* Marcação */
-a{
+a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,11 +174,11 @@ a{
     transition: .2 ease;
 }
 
-a:hover{
+a:hover {
     background-color: #420422;
 }
 
-.active{
+.active {
     width: 100%;
     background-color: #420422;
 }
@@ -292,8 +293,7 @@ a:hover{
 
 .quadradoMaior {
     width: 135px;
-    height: 130px
-    ;
+    height: 130px;
     display: flex;
     justify-content: center;
     background: #F1F1F1;
@@ -322,9 +322,9 @@ a:hover{
     display: flex;
     flex-direction: row;
     gap: 4vh;
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
     margin-top: 3vh;
-    ;
+
 }
 
 .retangulo {
@@ -336,13 +336,14 @@ a:hover{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.retangulo1 {
+.umidade_alerta, .temperatura_alerta {
     width: 135px;
-    height: 70px;
+    height: 68px;
     display: flex;
     justify-content: center;
     background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-bottom: 8px solid #295B89;
 }
 
 
@@ -357,7 +358,7 @@ a:hover{
     justify-content: center;
     align-items: center;
     margin-bottom: 3vh;
-    margin-top: 27.4px;
+    margin-top: 28.4px;
     color: #000000;
     text-align: center;
     background: #F1F1F1;
@@ -416,6 +417,10 @@ a:hover{
 
 }
 
+option {
+    color:#000000
+}
+
 .campo_branco {
     height: 84px;
 
@@ -429,7 +434,7 @@ a:hover{
     text-align: center;
     color: #000000;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 8px;
 }
 
 .campo_vinho {
