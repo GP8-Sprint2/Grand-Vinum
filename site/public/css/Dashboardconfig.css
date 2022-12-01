@@ -17,8 +17,6 @@ body {
 }
 
 
-
-
 body::-webkit-scrollbar {
     width: 6px;
     /* width of the entire scrollbar */
@@ -138,6 +136,7 @@ div .container {
 div .container1 {
     justify-content: space-between;
 }
+
 main {
     margin: 0;
     height: 80%;
@@ -162,11 +161,11 @@ main h1 {
 
 
 .container_caixa {
-        width: 508px;
-        height: 713px;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #FFFFFF;
-        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    }
+    width: 508px;
+    height: 713px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #FFFFFF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
 
 
 .titulo h3 {
@@ -220,6 +219,7 @@ main h1 {
     justify-content: center;
     margin-top: 40px;
 }
+
 .botao button {
     display: flex;
     width: 135.42px;
@@ -277,16 +277,16 @@ main h1 {
 
 .enderecos-um {
     width: 36vh;
-    height: 34vh;
-
+    min-height: max-content;
+    margin-bottom: 5%;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .enderecos-dois {
     width: 36vh;
-    height: 34vh;
-
+    min-height: max-content;
+    margin-bottom: 5%;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -304,15 +304,10 @@ h4 {
 
 .lixo {
     display: flex;
+    align-items: flex-end;
     justify-content: flex-end;
     cursor: pointer;
 
-}
-
-.resultado img {
-    display: flex;
-    margin-top: 5vh;
-    margin-left: 10px;
 }
 
 .contador p {
@@ -328,19 +323,15 @@ h4 {
 .campo_resultado {
     display: flex;
     flex-direction: column;
-    margin-right: 45px;
-    margin-left: 30px;
-    margin-bottom: 100px;
-    margin-top: 20px;
+    margin: 5% 10%;
     color: rgba(11, 5, 5, 1);
     font-weight: 300;
     font-size: 15px;
 }
 
-
-.lixo img {
-    display: flex;
-justify-content: flex-end;
+.resultado {
+    color: black;
+    text-align: center;
 }
 
 footer {
@@ -353,7 +344,7 @@ footer {
 }
 
 /* Marcação */
-a{
+a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -363,11 +354,11 @@ a{
     transition: .2 ease;
 }
 
-a:hover{
+a:hover {
     background-color: #420422;
 }
 
-.active{
+.active {
     width: 100%;
     background-color: #420422;
 }

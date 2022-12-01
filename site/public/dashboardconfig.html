@@ -33,14 +33,15 @@
     <div class="container1">
         <aside class="menu">
             <ul>
-                <li><a href="dashboard.html"><img src="./assets/home.png" alt="home" width="22px" height="22px"></li>
-                </a>
+                <li><a href="dashboard.html"><img src="./assets/home.png" alt="home" width="22px" height="22px"></a>
+                </li>
+
                 <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px"
-                            height="22px"></li></a>
+                            height="22px"></a></li>
                 <li><a href="dashboardconfig.html" class="active"><img src="./assets/localizacao.png" alt="settings"
-                            width="22px" height="22px"></li></a>
+                            width="22px" height="22px"></a></li>
                 <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px">
-                </li></a>
+                    </a></li>
             </ul>
         </aside>
 
@@ -80,7 +81,6 @@
                             <input type="text" placeholder="Digite o Logradouro" id="in_logradouro">
                         </label>
                     </div>
-
 
 
                     <div class="campo">
@@ -125,8 +125,6 @@
                         </div>
                     </div>
 
-
-
                 </div>
             </div>
         </div>
@@ -153,6 +151,10 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var idCadastroCliente = sessionStorage.ID_USUARIO;
+    sessionStorage.ENDERECO1 = 0
+    sessionStorage.ENDERECO2 = 0
+    div_resultado.innerHTML = `Não possui endereço cadastrado`
+    div_resultado2.innerHTML = `Não possui endereço cadastrado`
 
     const options = {
         method: "GET",
@@ -191,70 +193,70 @@
 
     function cadastrarEndereco() {
 
-        if (sessionStorage.ENDERECO1 == 0 && sessionStorage.ENDERECO2 == 0) {
+        if (sessionStorage.ENDERECO1 != 0 && sessionStorage.ENDERECO2 != 0) {
             alert("Só é possível cadastrar 2 endereços!")
             return false;
         } else {
 
-        var cep = in_cep.value
-        var cidade = in_cidade.value
-        var bairro = in_bairro.value
-        var logradouro = in_logradouro.value
-        var numero = in_numero.value
-        var complemento = in_complemento.value
+            var cep = in_cep.value
+            var cidade = in_cidade.value
+            var bairro = in_bairro.value
+            var logradouro = in_logradouro.value
+            var numero = in_numero.value
+            var complemento = in_complemento.value
 
 
-        if (cep == "" || cidade == "" || bairro == "" || logradouro == "" || numero == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            if (cep == "" || cidade == "" || bairro == "" || logradouro == "" || numero == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-            finalizarAguardar();
-            return false;
-        } else if (complemento == ``) {
-            complemento = "não definido"
-        } else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        fetch("/usuarios/cadastrarEndereco", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                cep,
-                cidade,
-                bairro,
-                logradouro,
-                numero,
-                complemento,
-                idCadastroCliente
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Endreço cadastrado com sucesso";
-
-                setTimeout(() => {
-
-                }, 2000)
-                carregarEndereco();
-                limparFormulario();
                 finalizarAguardar();
+                return false;
+            } else if (complemento == ``) {
+                complemento = "não definido"
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro do endereço!");
+                setInterval(sumirMensagem, 5000)
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
 
-        return false;
-    }
+            fetch("/usuarios/cadastrarEndereco", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    cep,
+                    cidade,
+                    bairro,
+                    logradouro,
+                    numero,
+                    complemento,
+                    idCadastroCliente
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML = "Endreço cadastrado com sucesso";
+
+                    setTimeout(() => {
+
+                    }, 2000)
+                    carregarEndereco();
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro do endereço!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+        }
     }
 
 
@@ -266,11 +268,7 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     console.log(resposta);
 
-
-                    if (resposta[0].idEndereco == "undefined") {
-                        sessionStorage.ENDERECO1 = 0
-                        div_resultado.innerHTML = "Não possui endereço cadastrado!"
-                    } else {
+                    if (resposta.length > 0) {
                         sessionStorage.ENDERECO1 = resposta[0].idEndereco
                         div_resultado.innerHTML = `
                             <div class="campo_resultado">
@@ -284,12 +282,9 @@
                                     <img src="./assets/Lixo.png" alt="" onclick="excluirEndereco(${resposta[0].idEndereco})">
                                 </div>
                             </div>   `
-                    }
 
-                    if (resposta[1].idEndereco == "undefined") {
-                        sessionStorage.ENDERECO2 = 0
-                        div_resultado2.innerHTML = "Não possui endereço cadastrado!"
-                    } else {
+
+
                         sessionStorage.ENDERECO2 = resposta[1].idEndereco
                         div_resultado2.innerHTML = `
                             <div class="campo_resultado">
@@ -303,9 +298,10 @@
                                     <img src="./assets/Lixo.png" alt="" onclick="excluirEndereco(${resposta[1].idEndereco})">
                                 </div>
                             </div>   `
-                    }
 
+                    }  
                 });
+
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
@@ -327,6 +323,7 @@
         }).then(function (resposta) {
 
             if (resposta.ok) {
+
                 window.alert("Endereço deletado com sucesso")
                 window.location = "dashboardconfig.html"
             } else if (resposta.status == 404) {
