@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    server: "SEU_SERVIDOR",
-    database: "SEU_BANCO_DE_DADOS",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
+    server: "projetograndvinum.database.windows.net",
+    database: "Grand Vinum",
+    user: "admin-projeto-grandvinum",
+    password: "#Gfgrupo8",
     pool: {
         max: 10,
         min: 0,
@@ -17,12 +17,13 @@ var sqlServerConfig = {
     }
 }
 
+
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
     host: "localhost",
     database: "GrandVinum",
     user: "root",
-    password: "Cl45896321",
+    password: "56674894",
 };
 
 function executar(instrucao) {

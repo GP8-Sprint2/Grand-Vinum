@@ -10,7 +10,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <title>Dashboard - Visao detalhada</title>
 </head>
 
@@ -35,11 +35,14 @@
   <div class="container">
     <aside class="menu">
       <ul>
-        <li><a href="dashboard.html"  class="active"><img src="./assets/home.png" alt="home" width="22px" height="22px"></a></li>
-        <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px" height="22px"></a></li>
-        <li><a href="dashboardconfig.html"><img src="./assets/localizacao.png" alt="settings" width="22px" height="22px"></a></li>
+        <li><a href="dashboard.html" class="active"><img src="./assets/home.png" alt="home" width="22px"
+              height="22px"></a></li>
+        <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px"
+              height="22px"></a></li>
+        <li><a href="dashboardconfig.html"><img src="./assets/localizacao.png" alt="settings" width="22px"
+              height="22px"></a></li>
         <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px"></a></li>
-    </ul>
+      </ul>
     </aside>
 
     <!-- Gráficos -->
@@ -164,7 +167,7 @@
           </select>
 
           <div class="coluna">
-            <div class="umidade_alerta">
+            <div class="umidade_perigo_frio">
               <div class="Alinhamento-1">
                 <h2 class="campo_branco">Umidade</h2>
                 <h2 class="numerobb">50%
@@ -172,7 +175,7 @@
               </div>
             </div>
 
-            <div class="temperatura_alerta">
+            <div class="temperatura_alerta_quente">
               <div class="Alinhamento-1">
                 <h2 class="campo_branco">Temperatura</h2>
                 <h2 class="numerobb">12%
@@ -277,6 +280,115 @@
 
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+
+  function alertar(temperatura, idBarril) {
+    var select = sel_barril.value
+
+    var limites_temperatura = {
+      muito_quente: 18,
+      quente: 17,
+      ideal: 15,
+      frio: 13,
+      muito_frio: 12
+    };
+
+    var classe_temperatura = 'cor-alerta';
+
+    if (temperatura >= limites_temperatura.muito_quente) {
+      alert('oi')
+    }
+    else if (temperatura < limites_temperatura.muito_quente && temperatura >= limites_temperatura.quente) {
+      classe_temperatura = 'cor-alerta alerta-quente';
+      console.log("caiu no 2")
+    }
+    else if (temperatura < limites_temperatura.quente && temperatura > limites_temperatura.frio) {
+      classe_temperatura = 'cor-alerta ideal';
+      console.log("caiu no 3")
+    }
+    else if (temperatura <= limites_temperatura.frio && temperatura > limites_temperatura.muito_frio) {
+      classe_temperatura = 'cor-alerta alerta-frio';
+      console.log("caiu no 4")
+    }
+    else if (temperatura < limites_temperatura.min_temperatura) {
+      classe_temperatura = 'cor-alerta perigo-frio';
+      console.log("caiu no 5")
+    }
+
+    var card;
+
+    if (select == 1) {
+      temp_aquario_1.innerHTML = temperatura + "°C";
+      card = card_1
+    } else if (select == 2) {
+      temp_aquario_2.innerHTML = temperatura + "°C";
+      card = card_2
+    } else if (select == 3) {
+      temp_aquario_3.innerHTML = temperatura + "°C";
+      card = card_3
+    }
+  }
+
+
+  function alertar(umidade, idBarril) {
+    var select = sel_barril.value
+
+    var limites_umidade = {
+      muito_quente: 60,
+      quente: 58,
+      ideal: 56,
+      frio: 52,
+      muito_frio: 50
+    };
+
+    var classe_temperatura = 'cor-alerta';
+
+    if (umidade >= limites_umidade.muito_quente) {
+      alert('oi')
+    }
+    else if (umidade < limites_umidade.muito_quente && temperatura >= limites_umidade.quente) {
+      classe_temperatura = 'cor-alerta alerta-quente';
+      console.log("caiu no 2")
+    }
+    else if (umidade < limites_umidade.quente && temperatura > limites_umidade.frio) {
+      classe_temperatura = 'cor-alerta ideal';
+      console.log("caiu no 3")
+    }
+    else if (umidade <= limites_umidade.frio && temperatura > limites_umidade.muito_frio) {
+      classe_temperatura = 'cor-alerta alerta-frio';
+      console.log("caiu no 4")
+    }
+    else if (umidade < limites_umidade.min_temperatura) {
+      classe_temperatura = 'cor-alerta perigo-frio';
+      console.log("caiu no 5")
+    }
+
+    var card;
+
+    if (select == 1) {
+      temp_aquario_1.innerHTML = temperatura + "°C";
+      card = card_1
+    } else if (select == 2) {
+      temp_aquario_2.innerHTML = temperatura + "°C";
+      card = card_2
+    } else if (select == 3) {
+      temp_aquario_3.innerHTML = temperatura + "°C";
+      card = card_3
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   let proximaAtualizacao;
 

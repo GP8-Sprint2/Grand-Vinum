@@ -336,7 +336,13 @@ a:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.umidade_alerta, .temperatura_alerta {
+
+/* Alertas */
+
+
+/* Umidade e temperatura */
+
+.umidade_perigo_frio, .temperatura_perigo_frio {
     width: 135px;
     height: 68px;
     display: flex;
@@ -346,6 +352,46 @@ a:hover {
     border-bottom: 8px solid #295B89;
 }
 
+.umidade_Alerta_frio, .temperatura_Alerta_frio {
+    width: 135px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-bottom: 8px solid #387E7A;
+}
+
+.umidade_ideal, .temperatura_ideal {
+    width: 135px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-bottom: 8px solid #3FD127;
+}
+
+
+.umidade_alerta_quente, .temperatura_alerta_quente {
+    width: 135px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-bottom: 8px solid #F9E533 ;
+}
+
+.umidade_perigo_quente, .temperatura_perigo_quente {
+    width: 135px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    background: #F1F1F1;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-bottom: 8px solid #DA0909;
+}
 
 .sel_barril {
     width: 303px;
@@ -422,8 +468,6 @@ option {
 }
 
 .campo_branco {
-    height: 84px;
-
     height: 84px;
     font-family: 'Chivo';
     font-style: normal;
