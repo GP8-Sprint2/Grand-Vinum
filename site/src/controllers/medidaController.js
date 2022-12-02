@@ -41,9 +41,9 @@ function buscarMedidasEmTempoReal(req, res) {
 
 function carregarTempIdeal(req, res) {
 
-    var idBarril = req.params.idBarril;
+    var fkUsuario = req.params.idUsuario
 
-    medidaModel.carregarTempIdeal(idBarril).then(function (resultado) {
+    medidaModel.carregarTempIdeal(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -57,10 +57,10 @@ function carregarTempIdeal(req, res) {
 }
 
 function carregarTempFora(req, res) {
+    
+    var fkUsuario = req.params.idUsuario
 
-    var idBarril = req.params.idBarril;
-
-    medidaModel.carregarTempFora(idBarril).then(function (resultado) {
+    medidaModel.carregarTempFora(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -75,9 +75,9 @@ function carregarTempFora(req, res) {
 
 function carregarUmidadeIdeal(req, res) {
 
-    var idBarril = req.params.idBarril;
+    var fkUsuario = req.params.idUsuario
 
-    medidaModel.carregarUmidadeIdeal(idBarril).then(function (resultado) {
+    medidaModel.carregarUmidadeIdeal(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -92,9 +92,9 @@ function carregarUmidadeIdeal(req, res) {
 
 function carregarUmidadeFora(req, res) {
 
-    var idBarril = req.params.idBarril;
+    var fkUsuario = req.params.idUsuario
 
-    medidaModel.carregarUmidadeFora(idBarril).then(function (resultado) {
+    medidaModel.carregarUmidadeFora(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

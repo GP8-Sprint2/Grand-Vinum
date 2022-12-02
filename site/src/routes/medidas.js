@@ -7,23 +7,23 @@ router.get("/ultimas/:idBarril", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
-router.get("/tempo-real", function (req, res) {
+router.get("/tempo-real/:idBarril", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-router.get("/carregarTempIdeal/:idBarril", function (req, res) {
+router.get("/carregarTempIdeal/:idUsuario", function (req, res) {
     medidaController.carregarTempIdeal(req, res);
 });
 
-router.get("/carregarTempFora/:idBarril", function (req, res) {
+router.get("/carregarTempFora/:idUsuario", function (req, res) {
     medidaController.carregarTempFora(req, res);
 });
 
-router.get("/carregarUmidadeIdeal/:idBarril", function (req, res) {
+router.get("/carregarUmidadeIdeal/:idUsuario", function (req, res) {
     medidaController.carregarUmidadeIdeal(req, res);
 });
 
-router.get("/carregarUmidadeFora/:idBarril", function (req, res) {
+router.get("/carregarUmidadeFora/:idUsuario", function (req, res) {
     medidaController.carregarUmidadeFora(req, res);
 });
 

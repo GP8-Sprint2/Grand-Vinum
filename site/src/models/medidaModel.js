@@ -61,69 +61,80 @@ function buscarMedidasEmTempoReal() {
     return database.executar(instrucaoSql);
 }
 
-function carregarTempIdeal(idBarril) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idBarril)
+function carregarTempIdeal(fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
     var instrucao = `
         SELECT 
-        COUNT(idMetrica) as tempIdeal
+        COUNT(fkBarrilVinho) AS umidadeForaIdeal
     FROM
-        metrica
+        CadastroCliente
             JOIN
-        barrilVinho ON fkBarrilVinho = idBarrilVinho
+        barrilVinho ON idCadastroCliente = fkCadastroCliente
+            JOIN
+        metrica ON fkBarrilVinho = idBarrilVinho
     WHERE
-        temperatura_C >= 14
-            AND temperatura_C <= 16;
+    fkCadastroCliente = ${fkUsuario} and
+            temperatura_C >= 14
+                AND temperatura_C <= 16 and dataHora = (select dataHora from metrica order by dataHora desc limit 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function carregarTempFora(idBarril) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idBarril)
+function carregarTempFora(fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
     var instrucao = `
         SELECT 
-        COUNT(idMetrica) as tempForaIdeal
+        COUNT(fkBarrilVinho) AS tempForaIdeal
     FROM
-        metrica
+        CadastroCliente
             JOIN
-        barrilVinho ON fkBarrilVinho = idBarrilVinho
+        barrilVinho ON idCadastroCliente = fkCadastroCliente
+            JOIN
+        metrica ON fkBarrilVinho = idBarrilVinho
     WHERE
-        temperatura_C < 14
-            OR temperatura_C > 16;
+    fkCadastroCliente = ${fkUsuario} and
+            temperatura_C < 14
+                or temperatura_C > 16 and dataHora = (select dataHora from metrica order by dataHora desc limit 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function carregarUmidadeIdeal(idBarril) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idBarril)
+function carregarUmidadeIdeal(fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
     var instrucao = `
         SELECT 
-        COUNT(idMetrica) as umidadeIdeal
+        COUNT(fkBarrilVinho) AS umidadeIdeal
     FROM
-        metrica
+        CadastroCliente
             JOIN
-        barrilVinho ON fkBarrilVinho = idBarrilVinho
+        barrilVinho ON idCadastroCliente = fkCadastroCliente
+            JOIN
+        metrica ON fkBarrilVinho = idBarrilVinho
     WHERE
-        umidade >= 53
-            AND umidade <= 57;
+    fkCadastroCliente = ${fkUsuario} and umidade >= 53
+                AND umidade <= 57 and dataHora = (select dataHora from metrica order by dataHora desc limit 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function carregarUmidadeFora(idBarril) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idBarril)
+function carregarUmidadeFora(fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
     var instrucao = `
         SELECT 
-        COUNT(idMetrica) as umidadeForaIdeal
+        COUNT(fkBarrilVinho) AS umidadeForaIdeal
     FROM
-        metrica
+        CadastroCliente
             JOIN
-        barrilVinho ON fkBarrilVinho = idBarrilVinho
+        barrilVinho ON idCadastroCliente = fkCadastroCliente
+            JOIN
+        metrica ON fkBarrilVinho = idBarrilVinho
     WHERE
-        umidade < 53
-            OR umidade > 57;
+    fkCadastroCliente = ${fkUsuario} and 
+            umidade < 53
+                or umidade > 57 and dataHora = (select dataHora from metrica order by dataHora desc limit 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
