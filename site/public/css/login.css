@@ -237,7 +237,7 @@ body {
   .card_erro {
     display: none;
     background-color: #fff;
-    color: black;
+    top:100px;
     width: 230px;
     position: fixed;
     border-radius: 4px;
@@ -247,6 +247,7 @@ body {
   }
   
   .card_erro #mensagem_erro{
+    color: black !important;
     font-weight: 500;
     font-size: 20px;
   }

@@ -66,22 +66,16 @@ insert into endereco values
 
 
 insert into barrilVinho values
-(null,'Carvalho','100',1),
-(null,'Vinhático','300',2),
-(null,'Araribá ','200',3),
-(null,'Peroba-do-Campo','400',4);
-
-insert into vinho values
-(null,'Tinto',1),
-(null,'Rosé',4),
-(null,'Tinto',3),
-(null,'Rosé',2);
+(null,'Vinhático',300,'tinto',1),
+(null,'Araribá ',200,'tinto',1);
 
 insert into metrica values
-(null,'2022-09-06 16:00:00',50.00,12.00,1),
-(null,'2022-08-07 21:48:00',42.00,16.00,2),
-(null,'2022-07-08 15:09:45',60.00,20.00,3),
-(null,'2022-06-09 09:22:42',55.00,15.00,4);
+(null,'2022-09-06 16:01:00',56.00,12.00,1),
+(null,'2022-08-07 16:02:00',56.00,15.00,1),
+(null,'2022-07-08 16:03:00',60.00,20.00,2),
+(null,'2022-07-08 16:04:00',52.00,15.00,2),
+(null,'2022-06-09 16:05:00',30.00,50.00,3),
+(null,'2022-06-09 16:06:00',56.00,12.00,3);
 
 -- Selecionar tabelas 
 select*from CadastroCliente;
@@ -127,3 +121,4 @@ select*from CadastroCliente as cc join barrilVinho as bv on bv.fkCadastroCliente
 -- Exibir os dados dos cadastros,endereços, barris, vinhos e metrica correspondentes.
 select*from CadastroCliente as cc join Endereco as e on e.fkCadastroCliente = idCadastroCliente join barrilVinho as bv on bv.fkCadastroCliente = cc.idCadastroCliente join vinho as v on v.fkBarrilVinho = bv.idBarrilVinho join metrica as m on v.fkBarrilVinho = m.idMetrica;
 
+select CadastroCliente.nome, barrilVinho.* from CadastroCliente JOIN barrilVinho ON fkCadastroCliente = idCadastroCliente WHERE idCadastroCliente = 1;

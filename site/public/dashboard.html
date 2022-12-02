@@ -14,7 +14,7 @@
   <title>Dashboard - Visao detalhada</title>
 </head>
 
-<body onload="obterDadosGrafico(1)">
+<body onload="iniciar()">
 
 
   <!-- Header -->
@@ -160,10 +160,11 @@
             </div>
           </div>
 
-          <select name="" class="sel_barril" id="sel_barril">
+          <select name="" class="sel_barril" id="sel_barril" onchange="obterDadosGrafico(Number(sel_barril.value))">
+            <option value="">---SELECIONE UM BARRIL---</option>
             <option value="1">Barril 1</option>
-            <option value="1">Barril 2</option>
-            <option value="2">Barril 3</option>
+            <option value="7">Barril 2</option>
+            <option value="8">Barril 3</option>
           </select>
 
           <div class="coluna">
@@ -281,6 +282,9 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+  function iniciar() {
+    obterDadosGrafico(1);
+  }
 
   function alertar(temperatura, idBarril) {
     var select = sel_barril.value
@@ -378,24 +382,15 @@
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   let proximaAtualizacao;
 
 
   verificar_autenticacao();
 
+
   function obterDadosGrafico(idBarril) {
+    console.log(`Obtendo gráficos do barril: ${idBarril}`);
+
     sessionStorage.ID_BARRIL = idBarril
     if (proximaAtualizacao != undefined) {
       clearTimeout(proximaAtualizacao);
@@ -409,10 +404,7 @@
 
           plotarGraficoTemperatura(resposta, idBarril);
           plotarGraficoUmidade(resposta, idBarril);
-          carregarTempIdeal();
-          carregarTempFora();
-          carregarUmidadeIdeal();
-          carregarUmidadeFora();
+          carregarTempIdeal(idBarril);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -626,9 +618,7 @@
 
   }
 
-  function carregarTempIdeal() {
-
-    var idBarril = sessionStorage.ID_BARRIL
+  function carregarTempIdeal(idBarril) {
 
     fetch(`/medidas/carregarTempIdeal/${idBarril}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
@@ -639,8 +629,12 @@
           sessionStorage.TEMP_IDEAL = resposta[0].tempIdeal
 
         });
-
         tempIdeal.innerHTML = sessionStorage.TEMP_IDEAL
+
+        setTimeout(() => {
+          carregarTempFora(); 
+        }, 1500);
+
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
       }
@@ -650,9 +644,8 @@
       });
   }
 
-  function carregarTempFora() {
+  function carregarTempFora(idBarril) {
 
-    var idBarril = sessionStorage.ID_BARRIL
 
     fetch(`/medidas/carregarTempFora/${idBarril}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
@@ -663,8 +656,10 @@
           sessionStorage.TEMP_FORA = resposta[0].tempForaIdeal
 
         });
-
         tempForaIdeal.innerHTML = sessionStorage.TEMP_FORA
+        setTimeout(() => {
+          carregarUmidadeIdeal();
+        }, 1500);
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
       }
@@ -687,8 +682,11 @@
           sessionStorage.UMIDADE_IDEAL = resposta[0].umidadeIdeal
 
         });
-
         umidadeIdeal.innerHTML = sessionStorage.UMIDADE_IDEAL
+        setTimeout(() => {
+          carregarUmidadeFora();
+        }, 1500);
+        
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
       }
@@ -698,9 +696,7 @@
       });
   }
 
-  function carregarUmidadeFora() {
-
-    var idBarril = sessionStorage.ID_BARRIL
+  function carregarUmidadeFora(idBarril) {
 
     fetch(`/medidas/carregarUmidadeFora/${idBarril}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
@@ -711,8 +707,10 @@
           sessionStorage.UMIDADE_FORA_IDEAL = resposta[0].umidadeForaIdeal
 
         });
-
         umidadeForaIdeal.innerHTML = sessionStorage.UMIDADE_FORA_IDEAL
+        setTimeout(() => {
+          carregarTempIdeal();
+        }, 1500);
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
       }
