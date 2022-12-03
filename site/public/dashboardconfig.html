@@ -214,49 +214,47 @@
                 return false;
             } else if (complemento == ``) {
                 complemento = "não definido"
-            } else {
-                setInterval(sumirMensagem, 5000)
-            }
+            } 
 
-            fetch("/usuarios/cadastrarEndereco", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    cep,
-                    cidade,
-                    bairro,
-                    logradouro,
-                    numero,
-                    complemento,
-                    idCadastroCliente
-                })
-            }).then(function (resposta) {
+                fetch("/usuarios/cadastrarEndereco", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        cep,
+                        cidade,
+                        bairro,
+                        logradouro,
+                        numero,
+                        complemento,
+                        idCadastroCliente
+                    })
+                }).then(function (resposta) {
 
-                console.log("resposta: ", resposta);
+                    console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
-                    cardErro.style.display = "block";
+                    if (resposta.ok) {
+                        cardErro.style.display = "block";
 
-                    mensagem_erro.innerHTML = "Endreço cadastrado com sucesso";
+                        mensagem_erro.innerHTML = "Endreço cadastrado com sucesso";
 
-                    setTimeout(() => {
-
-                    }, 2000)
-                    carregarEndereco();
-                    limparFormulario();
+                        setTimeout(() => {
+                            cardErro.style.display = "none";
+                        }, 2000)
+                        carregarEndereco();
+                    } else {
+                        throw ("Houve um erro ao tentar realizar o cadastro do endereço!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
                     finalizarAguardar();
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro do endereço!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
-            });
+                });
 
-            return false;
+                return false;
+            
         }
+
     }
 
 
@@ -299,7 +297,7 @@
                                 </div>
                             </div>   `
 
-                    }  
+                    }
                 });
 
             } else {

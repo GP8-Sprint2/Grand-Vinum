@@ -6,19 +6,19 @@ function buscarUltimasMedidas(idBarril,limite_linhas) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idBarril}
+        umidade as umidade,
+        temperatura_C as temperatura,   
+                        data_hora,
+                        FORMAT(data_hora, 'HH:mm:ss') as data_hora
+                    from metrica
+                    where fkBarrilVinho = ${idBarril}
                     order by idMetrica desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
         umidade as umidade,
         temperatura_C as temperatura, 
                         dataHora,
-                        DATE_FORMAT(dataHora,'%H:%i:%s') as momento_grafico
+                        DATE_FORMAT(dataHora,'%H:%i:%s') as data_hora
                     from metrica
                     where fkBarrilVinho = ${idBarril}
                     order by idMetrica desc limit ${limite_linhas}`;
@@ -31,14 +31,14 @@ function buscarUltimasMedidas(idBarril,limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal() {
+function buscarMedidasEmTempoReal(idBarril) {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top 1
         umidade as umidade, 
-        temperatura_C as temperatura,,  
+        temperatura_C as temperatura,  
                         dataHora,
                         FORMAT(dataHora, 'HH:mm:ss') as data_hora
                     from metrica
@@ -51,6 +51,7 @@ function buscarMedidasEmTempoReal() {
                         dataHora,
                         DATE_FORMAT(dataHora,'%H:%i:%s') as data_hora
                     from metrica 
+                    where fkBarrilVinho = ${idBarril}
                     order by idmetrica desc limit 1`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -65,7 +66,7 @@ function carregarTempIdeal(fkUsuario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
     var instrucao = `
         SELECT 
-        COUNT(fkBarrilVinho) AS umidadeForaIdeal
+        COUNT(fkBarrilVinho) AS tempIdeal
     FROM
         CadastroCliente
             JOIN

@@ -23,10 +23,11 @@ function buscarUltimasMedidas(req, res) {
 
 
 function buscarMedidasEmTempoReal(req, res) {
+    var idBarril = req.params.idBarril;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal().then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idBarril).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
