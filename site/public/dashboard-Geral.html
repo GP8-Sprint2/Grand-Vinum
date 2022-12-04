@@ -14,7 +14,7 @@
   <title>Dashboard - Visao detalhada</title>
 </head>
 
-<body onload="iniciar()">
+<body>
 
 
   <!-- Header -->
@@ -199,9 +199,8 @@
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
   var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
-  function iniciar() {
-    obterDadosGrafico(1)
-  }
+
+  window.onload = obterDadosGrafico(1);
 
   function obterDadosGrafico(idBarril) {
 

@@ -141,7 +141,7 @@ main h1 {
     display: flex;
     align-items: center;
     background: #F1F1F1;
-    width: 381px;
+    width: 380px;
     height: 300px;
 }
 
@@ -198,7 +198,8 @@ a:hover {
     gap: 8px;
 }
 
-.texto-metrica, .numero-alerta {
+.texto-metrica,
+.numero-alerta {
     font-family: 'Lato';
     display: flex;
     justify-content: center;
@@ -236,7 +237,6 @@ a:hover {
     justify-content: center;
     background: linear-gradient(180deg, rgba(21, 19, 32, 0.57) 0%, #295B89 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
 }
 
 .alerta {
@@ -248,13 +248,31 @@ a:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.perigo-frio {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, rgba(21, 19, 32, 0.57) 0%, #295B89 100%);
+}
+
+.alerta-frio {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #387E7A 0%, #427972 100%);
+}
+
 .ideal {
     width: 70px;
     height: 70px;
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, #3FD127 0%, #58AC57 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #3FD127 0%, #58AC57 100%);
 }
 
 .alerta-quente {
@@ -262,8 +280,8 @@ a:hover {
     height: 70px;
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, #F9E533 0%, #D2BD4B 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #F9E533 0%, #D2BD4B 100%);
 }
 
 .perigo-quente {
@@ -271,16 +289,55 @@ a:hover {
     height: 70px;
     display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, #DA0909 0%, #E36239 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-
+    background: linear-gradient(180deg, #DA0909 0%, #E36239 100%);
 }
 
+.perigo-umido {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, rgba(21, 19, 32, 0.57) 0%, #295B89 100%);
+}
 
+.alerta-umido {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #387E7A 0%, #427972 100%);
+}
 
+.umidade-ideal {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #3FD127 0%, #58AC57 100%);
+}
+
+.alerta-seco{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #F9E533 0%, #D2BD4B 100%);
+}
+
+.perigo-seco {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #DA0909 0%, #E36239 100%);
+}
 /* KPI */
-
 
 .quadrado1 {
     width: 135px;
@@ -340,57 +397,69 @@ a:hover {
 /* Alertas */
 
 
+.card {
+    width: 135px;
+    height: 116px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+    padding: 10px 10px;
+}
+
+.card h1 {
+    padding: 0;
+    margin: 0;
+    color: #420422;
+    font-size: 15px;
+    text-align: center;
+}
+
+.card p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    color: #420422;
+}
+
+.cor-alerta {
+    height: 10px;
+    width: 100%;
+    background-color: #000000;
+}
+
 /* Umidade e temperatura */
 
-.umidade_perigo_frio, .temperatura_perigo_frio {
-    width: 135px;
-    height: 68px;
-    display: flex;
-    justify-content: center;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-bottom: 8px solid #295B89;
+
+.umidade_perigo_frio,
+.temperatura_perigo_frio {
+    background-color: blue;
 }
 
-.umidade_Alerta_frio, .temperatura_Alerta_frio {
-    width: 135px;
-    height: 68px;
-    display: flex;
-    justify-content: center;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-bottom: 8px solid #387E7A;
+.umidade_alerta_frio,
+.temperatura_alerta_frio {
+    background-color:  #387E7A;
 }
 
-.umidade_ideal, .temperatura_ideal {
-    width: 135px;
-    height: 68px;
-    display: flex;
-    justify-content: center;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-bottom: 8px solid #3FD127;
+.umidade_ideal,
+.temperatura_ideal {
+    background-color:  #3FD127;
 }
 
 
-.umidade_alerta_quente, .temperatura_alerta_quente {
-    width: 135px;
-    height: 68px;
-    display: flex;
-    justify-content: center;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-bottom: 8px solid #F9E533 ;
+.umidade_alerta_quente,
+.temperatura_alerta_quente {
+    background-color:  #F9E533
+
 }
 
-.umidade_perigo_quente, .temperatura_perigo_quente {
-    width: 135px;
-    height: 68px;
-    display: flex;
-    justify-content: center;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-    border-bottom: 8px solid #DA0909;
+.umidade_perigo_quente,
+.temperatura_perigo_quente {
+    background-color:  #DA0909;
 }
 
 .sel_barril {
@@ -464,7 +533,7 @@ a:hover {
 }
 
 option {
-    color:#000000
+    color: #000000
 }
 
 .campo_branco {

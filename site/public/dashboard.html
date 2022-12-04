@@ -35,15 +35,16 @@
   <div class="container">
     <aside class="menu">
       <ul>
-        <li><a href="dashboard.html" class="active"><img src="./assets/home.png" alt="home" width="22px" height="22px"></a>
+        <li><a href="dashboard.html" class="active"><img src="./assets/home.png" alt="home" width="22px"
+              height="22px"></a>
         </li>
         <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px"
-                    height="22px"></a></li>
-        <li><a href="dashboardconfig.html" ><img src="./assets/localizacao.png" alt="settings"
-                    width="22px" height="22px"></a></li>
+              height="22px"></a></li>
+        <li><a href="dashboardconfig.html"><img src="./assets/localizacao.png" alt="settings" width="22px"
+              height="22px"></a></li>
         <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px">
-            </a></li>
-    </ul>
+          </a></li>
+      </ul>
     </aside>
 
     <!-- Gráficos -->
@@ -52,7 +53,7 @@
 
       <!-- Umidade -->
       <div class="container-total">
-        
+
 
 
         <!-- KPIS -->
@@ -92,28 +93,22 @@
             </div>
           </div>
 
-          <!-- <select name="" class="sel_barril" id="sel_barril" onchange="selecionarBarril()">
-            <option value="">---SELECIONE UM BARRIL---</option>
-            <option value="1">Barril 1</option>
-            <option value="2">Barril 2</option>
-            <option value="3">Barril 3</option>
-          </select> -->
-
           <div class="coluna">
-            <div class="umidade_perigo_frio">
-              <div class="Alinhamento-1">
-                <h2 class="campo_branco">Umidade</h2>
-                <h2 class="numerobb">50%
-                </h2>
+            <div class="card">
+              <h1>UMIDADE</h1>
+              <div class="umidade">
+                <p id="umidade_barril">%</p>
               </div>
+              <div id="card_2"></div>
             </div>
 
-            <div class="temperatura_alerta_quente">
-              <div class="Alinhamento-1">
-                <h2 class="campo_branco">Temperatura</h2>
-                <h2 class="numerobb">12%
-                </h2>
+
+            <div class="card">
+              <h1>TEMPERATURA</h1>
+              <div class="temperatura">
+                <p id="temp_barril">-°C</p>
               </div>
+              <div class="cor-alerta" id="card_1"></div>
             </div>
           </div>
 
@@ -144,7 +139,7 @@
           <div class="umidade-centralizar">
             <div class="caixa-alinhamento">
               <div class="dashboard">
-                <canvas id="myChart" style="width: 550px; height: 450px;"></canvas>
+                <canvas id="myChart" style="width: 500px; height: 400px;"></canvas>
               </div>
             </div>
           </div>
@@ -164,7 +159,7 @@
 
             <div class="caixa1">
               <div class="caixa-alertas">
-                <div class="perigo">
+                <div class="perigo-seco">
                   <div class="alinhar-texto">
                     <h2 class="texto-metrica">Perigo</h2>
                     <h2 class="numero-alerta">50%</h2>
@@ -173,7 +168,7 @@
               </div>
 
               <div class="caixa-alertas">
-                <div class="alerta">
+                <div class="alerta-seco">
                   <div class="alinhar-texto">
                     <h2 class="texto-metrica">Alerta</h2>
                     <h2 class="numero-alerta">52%</h2>
@@ -191,7 +186,7 @@
               </div>
 
               <div class="caixa-alertas">
-                <div class="alerta-quente">
+                <div class="alerta-umido">
                   <div class="alinhar-texto">
                     <h2 class="texto-metrica">Alerta</h2>
                     <h2 class="numero-alerta">58%</h2>
@@ -200,7 +195,7 @@
               </div>
 
               <div class="caixa-alertas">
-                <div class="perigo-quente">
+                <div class="perigo-umido">
                   <div class="alinhar-texto">
                     <h2 class="texto-metrica">Perigo</h2>
                     <h2 class="numero-alerta">60%</h2>
@@ -276,7 +271,8 @@
   var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
   function iniciar() {
-    obterDadosGrafico(1)
+    obterDadosGrafico(1);
+    atualizacaoPeriodica();
   }
 
   // function selecionarBarril() {
@@ -298,142 +294,142 @@
 
   function obterDadosGrafico(idBarril) {
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        fetch(`/medidas/ultimas/${idBarril}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idBarril);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+    if (proximaAtualizacao != undefined) {
+      clearTimeout(proximaAtualizacao);
     }
 
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idBarril) {
-        console.log('iniciando plotagem do gráfico...');
+    fetch(`/medidas/ultimas/${idBarril}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
 
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-        
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Umidade',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
-            }]
-        };
-        
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-        
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.data_hora);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
-        
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(labels)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-        
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'line',
-            data: dados,
-        };
+          plotarGrafico(resposta, idBarril);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
 
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+  // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+  // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+  // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  function plotarGrafico(resposta, idBarril) {
+    console.log('iniciando plotagem do gráfico...');
 
-        setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [{
+        label: 'Umidade',
+        data: [],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      },
+      {
+        label: 'Temperatura',
+        data: [],
+        fill: false,
+        borderColor: 'rgb(199, 52, 52)',
+        tension: 0.1
+      }]
+    };
+
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(resposta)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      labels.push(registro.data_hora);
+      dados.datasets[0].data.push(registro.umidade);
+      dados.datasets[1].data.push(registro.temperatura);
     }
 
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
 
-    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-    // buscando a última medida inserida em tabela contendo as capturas, 
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'line',
+      data: dados,
+    };
 
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idBarril, dados, myChart) {
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
 
-        fetch(`/medidas/tempo-real/${idBarril}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
+    setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+  }
 
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico:`);
-                    console.log(dados);
 
-                    if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
-                        console.log("---------------------------------------------------------------")
-                        console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        console.log("Horário do novo dado capturado:")
-                        console.log(novoRegistro[0].data_hora)
-                        console.log("Horário do último dado capturado:")
-                        console.log(dados.labels[dados.labels.length - 1])
-                        console.log("---------------------------------------------------------------")
-                    } else {
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].data_hora); // incluir um novo momento
+  // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+  // buscando a última medida inserida em tabela contendo as capturas, 
 
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+  //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+  //     Para ajustar o "select", ajuste o comando sql em src/models
+  function atualizarGrafico(idBarril, dados, myChart) {
 
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+    fetch(`/medidas/tempo-real/${idBarril}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (novoRegistro) {
 
-                        myChart.update();
-                    }
+          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+          console.log(`Dados atuais do gráfico:`);
+          console.log(dados);
 
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+          if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
+            console.log("---------------------------------------------------------------")
+            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+            console.log("Horário do novo dado capturado:")
+            console.log(novoRegistro[0].data_hora)
+            console.log("Horário do último dado capturado:")
+            console.log(dados.labels[dados.labels.length - 1])
+            console.log("---------------------------------------------------------------")
+          } else {
+            // tirando e colocando valores no gráfico
+            dados.labels.shift(); // apagar o primeiro
+            dados.labels.push(novoRegistro[0].data_hora); // incluir um novo momento
 
-    }
+            dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+            dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+            dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+            dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+            myChart.update();
+          }
+
+          // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+  }
 
 
   function carregarTempIdeal() {
@@ -446,10 +442,10 @@
           // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           // console.log(`contagem de tempideal ${resposta[0]}`);
 
-          tempIdeal.innerHTML =  resposta[0].tempIdeal
+          tempIdeal.innerHTML = resposta[0].tempIdeal
 
         });
-        
+
         carregarTempFora();
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -470,10 +466,10 @@
           // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           // console.log(`contagem de tempideal ${resposta[0]}`);
 
-          tempForaIdeal.innerHTML =  resposta[0].tempForaIdeal
+          tempForaIdeal.innerHTML = resposta[0].tempForaIdeal
 
         });
-        
+
 
         carregarUmidadeIdeal();
 
@@ -499,7 +495,7 @@
           umidadeIdeal.innerHTML = resposta[0].umidadeIdeal
 
         });
-        
+
         carregarUmidadeFora(idUsuario);
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -520,10 +516,10 @@
           // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           // console.log(`fora da umidade ${resposta[resposta.length - 1].umidadeForaIdeal}`);
 
-          umidadeForaIdeal.innerHTML =  resposta[0].umidadeForaIdeal
+          umidadeForaIdeal.innerHTML = resposta[0].umidadeForaIdeal
 
         });
-        
+
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
       }
@@ -532,4 +528,138 @@
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
   }
+
+  function atualizacaoPeriodica() {
+    obterdados(1);
+
+    // function sendData() {
+    //   var http = new XMLHttpRequest();
+    //   http.open('POST', 'http://localhost:3000/api/sendData', false);
+    //   http.send(null);
+    // }
+
+    // setInterval(() => {
+    //   sendData();
+    // }, 2000);
+    // setTimeout(atualizacaoPeriodica, 5000);
+  }
+
+  function obterdados(idBarril) {
+    fetch(`/medidas/tempo-real/${idBarril}`)
+      .then(resposta => {
+
+        if (resposta.ok) {
+          resposta.json().then(resposta => {
+
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+            var dados = {
+              temperatura: resposta[0].temperatura,
+              umidade: resposta[0].umidade,
+            }
+            
+            alertarTemp(resposta[0].temperatura,idBarril);
+            alertarUmi( resposta[0].umidade,idBarril);
+          });
+        } else {
+
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+      });
+  }
+
+  function alertarTemp(temperatura, idBarril) {
+    var limitesTemp = {
+      muito_quente: 18,
+      quente: 17,
+      ideal: 15,
+      frio: 13,
+      muito_frio: 12
+    };
+
+    // Validações dos alertas de temperatura
+
+    var classe_temperatura = 'cor-alerta';
+
+    if (temperatura >= limitesTemp.muito_quente) {
+      classe_temperatura = 'cor-alerta perigo-quente';
+      console.log("caiu no 1")
+    }
+    else if (temperatura < limitesTemp.muito_quente && temperatura >= limitesTemp.quente) {
+      classe_temperatura = 'cor-alerta alerta-quente';
+      console.log("caiu no 2")
+    }
+    else if (temperatura < limitesTemp.quente && temperatura > limitesTemp.frio) {
+      classe_temperatura = 'cor-alerta ideal';
+      console.log("caiu no 3")
+    }
+    else if (temperatura <= limitesTemp.frio && temperatura > limitesTemp.muito_frio) {
+      classe_temperatura = 'cor-alerta alerta-frio';
+      console.log("caiu no 4")
+    }
+    else if (temperatura <= limitesTemp.muito_frio) {
+      classe_temperatura = 'cor-alerta perigo-frio';
+      console.log("caiu no 5")
+    }
+
+    var card;
+
+    if (idBarril == 1) {
+      temp_barril.innerHTML = temperatura + "°C";
+      card = card_1
+    }
+
+    card.className = classe_temperatura;
+
+  }
+
+  function alertarUmi(umidade, idBarril) {
+
+    var limitesUmidade = {
+      muito_seco: 50,
+      seco: 52,
+      ideal: 56,
+      umido: 58,
+      muito_umido: 60
+    }
+
+    // Validações dos alertas de umidade
+
+    var classe_umidade = 'cor-alerta';
+
+    if (umidade <= limitesUmidade.muito_seco) {
+      classe_umidade = 'cor-alerta perigo-seco';
+      console.log("caiu no 1")
+    }
+    else if (umidade > limitesUmidade.muito_seco && umidade <= limitesUmidade.seco) {
+      classe_umidade = 'cor-alerta alerta-seco';
+      console.log("caiu no 2")
+    }
+    else if (umidade > limitesUmidade.seco && umidade < limitesUmidade.umido) {
+      classe_umidade = 'cor-alerta umidade-ideal';
+      console.log("caiu no 3")
+    }
+    else if (umidade >= limitesUmidade.umido && umidade < limitesUmidade.muito_umido) {
+      classe_umidade = 'cor-alerta alerta-umido';
+      console.log("caiu no 4")
+    }
+    else if (umidade >= limitesUmidade.muito_umido) {
+      classe_umidade = 'cor-alerta perigo-umido';
+      console.log("caiu no 5")
+    }
+
+    var card;
+
+    if (idBarril == 1) {
+      umidade_barril.innerHTML = umidade + "%";
+      card = card_2
+    }
+
+    card.className = classe_umidade;
+
+  }
+
 </script>
