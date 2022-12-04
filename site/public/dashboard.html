@@ -55,6 +55,14 @@
       <div class="container-total">
 
 
+        <div class="card_erroUmidade" id="cardErroUmidade">
+          <span id="mensagem_erroUmidade"></span>
+        </div>
+
+        <div class="card_erroTemperatura" id="cardErroTemperatura">
+          <span id="mensagem_erroTemperatura"></span>
+        </div>
+
 
         <!-- KPIS -->
 
@@ -99,7 +107,7 @@
               <div class="umidade">
                 <p id="umidade_barril">%</p>
               </div>
-              <div id="card_2"></div>
+              <div class="cor-alerta" id="card_2"></div>
             </div>
 
 
@@ -417,7 +425,7 @@
           }
 
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), obterdados(idBarril), 2000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -557,9 +565,9 @@
               temperatura: resposta[0].temperatura,
               umidade: resposta[0].umidade,
             }
-            
-            alertarTemp(resposta[0].temperatura,idBarril);
-            alertarUmi( resposta[0].umidade,idBarril);
+
+            alertarTemp(resposta[0].temperatura, idBarril);
+            alertarUmi(resposta[0].umidade, idBarril);
           });
         } else {
 
@@ -586,22 +594,31 @@
 
     if (temperatura >= limitesTemp.muito_quente) {
       classe_temperatura = 'cor-alerta perigo-quente';
+      cardErroTemperatura.style.display = "flex"
+      mensagem_erroTemperatura.innerHTML = `A TEMPERATURA DO BARRIL ${idBarril} ESTÁ MUITO ACIMA DO IDEAL! VERIFIQUE SEU BARRIL!`;
       console.log("caiu no 1")
     }
     else if (temperatura < limitesTemp.muito_quente && temperatura >= limitesTemp.quente) {
       classe_temperatura = 'cor-alerta alerta-quente';
+      cardErroTemperatura.style.display = "flex"
+      mensagem_erroTemperatura.innerHTML = `A temperatura está em alerta! Verifique o barril ${idBarril}`;
       console.log("caiu no 2")
     }
     else if (temperatura < limitesTemp.quente && temperatura > limitesTemp.frio) {
       classe_temperatura = 'cor-alerta ideal';
+      cardErroTemperatura.style.display = "none"
       console.log("caiu no 3")
     }
     else if (temperatura <= limitesTemp.frio && temperatura > limitesTemp.muito_frio) {
       classe_temperatura = 'cor-alerta alerta-frio';
+      cardErroTemperatura.style.display = "flex"
+      mensagem_erroTemperatura.innerHTML = `A temperatura está em alerta! Verifique o barril ${idBarril}`;
       console.log("caiu no 4")
     }
     else if (temperatura <= limitesTemp.muito_frio) {
       classe_temperatura = 'cor-alerta perigo-frio';
+      cardErroTemperatura.style.display = "flex"
+      mensagem_erroTemperatura.innerHTML = `A TEMPERATURA DO BARRIL ${idBarril} ESTÁ MUITO ABAIXO DO IDEAL! VERIFIQUE SEU BARRIL!`;
       console.log("caiu no 5")
     }
 
@@ -632,22 +649,31 @@
 
     if (umidade <= limitesUmidade.muito_seco) {
       classe_umidade = 'cor-alerta perigo-seco';
+      cardErroUmidade.style.display = "flex"
+      mensagem_erroUmidade.innerHTML = `A UMIDADE DO BARRIL ${idBarril} ESTÁ MUITO ABAIXO DO IDEAL! VERIFIQUE SEU BARRIL!`;
       console.log("caiu no 1")
     }
     else if (umidade > limitesUmidade.muito_seco && umidade <= limitesUmidade.seco) {
       classe_umidade = 'cor-alerta alerta-seco';
+      cardErroUmidade.style.display = "flex"
+      mensagem_erroUmidade.innerHTML = `A umidade está em alerta! Verifique o barril ${idBarril}`;
       console.log("caiu no 2")
     }
     else if (umidade > limitesUmidade.seco && umidade < limitesUmidade.umido) {
+      cardErroUmidade.style.display = "none"
       classe_umidade = 'cor-alerta umidade-ideal';
       console.log("caiu no 3")
     }
     else if (umidade >= limitesUmidade.umido && umidade < limitesUmidade.muito_umido) {
       classe_umidade = 'cor-alerta alerta-umido';
+      cardErroUmidade.style.display = "flex"
+      mensagem_erroUmidade.innerHTML = `A umidade está em alerta! Verifique o barril ${idBarril}`;
       console.log("caiu no 4")
     }
     else if (umidade >= limitesUmidade.muito_umido) {
       classe_umidade = 'cor-alerta perigo-umido';
+      cardErroUmidade.style.display = "flex"
+      mensagem_erroUmidade.innerHTML = `A UMIDADE DO BARRIL ${idBarril} ESTÁ MUITO ACIMA DO IDEAL! VERIFIQUE SEU BARRIL!`;
       console.log("caiu no 5")
     }
 

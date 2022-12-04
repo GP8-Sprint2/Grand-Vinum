@@ -70,12 +70,7 @@ insert into barrilVinho values
 (null,'Araribá ',200,'tinto',1);
 
 insert into metrica values
-(null,'2022-09-06 16:01:00',56.00,12.00,1),
-(null,'2022-08-07 16:02:00',56.00,15.00,1),
-(null,'2022-07-08 16:03:00',60.00,20.00,2),
-(null,'2022-07-08 16:04:00',52.00,15.00,2),
-(null,'2022-06-09 16:05:00',30.00,50.00,3),
-(null,'2022-06-09 16:06:00',56.00,12.00,3);
+(null,'2022-12-04 17:10:00',56.00,15.00,1);
 
 -- Selecionar tabelas 
 select*from CadastroCliente;
