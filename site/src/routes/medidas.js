@@ -11,6 +11,10 @@ router.get("/tempo-real/:idBarril", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/carregarDadosPeriodo/:idBarril", function (req, res) {
+    medidaController.carregarDadosPeriodo(req, res);
+})
+
 router.get("/carregarTempIdeal/:idUsuario", function (req, res) {
     medidaController.carregarTempIdeal(req, res);
 });

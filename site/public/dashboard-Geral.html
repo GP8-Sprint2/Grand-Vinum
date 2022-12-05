@@ -60,7 +60,7 @@
           <div class="umidade-centralizar">
             <div class="caixa-alinhamento">
               <div class="dashboard">
-                <canvas id="myChart" style="width: 500px; height: 400px;"></canvas>
+                <canvas id="myChart" style="width: 680px; height: 400px;"></canvas>
               </div>
             </div>
           </div>
@@ -200,15 +200,13 @@
   var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
 
-  window.onload = obterDadosGrafico(1);
+  window.onload = carregarDadosPeriodo();
 
-  function obterDadosGrafico(idBarril) {
+  function carregarDadosPeriodo() {
 
-    if (proximaAtualizacao != undefined) {
-      clearTimeout(proximaAtualizacao);
-    }
+    var idBarril = sessionStorage.getItem("FK_BARRIL_VINHO")
 
-    fetch(`/medidas/ultimas/${idBarril}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/medidas/carregarDadosPeriodo/${idBarril}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -285,52 +283,6 @@
       config
     );
 
-    setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
   }
 
-  function atualizarGrafico(idBarril, dados, myChart) {
-
-    fetch(`/medidas/tempo-real/${idBarril}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (novoRegistro) {
-
-          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-          console.log(`Dados atuais do gráfico:`);
-          console.log(dados);
-
-          if (novoRegistro[0].data_hora == dados.labels[dados.labels.length - 1]) {
-            console.log("---------------------------------------------------------------")
-            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-            console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].data_hora)
-            console.log("Horário do último dado capturado:")
-            console.log(dados.labels[dados.labels.length - 1])
-            console.log("---------------------------------------------------------------")
-          } else {
-            // tirando e colocando valores no gráfico
-            dados.labels.shift(); // apagar o primeiro
-            dados.labels.push(novoRegistro[0].data_hora); // incluir um novo momento
-
-            dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-            dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-            dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-            dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-            myChart.update();
-          }
-
-          // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
-        });
-      } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
-      }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-
-  }
+</script>

@@ -278,9 +278,11 @@
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
   var idUsuario = sessionStorage.getItem("ID_USUARIO")
 
+
   function iniciar() {
-    obterDadosGrafico(1);
-    atualizacaoPeriodica();
+    var idBarril = sessionStorage.getItem("FK_BARRIL_VINHO")
+    obterDadosGrafico(idBarril);
+    atualizacaoPeriodica(idBarril);
   }
 
   // function selecionarBarril() {
@@ -383,7 +385,7 @@
       config
     );
 
-    setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+    setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 60000);
   }
 
 
@@ -425,12 +427,12 @@
           }
 
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), obterdados(idBarril), 2000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), obterdados(idBarril), 60000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 60000);
       }
     })
       .catch(function (error) {
@@ -537,8 +539,8 @@
       });
   }
 
-  function atualizacaoPeriodica() {
-    obterdados(1);
+  function atualizacaoPeriodica(idBarril) {
+    obterdados(idBarril);
 
     // function sendData() {
     //   var http = new XMLHttpRequest();
@@ -548,7 +550,7 @@
 
     // setInterval(() => {
     //   sendData();
-    // }, 2000);
+    // }, 60000);
     // setTimeout(atualizacaoPeriodica, 5000);
   }
 
@@ -624,7 +626,7 @@
 
     var card;
 
-    if (idBarril == 1) {
+    if (idBarril == 3) {
       temp_barril.innerHTML = temperatura + "°C";
       card = card_1
     }
@@ -679,7 +681,7 @@
 
     var card;
 
-    if (idBarril == 1) {
+    if (idBarril == 3) {
       umidade_barril.innerHTML = umidade + "%";
       card = card_2
     }

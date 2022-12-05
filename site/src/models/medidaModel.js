@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idBarril,limite_linhas) {
+function buscarUltimasMedidas(idBarril, limite_linhas) {
 
     instrucaoSql = ''
 
@@ -8,8 +8,8 @@ function buscarUltimasMedidas(idBarril,limite_linhas) {
         instrucaoSql = `select top ${limite_linhas}
         umidade as umidade,
         temperatura_C as temperatura,   
-                        data_hora,
-                        FORMAT(data_hora, 'HH:mm:ss') as data_hora
+                        dataHora,
+                        FORMAT(dataHora, 'HH:mm:ss') as data_hora
                     from metrica
                     where fkBarrilVinho = ${idBarril}
                     order by idMetrica desc`;
@@ -42,6 +42,7 @@ function buscarMedidasEmTempoReal(idBarril) {
                         dataHora,
                         FORMAT(dataHora, 'HH:mm:ss') as data_hora
                     from metrica
+                    where fkBarrilVinho = ${idBarril}
                     order by idmetrica desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
@@ -141,11 +142,40 @@ function carregarUmidadeFora(fkUsuario) {
     return database.executar(instrucao);
 }
 
+function carregarDadosPeriodo(idBarril) {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `SELECT
+        umidade AS umidade,
+        temperatura_C AS temperatura,
+        dataHora,
+        FORMAT(dataHora, 'HH:mm:ss') AS data_hora
+    FROM
+        metrica
+    WHERE
+        dataHora >= DATEADD(day, - 1, GETDATE())
+            AND fkBarrilVinho = ${idBarril};`
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select * from metrica
+        where dataHora > now() - interval 24 hour;`
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     carregarTempIdeal,
     carregarTempFora,
     carregarUmidadeIdeal,
-    carregarUmidadeFora
+    carregarUmidadeFora,
+    carregarDadosPeriodo
 }

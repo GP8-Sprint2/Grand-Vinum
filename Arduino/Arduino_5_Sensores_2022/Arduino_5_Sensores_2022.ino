@@ -34,5 +34,5 @@ Serial.print(dht11_temperatura);
 Serial.println();
 
 // Tempo da captura em milisegundos/segundos
-delay(5000);
+delay(20000);
 } 
