@@ -89,14 +89,14 @@
             <div class="quadrado1">
               <div class="Alinhamento-1">
                 <h2 class="campo_branco"> Quantidade de Barris na Umidade ideal</h2>
-                <h2 class="numerob" id="umidadeIdeal">0</h2>
+                <h2 class="numerob" id="umiIdeal">0</h2>
               </div>
             </div>
 
             <div class="quadrado">
               <div class="Alinhamento-1">
                 <h2 class="campo_vinho">Quantidade de Barris fora da Umidade ideal</h2>
-                <h2 class="numerov" id="umidadeForaIdeal">0</h2>
+                <h2 class="numerov" id="umiForaIdeal">0</h2>
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@
       config
     );
 
-    setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 60000);
+    setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 10000);
   }
 
 
@@ -427,12 +427,12 @@
           }
 
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), obterdados(idBarril), 60000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), obterdados(idBarril), kpi(novoRegistro), 10000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 60000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados, myChart), 10000);
       }
     })
       .catch(function (error) {
@@ -441,102 +441,51 @@
 
   }
 
+  function kpi(dados) {
+    temperaturaIdeal.splice(0, temperaturaIdeal.length);
+    temperaturaForaIdeal.splice(0, temperaturaForaIdeal.length);
+    umidadeIdeal.splice(0, umidadeIdeal.length);
+    umidadeForaIdeal.splice(0, umidadeForaIdeal.length);
+    
+    var temperaturaIdeal = []
+    var temperaturaForaIdeal = []
+    var umidadeIdeal = []
+    var umidadeForaIdeal = []
 
-  function carregarTempIdeal() {
+    for (let index = 0; index < dados.length; index++) {
+      const dadoAtual = dados[index];
 
-    var idUsuario = sessionStorage.ID_USUARIO
+      console.log(dadoAtual);
 
-    fetch(`/medidas/carregarTempIdeal/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          // console.log(`contagem de tempideal ${resposta[0]}`);
-
-          tempIdeal.innerHTML = resposta[0].tempIdeal
-
-        });
-
-        carregarTempFora();
+      if (dados[dados.length - 1].temperatura >= 14 && dados[dados.length - 1].temperatura <= 16) {
+        console.log(`Ideal ` + dadoAtual.temperatura);
+        temperaturaIdeal.push(dados[dados.length - 1])
       } else {
-        console.error('Nenhum dado encontrado ou erro na API');
+        console.log(`Fora ` + dadoAtual.temperatura);
+        temperaturaForaIdeal.push(dadoAtual)
       }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-  }
 
-  function carregarTempFora() {
-
-    var idUsuario = sessionStorage.ID_USUARIO
-
-    fetch(`/medidas/carregarTempFora/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          // console.log(`contagem de tempideal ${resposta[0]}`);
-
-          tempForaIdeal.innerHTML = resposta[0].tempForaIdeal
-
-        });
-
-
-        carregarUmidadeIdeal();
-
+      if (dados[dados.length - 1].umidade >= 53  && dados[dados.length - 1].umidade <= 57 ) {
+        console.log(`Ideal ` + dadoAtual.umidade);
+        umidadeIdeal.push(dados[dados.length - 1])
       } else {
-        console.error('Nenhum dado encontrado ou erro na API');
+        console.log(`Fora ` + dadoAtual.umidade);
+        umidadeForaIdeal.push(dadoAtual)
       }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-  }
 
-  function carregarUmidadeIdeal() {
+    }
 
-    var idUsuario = sessionStorage.ID_USUARIO
+    temperaturaIdeal.length > 0 ? tempIdeal.innerHTML = temperaturaIdeal.length : 0
+    temperaturaForaIdeal.length > 0 ? tempForaIdeal.innerHTML = temperaturaForaIdeal.length : 0
+    umidadeIdeal.length > 0 ? umiIdeal.innerHTML = umidadeIdeal.length : 0
+    umidadeForaIdeal.length > 0 ? umiForaIdeal.innerHTML = umidadeForaIdeal.length : 0
 
-    fetch(`/medidas/carregarUmidadeIdeal/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          // console.log(`contagem de tempideal ${resposta[0]}`);
+    temperaturaIdeal.splice(0, temperaturaIdeal.length);
+    temperaturaForaIdeal.splice(0, temperaturaForaIdeal.length);
+    umidadeIdeal.splice(0, umidadeIdeal.length);
+    umidadeForaIdeal.splice(0, umidadeForaIdeal.length);
 
-          umidadeIdeal.innerHTML = resposta[0].umidadeIdeal
 
-        });
-
-        carregarUmidadeFora(idUsuario);
-      } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-      }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
-  }
-
-  function carregarUmidadeFora() {
-
-    var idUsuario = sessionStorage.ID_USUARIO
-
-    fetch(`/medidas/carregarUmidadeFora/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          // console.log(`fora da umidade ${resposta[resposta.length - 1].umidadeForaIdeal}`);
-
-          umidadeForaIdeal.innerHTML = resposta[0].umidadeForaIdeal
-
-        });
-
-      } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-      }
-    })
-      .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-      });
   }
 
   function atualizacaoPeriodica(idBarril) {
@@ -550,7 +499,7 @@
 
     // setInterval(() => {
     //   sendData();
-    // }, 60000);
+    // }, 10000);
     // setTimeout(atualizacaoPeriodica, 5000);
   }
 
