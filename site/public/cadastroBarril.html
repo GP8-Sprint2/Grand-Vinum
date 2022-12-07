@@ -196,7 +196,7 @@
                     console.log(resposta);
 
                     if (resposta.length > 0) {
-                        sessionStorage.BARRIL1 = resposta[0].idBarril
+                        sessionStorage.FK_BARRIL_VINHO = resposta[0].idBarril
                         div_resultado.innerHTML = `
                     <div class="campo_resultado">
                         Tipo do barril: ${resposta[0].tipoMadeira} <br>
