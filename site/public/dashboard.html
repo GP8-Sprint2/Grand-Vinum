@@ -35,19 +35,20 @@
   <div class="container">
     <aside class="menu">
       <ul>
-          <li><a href="dashboard.html" class="active"><img src="./assets/home.png" alt="home" width="22px" height="22px"></a>
-          </li>
+        <li><a href="dashboard.html" class="active"><img src="./assets/home.png" alt="home" width="22px"
+              height="22px"></a>
+        </li>
 
-          <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px"
-                      height="22px"></a></li>
-          <li><a href="dashboardconfig.html" ><img src="./assets/localizacao.png" alt="settings"
-                      width="22px" height="22px"></a></li>
-          <li><a href="cadastroBarril.html" ><img src="./assets/barril.png" alt="settings"
-            width="25px" height="26px"></a></li>
-          <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px">
-              </a></li>
+        <li><a href="dashboard-Geral.html"><img src="./assets/grafico.png" alt="monitoring" width="22px"
+              height="22px"></a></li>
+        <li><a href="dashboardconfig.html"><img src="./assets/localizacao.png" alt="settings" width="22px"
+              height="22px"></a></li>
+        <li><a href="cadastroBarril.html"><img src="./assets/barril.png" alt="settings" width="25px" height="26px"></a>
+        </li>
+        <li><a onclick="limparSessao()"><img src="./assets/porta.png" alt="logout" width="22px" height="22px">
+          </a></li>
       </ul>
-  </aside>
+    </aside>
 
     <!-- Gráficos -->
 
@@ -444,7 +445,7 @@
   }
 
   function kpi(dados) {
-    
+
     var temperaturaIdeal = []
     var temperaturaForaIdeal = []
     var umidadeIdeal = []
@@ -463,7 +464,7 @@
         temperaturaForaIdeal.push(dadoAtual)
       }
 
-      if (dados[dados.length - 1].umidade >= 53  && dados[dados.length - 1].umidade <= 57 ) {
+      if (dados[dados.length - 1].umidade >= 53 && dados[dados.length - 1].umidade <= 57) {
         console.log(`Ideal ` + dadoAtual.umidade);
         umidadeIdeal.push(dados[dados.length - 1])
       } else {
@@ -573,10 +574,10 @@
 
     var card;
 
-    if (idBarril == 3) {
-      temp_barril.innerHTML = temperatura + "°C";
-      card = card_1
-    }
+
+    temp_barril.innerHTML = temperatura + "°C";
+    card = card_1
+
 
     card.className = classe_temperatura;
 
@@ -628,10 +629,10 @@
 
     var card;
 
-    if (idBarril == 3) {
-      umidade_barril.innerHTML = umidade + "%";
-      card = card_2
-    }
+
+    umidade_barril.innerHTML = umidade + "%";
+    card = card_2
+
 
     card.className = classe_umidade;
 
