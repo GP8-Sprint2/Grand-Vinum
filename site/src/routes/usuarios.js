@@ -27,8 +27,17 @@ router.post("/cadastrarEndereco", function (req, res) {
     usuarioController.cadastrarEndereco(req, res);
 })
 
+router.post("/cadastrarBarril", function (req, res) {
+    usuarioController.cadastrarBarril(req, res);
+})
+
+router.get("/carregarBarril/:idCadastroCliente", function (req, res) {
+    usuarioController.carregarBarril(req, res);
+});
+
 router.delete("/excluirEndereco/:idEndereco", function (req, res) {
     usuarioController.excluirEndereco(req, res);
 });
+
 
 module.exports = router;

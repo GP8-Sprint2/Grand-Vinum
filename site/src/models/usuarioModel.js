@@ -61,11 +61,34 @@ function excluirEndereco(idEndereco) {
     return database.executar(instrucao);
 }
 
+function cadastrarBarril(tipoMadeira,qtdVinho,tipoVinho,fkCadastroCliente) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", tipoMadeira,qtdVinho,tipoVinho,fkCadastroCliente);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO barrilVinho (tipoMadeira, quantidadeVinho, tipoVinho, fkCadastroCliente) VALUES ('${tipoMadeira}', ${qtdVinho},'${tipoVinho}',${fkCadastroCliente});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function carregarBarril(idCadastroCliente) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar():",idCadastroCliente);
+    var instrucao = `
+        SELECT * FROM barrilVinho as barril_cliente WHERE fkCadastroCliente = ${idCadastroCliente};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     cadastrarEndereco,
     carregarEndereco,
-    excluirEndereco
+    excluirEndereco,
+    cadastrarBarril,
+    carregarBarril
 };
