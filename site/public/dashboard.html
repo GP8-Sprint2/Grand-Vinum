@@ -452,43 +452,48 @@
     var umidadeIdeal = []
     var umidadeForaIdeal = []
 
+    for (let index = 0; index < dados.length; index++) {
+      const dadoAtual = dados[index];
 
-    if (dados[dados.length - 1].temperatura >= 14 && dados[dados.length - 1].temperatura <= 16) {
-      // console.log(`Ideal ` + dadoAtual.temperatura);
-      temperaturaIdeal.push(dados[dados.length - 1])
-    } else {
-      // console.log(`Fora ` + dadoAtual.temperatura);
-      temperaturaForaIdeal.push(dados[dados.length - 1])
+      console.log(dadoAtual);
+
+      if (dados[dados.length - 1].temperatura >= 14 && dados[dados.length - 1].temperatura <= 16) {
+        console.log(`Ideal ` + dadoAtual.temperatura);
+        temperaturaIdeal.push(dados[dados.length - 1])
+      } else {
+        console.log(`Fora ` + dadoAtual.temperatura);
+        temperaturaForaIdeal.push(dados[dados.length - 1])
+      }
+
+      if (dados[dados.length - 1].umidade >= 53 && dados[dados.length - 1].umidade <= 57) {
+        console.log(`Ideal ` + dadoAtual.umidade);
+        umidadeIdeal.push(dados[dados.length - 1])
+      } else {
+        console.log(`Fora ` + dadoAtual.umidade);
+        umidadeForaIdeal.push(dados[dados.length - 1])
+      }
+
     }
-
-    if (dados[dados.length - 1].umidade >= 53 && dados[dados.length - 1].umidade <= 57) {
-      console.log(`Ideal ` + dadoAtual.umidade);
-      umidadeIdeal.push(dados[dados.length - 1])
-    } else {
-      console.log(`Fora ` + dadoAtual.umidade);
-      umidadeForaIdeal.push(dados[dados.length - 1])
-    }
-
-
 
     console.log(temperaturaIdeal.length);
     console.log(temperaturaForaIdeal.length);
     console.log(umidadeIdeal.length);
     console.log(umidadeForaIdeal.length);
+    
 
 
-    temperaturaIdeal.length > 0 ? tempIdeal.innerHTML = temperaturaIdeal.length : 0
-    temperaturaForaIdeal.length > 0 ? tempForaIdeal.innerHTML = temperaturaForaIdeal.length : 0
-    umidadeIdeal.length > 0 ? umiIdeal.innerHTML = umidadeIdeal.length : 0
-    umidadeForaIdeal.length > 0 ? umiForaIdeal.innerHTML = umidadeForaIdeal.length : 0
+    temperaturaIdeal.length > 0 ? tempIdeal.innerHTML = temperaturaIdeal.length : tempIdeal.innerHTML = 0
+    temperaturaForaIdeal.length > 0 ? tempForaIdeal.innerHTML = temperaturaForaIdeal.length : tempForaIdeal.innerHTML =  0
+    umidadeIdeal.length > 0 ? umiIdeal.innerHTML = umidadeIdeal.length : umiIdeal.innerHTML = 0
+    umidadeForaIdeal.length > 0 ? umiForaIdeal.innerHTML = umidadeForaIdeal.length : umiForaIdeal.innerHTML = 0
 
     // temperaturaIdeal.splice(0, temperaturaIdeal.length);
     // temperaturaForaIdeal.splice(0, temperaturaForaIdeal.length);
     // umidadeIdeal.splice(0, umidadeIdeal.length);
     // umidadeForaIdeal.splice(0, umidadeForaIdeal.length);
+
+
   }
-
-
 
   function atualizacaoPeriodica(idBarril) {
     obterdados(idBarril);

@@ -103,6 +103,7 @@ li {
 
 
 
+
 div .container {
     justify-content: space-between;
 }
@@ -206,6 +207,51 @@ margin-bottom: 7vh;
 .caixa-grupo1{
 display: flex;
 flex-direction: row; 
+}
+
+.perigo-umido {
+    width: 97px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, rgba(21, 19, 32, 0.57) 0%, #295B89 100%);
+}
+
+.alerta-umido {
+    width: 97px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #387E7A 0%, #427972 100%);
+}
+
+.umidade-ideal {
+    width: 97px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #3FD127 0%, #58AC57 100%);
+}
+
+.alerta-seco {
+    width: 97px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #F9E533 0%, #D2BD4B 100%);
+}
+
+.perigo-seco {
+    width: 97px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #DA0909 0%, #E36239 100%);
 }
 
 .perigo {
